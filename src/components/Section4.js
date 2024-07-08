@@ -25,10 +25,13 @@ const Section4 = () => {
       {/* Tags */}
       <Box
         display="flex"
+        justifyContent="center"
+        alignItems="center"
+        flexWrap="wrap"
         gap="20px"
-        marginBottom="40px"
         paddingTop="80px"
-        paddingLeft="10%"
+        paddingLeft="1%"
+        paddingRight="1%"
       >
         <Chip
           label="R&D Oriented Company"
