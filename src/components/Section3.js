@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Grid,
@@ -18,14 +18,22 @@ const Section3 = () => {
   const [ref1, inView1] = useInView({ triggerOnce: true, threshold: 0.15 });
   const [ref2, inView2] = useInView({ triggerOnce: true, threshold: 0.15 });
   const [ref3, inView3] = useInView({ triggerOnce: true, threshold: 0.15 });
+  const [startAnimation, setStartAnimation] = useState(false);
+
+  useEffect(() => {
+    if (inView1) {
+      setStartAnimation(true);
+    }
+  }, [inView1]);
 
   return (
     <Box
       sx={{
         width: "100%",
-        height: "1064px",
+        height: "884px",
         backgroundColor: "#F2F8F7",
-        padding: "50px 0",
+        padding: "50px",
+        paddingBottom: "130px"
       }}
     >
       <Container>
@@ -45,8 +53,8 @@ const Section3 = () => {
               fontWeight: 600,
               textAlign: "center",
               transition: "opacity 1s ease-out, transform 1s ease-out",
-              opacity: inView1 ? 1 : 0,
-              transform: inView1 ? "translateY(0)" : "translateY(50px)",
+              opacity: startAnimation ? 1 : 0,
+              transform: startAnimation ? "translateY(0)" : "translateY(50px)",
             }}
           >
             Meet Immortal
@@ -59,9 +67,10 @@ const Section3 = () => {
             fontWeight: 400,
             textAlign: "center",
             marginBottom: "50px",
-            transition: "opacity 1s ease-out, transform 1s ease-out",
-            opacity: inView1 ? 1 : 0,
-            transform: inView1 ? "translateY(0)" : "translateY(50px)",
+            transition: `opacity 1s ease-out, transform 1s ease-out`,
+            transitionDelay: startAnimation ? "0.5s" : "0s",
+            opacity: startAnimation ? 1 : 0,
+            transform: startAnimation ? "translateY(0)" : "translateY(50px)",
           }}
         >
           Unveil the AI Visionary Powering Your Competitive Advantage
@@ -72,8 +81,9 @@ const Section3 = () => {
               sx={{
                 maxWidth: 345,
                 transition: "opacity 1s ease-out, transform 1s ease-out",
-                opacity: inView1 ? 1 : 0,
-                transform: inView1 ? "translateY(0)" : "translateY(50px)",
+                transitionDelay: startAnimation ? "1s" : "0s",
+                opacity: startAnimation ? 1 : 0,
+                transform: startAnimation ? "translateY(0)" : "translateY(50px)",
                 border: "1px solid #697077",
                 boxShadow: "none",
               }}
@@ -81,15 +91,14 @@ const Section3 = () => {
               <CardMedia
                 component="img"
                 alt="Smart, Fast Searches"
-                image={Image1} // Replace with the actual image path
+                image={Image1}
               />
               <CardContent>
-                <Typography variant="body1" component="div" sx={{color: '#6F6F6F'}}>
-                  <Box component="span" fontWeight="fontWeightBold" sx={{color: '#000000'}}>
+                <Typography variant="body1" component="div" sx={{ color: '#6F6F6F' }}>
+                  <Box component="span" fontWeight="fontWeightBold" sx={{ color: '#000000' }}>
                     Smart, Fast Searches,
                   </Box>{" "}
-                  Use AI to scan all sources quickly, eliminating bias and
-                  missing nothing.
+                  Use AI to scan all sources quickly, eliminating bias and missing nothing.
                 </Typography>
               </CardContent>
             </Card>
@@ -99,8 +108,9 @@ const Section3 = () => {
               sx={{
                 maxWidth: 345,
                 transition: "opacity 1s ease-out, transform 1s ease-out",
-                opacity: inView2 ? 1 : 0,
-                transform: inView2 ? "translateY(0)" : "translateY(50px)",
+                transitionDelay: startAnimation ? "1.5s" : "0s",
+                opacity: startAnimation ? 1 : 0,
+                transform: startAnimation ? "translateY(0)" : "translateY(50px)",
                 border: "1px solid #697077",
                 boxShadow: "none",
               }}
@@ -108,15 +118,14 @@ const Section3 = () => {
               <CardMedia
                 component="img"
                 alt="Unified Data Platform"
-                image={Image2} // Replace with the actual image path
+                image={Image2}
               />
               <CardContent>
-                <Typography variant="body1" component="div" sx={{color: '#6F6F6F'}}>
-                  <Box component="span" fontWeight="fontWeightBold" sx={{color: '#000000'}}>
+                <Typography variant="body1" component="div" sx={{ color: '#6F6F6F' }}>
+                  <Box component="span" fontWeight="fontWeightBold" sx={{ color: '#000000' }}>
                     Unified Data Platform,
                   </Box>{" "}
-                  Combine journals, patents, and more comprehensive tech
-                  evaluations.
+                  Combine journals, patents, and more comprehensive tech evaluations.
                 </Typography>
               </CardContent>
             </Card>
@@ -126,8 +135,9 @@ const Section3 = () => {
               sx={{
                 maxWidth: 345,
                 transition: "opacity 1s ease-out, transform 1s ease-out",
-                opacity: inView3 ? 1 : 0,
-                transform: inView3 ? "translateY(0)" : "translateY(50px)",
+                transitionDelay: startAnimation ? "2s" : "0s",
+                opacity: startAnimation ? 1 : 0,
+                transform: startAnimation ? "translateY(0)" : "translateY(50px)",
                 border: "1px solid #697077",
                 boxShadow: "none",
               }}
@@ -135,12 +145,11 @@ const Section3 = () => {
               <CardMedia
                 component="img"
                 alt="Clear, Data-Driven Insights"
-                // height="510"
-                image={Image3} // Replace with the actual image path
+                image={Image3}
               />
               <CardContent>
-                <Typography variant="body1" component="div" sx={{color: '#6F6F6F'}}>
-                  <Box component="span" fontWeight="fontWeightBold" sx={{color: '#000000'}}>
+                <Typography variant="body1" component="div" sx={{ color: '#6F6F6F' }}>
+                  <Box component="span" fontWeight="fontWeightBold" sx={{ color: '#000000' }}>
                     Unlock faster connections,
                   </Box>{" "}
                   with innovators to seamlessly integrate and adapt to cutting-edge technologies

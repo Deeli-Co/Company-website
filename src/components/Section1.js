@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Box, Typography, Button } from "@mui/material";
 import { Lightning } from "phosphor-react";
 import Section1Image from "../assets/section1.svg";
 import BetaDialog from "./BetaDialog";
+
 const Section1 = () => {
   const [open, setOpen] = useState(false);
 
@@ -18,7 +19,7 @@ const Section1 = () => {
       <Box
         sx={{
           width: "100%",
-          height: "648px",
+          height: "768px",
           backgroundColor: "#132B24",
           position: "relative",
           overflow: "hidden",
@@ -101,20 +102,18 @@ const Section1 = () => {
             gap: "8px",
             borderRadius: "4px",
             backgroundColor: "#F2F8F7",
-            opacity: 1,
             color: "#132B24",
             textTransform: "none",
             fontFamily: "Aileron",
-            fontSize: "16px",
-            fontWeight: 600,
+            fontSize: "20px",
+            fontWeight: 500,
             lineHeight: "19.2px",
             letterSpacing: "0.01em",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             "&:hover": {
-              backgroundColor: "#F2F8F7",
-              opacity: 1,
+              backgroundColor: "#E4F0EE",
             },
             "@media (max-width: 600px)": {
               width: "100%",

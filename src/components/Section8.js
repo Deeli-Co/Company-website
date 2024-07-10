@@ -51,7 +51,7 @@ const Section8 = () => {
               style={{
                 color: "#096B5F",
                 fontSize: "54px",
-                fontWeight: 600,
+                fontWeight: 500,
                 fontFamily: "Aileron",
                 lineHeight: "64.8px",
               }}
@@ -100,7 +100,7 @@ const Section8 = () => {
               style={{
                 color: "#096B5F",
                 fontSize: "54px",
-                fontWeight: 600,
+                fontWeight: 500,
                 fontFamily: "Aileron",
                 lineHeight: "64.8px",
               }}
@@ -117,7 +117,7 @@ const Section8 = () => {
             </Typography>
             <Typography
               variant="h5"
-              style={{ fontWeight: 600, marginTop: "10px" }}
+              style={{ fontWeight: 500, marginTop: "10px" }}
             >
               Tech Network Growth Fuels Investment Potential
             </Typography>
@@ -150,7 +150,7 @@ const Section8 = () => {
               style={{
                 color: "#096B5F",
                 fontSize: "54px",
-                fontWeight: 600,
+                fontWeight: 500,
                 fontFamily: "Aileron",
                 lineHeight: "64.8px",
               }}

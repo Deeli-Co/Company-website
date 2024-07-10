@@ -5,6 +5,7 @@ import { CheckCircle, FlashOn } from '@mui/icons-material';
 import Avatar from '@mui/material/Avatar';
 import Image1 from "../assets/section10_2.svg";
 import Image2 from "../assets/section10_4.svg";
+
 const BetaDialog = ({ open, handleClose }) => {
   return (
     <Dialog open={open} onClose={handleClose} maxWidth="xl" fullWidth PaperProps={{ sx: { height: '823px', top: '15px' } }}>
@@ -63,28 +64,90 @@ const BetaDialog = ({ open, handleClose }) => {
               <Box sx={{ display: 'flex', gap: 2 }}>
                 <Box sx={{ flex: 1 }}>
                   <Typography sx={{ mb: 1 }}>First name*</Typography>
-                  <TextField variant="outlined" fullWidth />
+                  <TextField
+                    variant="outlined"
+                    fullWidth
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        '&.Mui-focused fieldset': {
+                          borderColor: '#0EA996', // Change border color on focus
+                        },
+                      },
+                    }}
+                  />
                 </Box>
                 <Box sx={{ flex: 1 }}>
                   <Typography sx={{ mb: 1 }}>Last name*</Typography>
-                  <TextField variant="outlined" fullWidth />
+                  <TextField
+                    variant="outlined"
+                    fullWidth
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        '&.Mui-focused fieldset': {
+                          borderColor: '#0EA996', // Change border color on focus
+                        },
+                      },
+                    }}
+                  />
                 </Box>
               </Box>
               <Box sx={{ mb: 2 }}>
                 <Typography sx={{ mb: 1 }}>Work Email*</Typography>
-                <TextField variant="outlined" fullWidth />
+                <TextField
+                  variant="outlined"
+                  fullWidth
+                  sx={{
+                    '& .MuiOutlinedInput-root': {
+                      '&.Mui-focused fieldset': {
+                        borderColor: '#0EA996', // Change border color on focus
+                      },
+                    },
+                  }}
+                />
               </Box>
               <Box sx={{ mb: 2 }}>
                 <Typography sx={{ mb: 1 }}>Company*</Typography>
-                <TextField variant="outlined" fullWidth />
+                <TextField
+                  variant="outlined"
+                  fullWidth
+                  sx={{
+                    '& .MuiOutlinedInput-root': {
+                      '&.Mui-focused fieldset': {
+                        borderColor: '#0EA996', // Change border color on focus
+                      },
+                    },
+                  }}
+                />
               </Box>
               <Box sx={{ mb: 2 }}>
                 <Typography sx={{ mb: 1 }}>Job Function*</Typography>
-                <TextField variant="outlined" fullWidth />
+                <TextField
+                  variant="outlined"
+                  fullWidth
+                  sx={{
+                    '& .MuiOutlinedInput-root': {
+                      '&.Mui-focused fieldset': {
+                        borderColor: '#0EA996', // Change border color on focus
+                      },
+                    },
+                  }}
+                />
               </Box>
               <Box sx={{ mb: 2 }}>
                 <Typography sx={{ mb: 1 }}>Other Information</Typography>
-                <TextField variant="outlined" multiline rows={4} fullWidth />
+                <TextField
+                  variant="outlined"
+                  multiline
+                  rows={4}
+                  fullWidth
+                  sx={{
+                    '& .MuiOutlinedInput-root': {
+                      '&.Mui-focused fieldset': {
+                        borderColor: '#0EA996', // Change border color on focus
+                      },
+                    },
+                  }}
+                />
               </Box>
               <Button
                 variant="contained"
@@ -102,7 +165,7 @@ const BetaDialog = ({ open, handleClose }) => {
                   opacity: 1,
                   boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
                   '&:hover': {
-                    backgroundColor: '#0D9786',
+                    backgroundColor: '#096B5F',
                     color: 'white',
                     boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)', // Ensuring box shadow also remains the same
                   },

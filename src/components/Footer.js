@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import {Box, Typography, Button, Grid } from "@mui/material";
+import React, { useState } from "react";
+import { Box, Typography, Button, Grid } from "@mui/material";
 import { Lightning } from "phosphor-react";
 import Image1 from "../assets/footer.svg";
 import Logo from "../assets/footer_logo.svg";
@@ -45,10 +45,10 @@ const Footer = () => {
             }}
           >
             <Typography
-              variant="h3"
               style={{
+                fontFamily: 'Aileron',
                 color: "#FFFFFF",
-                fontWeight: 700,
+                fontWeight: 600,
                 fontSize: "48px",
                 marginBottom: "20px",
               }}
@@ -109,34 +109,37 @@ const Footer = () => {
                 Privacy policy
               </Typography>
             </Box>
-            <Box style={{ paddingRight: "21%" }}>
+            <Box style={{ paddingRight: "22.5%", paddingTop: "3%" }}>
               <Button
-                variant="contained"
-                disableRipple
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: "232",
-                  height: "56px",
+                sx={{
+                  width: "fit-content",
+                  height: "52px",
+                  padding: "16px 24px",
                   gap: "8px",
-                  backgroundColor: "#0EA996",
-                  color: "#FFFFFF",
-                  textTransform: "none",
                   borderRadius: "4px",
-                  fontSize: "18px",
+                  border: "1px solid #132B24",
+                  backgroundColor: "#0D9786",
+                  textTransform: "none",
+                  color: "white",
+                  fontFamily: "Aileron",
+                  fontSize: "16px",
                   fontWeight: 600,
-                  boxShadow: "none",
-                  opacity: 1,
-                  marginTop: "20px",
+                  lineHeight: "19.2px",
+                  letterSpacing: "0.01em",
+                  textAlign: "left",
+                  "@media (max-width: 600px)": {
+                    width: "100%",
+                    height: "auto",
+                    fontSize: "14px",
+                  },
+                  "&:hover": {
+                    backgroundColor: "#096B5F",
+                  },
                 }}
+                startIcon={<Lightning weight="fill" />}
                 onClick={handleClickOpen}
+                disableRipple
               >
-                <Lightning
-                  size={24}
-                  weight="fill"
-                  style={{ marginRight: "8px" }}
-                />
                 Join Beta Now
               </Button>
             </Box>

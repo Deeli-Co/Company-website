@@ -11,7 +11,10 @@ const Section4 = () => {
   const [ref2, inView2] = useInView({ triggerOnce: true, threshold: 0.15 });
   const [ref3, inView3] = useInView({ triggerOnce: true, threshold: 0.15 });
   const [ref4, inView4] = useInView({ triggerOnce: true, threshold: 0.15 });
-  const [refText, inViewText] = useInView({ triggerOnce: true, threshold: 0.15 });
+  const [refText, inViewText] = useInView({
+    triggerOnce: true,
+    threshold: 0.15,
+  });
 
   return (
     <Box
@@ -22,6 +25,29 @@ const Section4 = () => {
         padding: "40px 20px",
       }}
     >
+      {/* Main Text */}
+      <Typography
+        variant="h3"
+        style={{
+          color: "#fff",
+          textAlign: "center",
+          marginBottom: "40px",
+          fontFamily: "Aileron",
+          fontSize: "54px",
+          fontWeight: 500,
+          lineHeight: "76.8px",
+          paddingTop: "80px",
+          //   paddingBottom: "20px",
+          transition: "opacity 1s ease-out, transform 1s ease-out",
+          opacity: inViewText ? 1 : 0,
+          transform: inViewText ? "translateY(0)" : "translateY(50px)",
+        }}
+        ref={refText}
+      >
+        Smarter identification
+        <br />
+        of new technology
+      </Typography>
       {/* Tags */}
       <Box
         display="flex"
@@ -29,7 +55,8 @@ const Section4 = () => {
         alignItems="center"
         flexWrap="wrap"
         gap="20px"
-        paddingTop="80px"
+        paddingTop="40px"
+        paddingBottom="80px"
         paddingLeft="1%"
         paddingRight="1%"
       >
@@ -42,7 +69,7 @@ const Section4 = () => {
             width: "247px",
             height: "48px",
             fontFamily: "Aileron",
-            fontSize: "20px",
+            fontSize: "16px",
             fontWeight: "400",
             borderRadius: "1000px",
             transition: "opacity 1s ease-out, transform 1s ease-out",
@@ -59,7 +86,7 @@ const Section4 = () => {
             width: "161px",
             height: "48px",
             fontFamily: "Aileron",
-            fontSize: "20px",
+            fontSize: "16px",
             fontWeight: "400",
             borderRadius: "1000px",
             transition: "opacity 1s ease-out, transform 1s ease-out",
@@ -76,7 +103,7 @@ const Section4 = () => {
             width: "180px",
             height: "48px",
             fontFamily: "Aileron",
-            fontSize: "20px",
+            fontSize: "16px",
             fontWeight: "400",
             borderRadius: "1000px",
             transition: "opacity 1s ease-out, transform 1s ease-out",
@@ -93,7 +120,7 @@ const Section4 = () => {
             width: "175px",
             height: "48px",
             fontFamily: "Aileron",
-            fontSize: "20px",
+            fontSize: "16px",
             fontWeight: "400",
             borderRadius: "1000px",
             transition: "opacity 1s ease-out, transform 1s ease-out",
@@ -110,7 +137,7 @@ const Section4 = () => {
             width: "182px",
             height: "48px",
             fontFamily: "Aileron",
-            fontSize: "20px",
+            fontSize: "16px",
             fontWeight: "400",
             borderRadius: "1000px",
             transition: "opacity 1s ease-out, transform 1s ease-out",
@@ -127,7 +154,7 @@ const Section4 = () => {
             width: "289px",
             height: "48px",
             fontFamily: "Aileron",
-            fontSize: "20px",
+            fontSize: "16px",
             fontWeight: "400",
             borderRadius: "1000px",
             transition: "opacity 1s ease-out, transform 1s ease-out",
@@ -136,45 +163,9 @@ const Section4 = () => {
           }}
         />
       </Box>
-
-      {/* Main Text */}
-      <Typography
-        variant="h3"
-        style={{
-          color: "#fff",
-          textAlign: "center",
-          marginBottom: "40px",
-          fontFamily: "Aileron",
-          fontSize: "64px",
-          fontWeight: 600,
-          lineHeight: "76.8px",
-          paddingTop: "20px",
-          paddingBottom: "20px",
-          transition: "opacity 1s ease-out, transform 1s ease-out",
-          opacity: inViewText ? 1 : 0,
-          transform: inViewText ? "translateY(0)" : "translateY(50px)",
-        }}
-        ref={refText}
-      >
-        Smarter identification
-        <br />
-        of new technology
-      </Typography>
-
       {/* Images with Captions */}
       <Box display="flex" justifyContent="center" gap="20px">
         <Box textAlign="center" ref={ref1}>
-          <img
-            src={Image1}
-            alt="Life Science"
-            style={{
-              transition: "opacity 1s ease-out, transform 1s ease-out",
-              opacity: inView1 ? 1 : 0,
-              transform: inView1 ? "translateY(0)" : "translateY(50px)",
-            }}
-          />
-        </Box>
-        <Box textAlign="center" ref={ref2}>
           <img
             src={Image2}
             alt="IT & Software"
@@ -182,6 +173,17 @@ const Section4 = () => {
               transition: "opacity 1s ease-out, transform 1s ease-out",
               opacity: inView2 ? 1 : 0,
               transform: inView2 ? "translateY(0)" : "translateY(50px)",
+            }}
+          />
+        </Box>
+        <Box textAlign="center" ref={ref2}>
+          <img
+            src={Image1}
+            alt="Life Science"
+            style={{
+              transition: "opacity 1s ease-out, transform 1s ease-out",
+              opacity: inView1 ? 1 : 0,
+              transform: inView1 ? "translateY(0)" : "translateY(50px)",
             }}
           />
         </Box>

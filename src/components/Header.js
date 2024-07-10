@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AppBar, Toolbar, Button, Box } from '@mui/material';
 import { Lightning } from 'phosphor-react';
 import Logo from '../assets/logo.svg';
@@ -10,6 +10,8 @@ const Header = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [open, setOpen] = useState(false);
+  const [showHeader, setShowHeader] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -19,9 +21,35 @@ const Header = () => {
     setOpen(false);
   };
 
+  const handleScroll = () => {
+    if (window.scrollY < lastScrollY) {
+      setShowHeader(true);
+    } else {
+      setShowHeader(false);
+    }
+    setLastScrollY(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY]);
+
   return (
     <>
-      <AppBar position="static" sx={{ backgroundColor: '#FFFFFF', height: 80, boxShadow: 'none' }}>
+      <AppBar
+        position="fixed"
+        sx={{
+          backgroundColor: '#FFFFFF',
+          height: 80,
+          boxShadow: 'none',
+          transition: 'top 0.3s',
+          top: showHeader ? 0 : '-80px',
+        }}
+      >
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <img
@@ -97,8 +125,7 @@ const Header = () => {
                     fontSize: '14px',
                   },
                   '&:hover': {
-                    backgroundColor: '#0D9786',
-                    filter: 'brightness(0.9)',
+                    backgroundColor: '#096B5F',
                   },
                 }}
                 startIcon={<Lightning weight="fill" />}
