@@ -434,12 +434,44 @@ const CombinedSection = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              position: "absolute",
             }}
           >
             <img
-              src={sections[currentSection].image}
+              src={sections[0].image}
               alt="Visual Representation"
-              style={{ width: "100%", height: "100%", objectFit: "contain" }}
+              style={{
+                left: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
+                opacity: currentSection === 0 ? 1 : 0,
+                position: "absolute",
+              }}
+            />
+            <img
+              src={sections[1].image}
+              alt="Visual Representation"
+              style={{
+                left: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
+                opacity: currentSection === 1 ? 1 : 0,
+                position: "absolute",
+              }}
+            />
+            <img
+              src={sections[2].image}
+              alt="Visual Representation"
+              style={{
+                left: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
+                opacity: currentSection === 2 ? 1 : 0,
+                position: "absolute",
+              }}
             />
           </Box>
         </Box>
