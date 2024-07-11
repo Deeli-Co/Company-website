@@ -11,7 +11,7 @@ const AnimatedNumber = ({ number, delay }) => {
     from: { number: 0 },
     number,
     delay,
-    config: { duration: 1000 },
+    config: { duration: 2000 },
     onRest: () => setCount(number),
   });
 
@@ -29,7 +29,7 @@ const Section8 = () => {
 
   useEffect(() => {
     if (inView1) {
-      setTimeout(() => setBox1Visible(true), 250); // Delay of 0.5 seconds
+      setTimeout(() => setBox1Visible(true), 300); // Delay of 0.5 seconds
     }
   }, [inView1]);
 
@@ -41,7 +41,7 @@ const Section8 = () => {
 
   useEffect(() => {
     if (inView3) {
-      setTimeout(() => setBox3Visible(true), 400); // Delay of 1 second
+      setTimeout(() => setBox3Visible(true), 100); // Delay of 1 second
     }
   }, [inView3]);
 
@@ -64,6 +64,7 @@ const Section8 = () => {
             ref={ref1}
             style={{
               padding: "20px",
+              paddingLeft: "0",
               borderTop: "1px solid #697077",
               textAlign: "left",
               width: "420px",
@@ -100,7 +101,7 @@ const Section8 = () => {
             </Typography>
             <Typography
               variant="body1"
-              style={{ marginTop: "30px", color: "#697077" }}
+              style={{ marginTop: "30px", color: "#697077"}}
             >
               Helps you identify and acquire high-potential, emerging
               technologies 20x faster than competitors. Never miss game-changing
@@ -115,6 +116,7 @@ const Section8 = () => {
             ref={ref2}
             style={{
               padding: "20px",
+              paddingLeft: "0",
               borderTop: "1px solid #697077",
               textAlign: "left",
               width: "420px",
@@ -166,6 +168,7 @@ const Section8 = () => {
             ref={ref3}
             style={{
               padding: "20px",
+              paddingLeft: "0",
               borderTop: "1px solid #697077",
               textAlign: "left",
               width: "420px",
