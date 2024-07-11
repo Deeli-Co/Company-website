@@ -44,19 +44,43 @@ const CombinedSection = () => {
   const handleClose = () => {
     setOpen(false);
   };
+  const [lockScroll, setLockScroll] = useState(false);
   const [currentSection, setCurrentSection] = useState(0);
-  const { ref: ref5, inView: inView5 } = useInView({
-    triggerOnce: true,
-    threshold: 0.15,
+  const {
+    ref: ref5,
+    inView: inView5,
+    entry: entry5,
+  } = useInView({
+    threshold: 0.2,
   });
-  const { ref: ref6, inView: inView6 } = useInView({
-    triggerOnce: true,
-    threshold: 0.15,
+
+  const {
+    ref: ref6,
+    inView: inView6,
+    entry: entry6,
+  } = useInView({
+    threshold: 0.2,
   });
-  const { ref: ref7, inView: inView7 } = useInView({
-    triggerOnce: true,
-    threshold: 0.15,
+
+  const {
+    ref: ref7,
+    inView: inView7,
+    entry: entry7,
+  } = useInView({
+    threshold: 0.2,
   });
+
+  useEffect(() => {
+    if (
+      entry5?.isIntersecting ||
+      entry6?.isIntersecting ||
+      entry7?.isIntersecting
+    ) {
+      setLockScroll(true);
+    } else {
+      setLockScroll(false);
+    }
+  }, [entry5, entry6, entry7]);
 
   const handleLeftScroll = () => {
     const leftContent = document.getElementById("leftContent");
@@ -87,7 +111,7 @@ const CombinedSection = () => {
 
       if (newScrollTop >= 0 && newScrollTop <= maxScrollTop) {
         leftContent.scrollTop = newScrollTop;
-        event.preventDefault(); // Prevent the default scrolling behavior of the right side
+        event.preventDefault();
       }
     }
   };
@@ -434,44 +458,12 @@ const CombinedSection = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              position: "absolute",
             }}
           >
             <img
-              src={sections[0].image}
+              src={sections[currentSection].image}
               alt="Visual Representation"
-              style={{
-                left: 0,
-                width: "100%",
-                height: "100%",
-                objectFit: "contain",
-                opacity: currentSection === 0 ? 1 : 0,
-                position: "absolute",
-              }}
-            />
-            <img
-              src={sections[1].image}
-              alt="Visual Representation"
-              style={{
-                left: 0,
-                width: "100%",
-                height: "100%",
-                objectFit: "contain",
-                opacity: currentSection === 1 ? 1 : 0,
-                position: "absolute",
-              }}
-            />
-            <img
-              src={sections[2].image}
-              alt="Visual Representation"
-              style={{
-                left: 0,
-                width: "100%",
-                height: "100%",
-                objectFit: "contain",
-                opacity: currentSection === 2 ? 1 : 0,
-                position: "absolute",
-              }}
+              style={{ width: "100%", height: "100%", objectFit: "contain" }}
             />
           </Box>
         </Box>

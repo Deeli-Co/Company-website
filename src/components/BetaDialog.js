@@ -8,7 +8,7 @@ import Image2 from "../assets/section10_4.svg";
 
 const BetaDialog = ({ open, handleClose }) => {
   return (
-    <Dialog open={open} onClose={handleClose} maxWidth="xl" fullWidth PaperProps={{ sx: { height: '823px', top: '15px' } }}>
+    <Dialog open={open} onClose={handleClose} maxWidth="xl" fullWidth PaperProps={{ sx: { height: '75%',width: '70%',top: '-3%' } }}>
       <Box sx={{ display: 'flex', flexDirection: 'row', height: '100%' }}>
         <Box sx={{ width: '50%', backgroundColor: '#E8F4F2', padding: 4, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <DialogTitle sx={{ padding: 0, textAlign: 'left' }}>
@@ -18,7 +18,7 @@ const BetaDialog = ({ open, handleClose }) => {
             </Box>
           </DialogTitle>
           <Box sx={{ width: '100%', textAlign: 'left', paddingLeft: '16px', paddingRight: '16px' }}>
-            <Typography variant="h4" sx={{ fontFamily: 'Aileron', fontSize: '40px', fontWeight: 600, lineHeight: '54px', mb: 2 }}>
+            <Typography variant="h4" sx={{ fontFamily: 'Aileron', fontSize: '40px', fontWeight: 600, lineHeight: '54px'}}>
               Join our Beta
             </Typography>
             <Typography variant="h5" sx={{ fontFamily: 'Aileron', fontSize: '40px', fontWeight: 600, lineHeight: '54px', mb: 4 }}>
@@ -61,9 +61,9 @@ const BetaDialog = ({ open, handleClose }) => {
           </DialogTitle>
           <DialogContent>
             <Box component="form" sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <Box sx={{ display: 'flex', gap: 2 }}>
+              <Box sx={{ display: 'flex', gap: 1}}>
                 <Box sx={{ flex: 1 }}>
-                  <Typography sx={{ mb: 1 }}>First name*</Typography>
+                  <Typography>First name*</Typography>
                   <TextField
                     variant="outlined"
                     fullWidth
@@ -77,7 +77,7 @@ const BetaDialog = ({ open, handleClose }) => {
                   />
                 </Box>
                 <Box sx={{ flex: 1 }}>
-                  <Typography sx={{ mb: 1 }}>Last name*</Typography>
+                  <Typography >Last name*</Typography>
                   <TextField
                     variant="outlined"
                     fullWidth
@@ -91,8 +91,8 @@ const BetaDialog = ({ open, handleClose }) => {
                   />
                 </Box>
               </Box>
-              <Box sx={{ mb: 2 }}>
-                <Typography sx={{ mb: 1 }}>Work Email*</Typography>
+              <Box sx={{ mb: 0.5 }}>
+                <Typography>Work Email*</Typography>
                 <TextField
                   variant="outlined"
                   fullWidth
@@ -105,8 +105,8 @@ const BetaDialog = ({ open, handleClose }) => {
                   }}
                 />
               </Box>
-              <Box sx={{ mb: 2 }}>
-                <Typography sx={{ mb: 1 }}>Company*</Typography>
+              <Box sx={{ mb: 0.5 }}>
+                <Typography>Company*</Typography>
                 <TextField
                   variant="outlined"
                   fullWidth
@@ -119,8 +119,8 @@ const BetaDialog = ({ open, handleClose }) => {
                   }}
                 />
               </Box>
-              <Box sx={{ mb: 2 }}>
-                <Typography sx={{ mb: 1 }}>Job Function*</Typography>
+              <Box sx={{ mb: 0.5 }}>
+                <Typography>Job Function*</Typography>
                 <TextField
                   variant="outlined"
                   fullWidth
@@ -133,8 +133,8 @@ const BetaDialog = ({ open, handleClose }) => {
                   }}
                 />
               </Box>
-              <Box sx={{ mb: 2 }}>
-                <Typography sx={{ mb: 1 }}>Other Information</Typography>
+              <Box sx={{ mb: 0.5 }}>
+                <Typography >Other Information</Typography>
                 <TextField
                   variant="outlined"
                   multiline
@@ -153,7 +153,7 @@ const BetaDialog = ({ open, handleClose }) => {
                 variant="contained"
                 disableRipple
                 sx={{
-                  mt: 2,
+                  mt: 0.5,
                   width: '100%',
                   height: '52px',
                   padding: '16px 24px',
