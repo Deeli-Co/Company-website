@@ -1,10 +1,11 @@
 {
   "files": {
     "main.css": "/Company-website/static/css/main.ea272a04.css",
-    "main.js": "/Company-website/static/js/main.7ec0759b.js",
+    "main.js": "/Company-website/static/js/main.b93fe62b.js",
     "static/js/453.9afe920c.chunk.js": "/Company-website/static/js/453.9afe920c.chunk.js",
     "static/media/section6_1.svg": "/Company-website/static/media/section6_1.b31210a4277c89a12e71bcc835613283.svg",
     "static/media/section4_4.svg": "/Company-website/static/media/section4_4.18e7e169583f8cce1a261ad8cce2406c.svg",
+    "static/media/section10_5.svg": "/Company-website/static/media/section10_5.9dab74fcaa306c0676654f3c4779f681.svg",
     "static/media/section10_1.svg": "/Company-website/static/media/section10_1.8b9d336a190bcd9e4285116e90beb939.svg",
     "static/media/section3_1.svg": "/Company-website/static/media/section3_1.6c5376dbc4dae94d085ff445ae58e2a1.svg",
     "static/media/section4_2.svg": "/Company-website/static/media/section4_2.dc34258bbe45641e43fa00710a2a71fa.svg",
@@ -22,17 +23,18 @@
     "static/media/footer.svg": "/Company-website/static/media/footer.19b2df7c7eb3c0c515fb696755066d47.svg",
     "static/media/section2_2.svg": "/Company-website/static/media/section2_2.f1bdd162de70736114b83f716dc7b540.svg",
     "static/media/section3_2.svg": "/Company-website/static/media/section3_2.475173c16f06a129258f1aa6b1dfa026.svg",
+    "static/media/section9_2.svg": "/Company-website/static/media/section9_2.91ce53a6abc3b8f25e1f23bc125b22e1.svg",
     "static/media/section9_1.svg": "/Company-website/static/media/section9_1.f14afac3789d95d46f7f85b937518257.svg",
     "static/media/logo.svg": "/Company-website/static/media/logo.dbf6748b9010447d3447a809cb8c1c3b.svg",
     "static/media/footer_logo.svg": "/Company-website/static/media/footer_logo.139ebb25b2fe38664ead5bf0f4ed70e9.svg",
     "index.html": "/Company-website/index.html",
     "static/media/star.svg": "/Company-website/static/media/star.44efd94c68985f4dbb95a36b99671b63.svg",
     "main.ea272a04.css.map": "/Company-website/static/css/main.ea272a04.css.map",
-    "main.7ec0759b.js.map": "/Company-website/static/js/main.7ec0759b.js.map",
+    "main.b93fe62b.js.map": "/Company-website/static/js/main.b93fe62b.js.map",
     "453.9afe920c.chunk.js.map": "/Company-website/static/js/453.9afe920c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ea272a04.css",
-    "static/js/main.7ec0759b.js"
+    "static/js/main.b93fe62b.js"
   ]
 }
