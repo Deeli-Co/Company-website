@@ -66,7 +66,7 @@ const Section6 = (props) => {
                 fontSize: "14px",
                 boxShadow: "none",
                 marginTop: "20px",
-                fontFamily: "Aileron",
+                fontFamily: "Manrope",
               }}
             >
              Cut Through Fragmented Searches
@@ -110,7 +110,7 @@ const Section6 = (props) => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontFamily: "Aileron",
+                fontFamily: "Manrope",
                 fontWeight: 600,
                 lineHeight: "24px",
                 textDecoration: "none",

@@ -55,7 +55,7 @@ const Section3 = () => {
           <img src={StarIcon} alt="Star" style={{ marginBottom: "10px" }} />
           <Typography
             sx={{
-              fontFamily: "Aileron",
+              fontFamily: "Manrope",
               fontSize: "36px",
               fontWeight: 600,
               textAlign: "center",

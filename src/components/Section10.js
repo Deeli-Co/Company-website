@@ -117,7 +117,7 @@ const Section10 = () => {
             ref={refText}
             variant="h3"
             style={{
-              fontFamily: "Aileron",
+              fontFamily: "Manrope",
               fontSize: "40px",
               fontWeight: 600,
               textAlign: "center",
@@ -127,7 +127,7 @@ const Section10 = () => {
               transition: "opacity 1s ease-out, transform 1s ease-out",
             }}
           >
-            Invest in the Future, Today
+            Invest in the Future, TODAY
           </Typography>
           <Typography
             variant="body1"

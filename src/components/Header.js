@@ -114,7 +114,7 @@ const Header = () => {
                   backgroundColor: '#0D9786',
                   textTransform: 'none',
                   color: 'white',
-                  fontFamily: 'Aileron',
+                  fontFamily: 'Manrope',
                   fontSize: '16px',
                   fontWeight: 600,
                   lineHeight: '19.2px',
@@ -136,6 +136,38 @@ const Header = () => {
                 Join Beta Now
               </Button>
             </Box>
+          )}
+          {isMobile && (
+            <Button
+              sx={{
+                width: 'fit-content',
+                height: '46px',
+                padding: '8px 12px',
+                gap: '8px',
+                borderRadius: '4px',
+                border: '1px solid #132B24',
+                backgroundColor: '#0D9786',
+                textTransform: 'none',
+                color: 'white',
+                fontFamily: 'Manrope',
+                fontSize: '14px',
+                fontWeight: 600,
+                lineHeight: '19.2px',
+                letterSpacing: '0.01em',
+                textAlign: 'left',
+                position: 'absolute',
+                right: 12,
+                top: 16,
+                '&:hover': {
+                  backgroundColor: '#096B5F',
+                },
+              }}
+              startIcon={<Lightning weight="fill" />}
+              onClick={handleClickOpen}
+              disableRipple
+            >
+              Join Beta Now
+            </Button>
           )}
         </Toolbar>
       </AppBar>

@@ -3,11 +3,10 @@ import { Box, Grid, Typography, Container } from "@mui/material";
 import { ArrowUpward } from "@mui/icons-material";
 import { useInView } from "react-intersection-observer";
 import { useSpring, animated } from "react-spring";
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 const AnimatedNumber = ({ number, delay }) => {
-
   const [count, setCount] = useState(0);
 
   const { number: animatedNumber } = useSpring({
@@ -26,7 +25,7 @@ const AnimatedNumber = ({ number, delay }) => {
 const Section8 = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  
+
   const { ref: ref1, inView: inView1 } = useInView({
     triggerOnce: true,
     threshold: 0.15,
@@ -115,7 +114,11 @@ const Section8 = () => {
               </Typography>
               <Typography
                 variant="h5"
-                style={{ fontWeight: 600, marginTop: "10px" }}
+                style={{
+                  fontFamily: "Manrope",
+                  fontWeight: 600,
+                  marginTop: "10px",
+                }}
               >
                 Faster at Identifying and Investing in New Technologies
               </Typography>
@@ -124,8 +127,8 @@ const Section8 = () => {
                 style={{ marginTop: "30px", color: "#697077" }}
               >
                 Helps you identify and acquire high-potential, emerging
-                technologies 20x faster than competitors. Never miss game-changing
-                innovations again.
+                technologies 20x faster than competitors. Never miss
+                game-changing innovations again.
               </Typography>
             </Box>
           </Grid>
@@ -166,17 +169,22 @@ const Section8 = () => {
               </Typography>
               <Typography
                 variant="h5"
-                style={{ fontWeight: 500, marginTop: "10px" }}
+                style={{
+                  fontFamily: "Manrope",
+                  fontWeight: 600,
+                  marginTop: "10px",
+                }}
               >
-                Tech Network Growth Fuels Investment Potential
+                More Likely to Discover Hidden Technologies
               </Typography>
               <Typography
                 variant="body1"
-                style={{ marginTop: "30px", color: "#697077" }}
+                style={{ marginTop: "50px", color: "#697077" }}
               >
-                With 98% prediction accuracy, Immortal's AI models precisely
-                forecast tech roadmaps and market shifts, consistently
-                outperforming human analysis alone.
+                Tech scouts are 40% more likely to discover unique, hidden
+                technologies not found elsewhere. Our emphasis on connections to
+                innovators ensures access to breakthroughs that remain
+                undiscovered.
               </Typography>
             </Box>
           </Grid>
@@ -206,7 +214,7 @@ const Section8 = () => {
                 }}
               >
                 {box3Visible && <AnimatedNumber number={18} delay={1000} />}{" "}
-                <span style={{ fontSize: "32px", lineHeight: "38px" }}>
+                <span style={{  fontFamily: "Manrope", fontSize: "32px", lineHeight: "38px" }}>
                   Months Ahead
                 </span>
               </Typography>
@@ -216,16 +224,21 @@ const Section8 = () => {
                   marginTop: "10px",
                   fontSize: "23px",
                   lineHeight: "32px",
+                  fontFamily: "Manrope",
                 }}
               >
                 Lead in Forecasting Technological Developments
               </Typography>
               <Typography
-                style={{ marginTop: "30px", fontSize: "16px", color: "#697077" }}
+                style={{
+                  marginTop: "50px",
+                  fontSize: "16px",
+                  color: "#697077",
+                }}
               >
-                Get an 18-month head start on competitors by leveraging Immortal's
-                ability to pinpoint disruptive tech opportunities before
-                mainstream adoption.
+                Get an 18-month head start on competitors by leveraging
+                Immortal's ability to pinpoint disruptive tech opportunities
+                before mainstream adoption.
               </Typography>
             </Box>
           </Grid>

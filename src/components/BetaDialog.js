@@ -5,6 +5,7 @@ import { CheckCircle, FlashOn } from '@mui/icons-material';
 import { useTheme } from '@mui/material/styles';
 import Image1 from "../assets/section10_2.svg";
 import Image2 from "../assets/section10_4.svg";
+import Image3 from "../assets/section10_3.svg";
 
 const BetaDialog = ({ open, handleClose }) => {
   const theme = useTheme();
@@ -27,34 +28,41 @@ const BetaDialog = ({ open, handleClose }) => {
       <Box sx={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', height: '100%' }}>
         <Box sx={{ width: isMobile ? '100%' : '50%', backgroundColor: '#E8F4F2', padding: 4, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}>
           <DialogTitle sx={{ padding: 0, textAlign: 'left' }}>
-            <Box sx={{ display: 'flex', justifyContent: 'flex-start', mb: 2 }}>
-              <Avatar alt="Person 1" src={Image1} sx={{ width: 56, height: 56, marginRight: '8px' }} />
-              <Avatar alt="Person 2" src={Image2} sx={{ width: 56, height: 56 }} />
+            <Box sx={{ display: 'flex', justifyContent: 'flex-start', mb: 2, mt: 4}}>
+              <Avatar alt="Person 1" src={Image1} sx={{ width: isMobile? 32 :56, height: isMobile? 32 : 56, marginRight: '8px' }} />
+              <Avatar alt="Person 2" src={Image2} sx={{ width: isMobile? 32 :56, height: isMobile? 32 : 56, marginRight: '8px'}} />
+              <Avatar alt="Person 2" src={Image3} sx={{ width: isMobile? 32 :56, height: isMobile? 32 : 56 }} />
             </Box>
           </DialogTitle>
           <Box sx={{ width: '100%', textAlign: 'left' }}>
-            <Typography variant="h4" sx={{ fontFamily: 'Aileron', fontSize: isMobile ? '24px' : '40px', fontWeight: 600, lineHeight: isMobile ? '32px' : '54px' }}>
-              Join our Beta
-            </Typography>
-            <Typography variant="h5" sx={{ fontFamily: 'Aileron', fontSize: isMobile ? '20px' : '40px', fontWeight: 600, lineHeight: isMobile ? '28px' : '54px', mb: 4 }}>
-              Invest in Next-Gen Tech Today
+            <Typography variant="h4" sx={{ fontFamily: "Manrope", fontSize: isMobile ? '24px' : '40px', fontWeight: 600, lineHeight: isMobile ? '32px' : '38.25px', marginBottom: "20px"}}>
+             {isMobile ? (
+              <>
+               Join our Beta Invest in Next-Gen Tech Today
+              </>
+             ): (
+             <>
+              Join our Beta <br/> Invest in Next-Gen <br/> Tech Today
+             </>
+             )
+             }
             </Typography>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
               <CheckCircle sx={{ color: '#0D9786', mr: 1 }} />
-              <Typography>
-                <strong>20X</strong> Faster at Identifying and Investing in New Technologies
+              <Typography sx={{ fontFamily: 'Aileron', fontSize:  isMobile ? '14px' : '16px', fontWeight:  isMobile ?  400: 600, lineHeight: '20px', textAlign: 'left' }}>
+                <strong style={{color: "#096B5F"}}>20X</strong> Faster at Identifying and Investing in New Technologies
               </Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
               <CheckCircle sx={{ color: '#0D9786', mr: 1 }} />
-              <Typography>
-                <strong>40%</strong> higher chance to meet innovators with hidden innovations
+              <Typography sx={{ fontFamily: 'Aileron', fontSize:  isMobile ? '14px' : '16px', fontWeight:  isMobile ?  400: 600, lineHeight: '20px', textAlign: 'left' }}>
+                <strong style={{color: "#096B5F"}}>40%</strong> higher chance to meet innovators with hidden innovations
               </Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
               <CheckCircle sx={{ color: '#0D9786', mr: 1 }} />
-              <Typography>
-                <strong>18 Mon</strong> Tech Network Growth Fuels Investment Potential
+              <Typography sx={{ fontFamily: 'Aileron', fontSize:  isMobile ? '14px' : '16px', fontWeight:  isMobile ?  400: 600, lineHeight: '20px', textAlign: 'left' }}>
+                <strong style={{color: "#096B5F"}}>18 Mon</strong> Tech Network Growth Fuels Investment Potential
               </Typography>
             </Box>
           </Box>
@@ -74,7 +82,7 @@ const BetaDialog = ({ open, handleClose }) => {
               <CloseIcon />
             </IconButton>
           </DialogTitle>
-          <DialogContent>
+          <DialogContent sx={{ padding: isMobile ? 0 : 4 }}>
             <Box component="form" sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
               <Box sx={{ display: 'flex', gap: 1, flexDirection: isMobile ? 'column' : 'row' }}>
                 <Box sx={{ flex: 1 }}>
@@ -116,8 +124,7 @@ const BetaDialog = ({ open, handleClose }) => {
                       '&.Mui-focused fieldset': {
                         borderColor: '#0EA996', // Change border color on focus
                       },
-                    },
-                  }}
+                    }}}
                 />
               </Box>
               <Box sx={{ mb: 0.5 }}>
@@ -130,8 +137,8 @@ const BetaDialog = ({ open, handleClose }) => {
                       '&.Mui-focused fieldset': {
                         borderColor: '#0EA996', // Change border color on focus
                       },
-                    },
-                  }}
+                    }}
+                  }
                 />
               </Box>
               <Box sx={{ mb: 0.5 }}>
@@ -144,8 +151,8 @@ const BetaDialog = ({ open, handleClose }) => {
                       '&.Mui-focused fieldset': {
                         borderColor: '#0EA996', // Change border color on focus
                       },
-                    },
-                  }}
+                    }}
+                  }
                 />
               </Box>
               <Box sx={{ mb: 0.5 }}>
@@ -160,12 +167,12 @@ const BetaDialog = ({ open, handleClose }) => {
                       '&.Mui-focused fieldset': {
                         borderColor: '#0EA996', // Change border color on focus
                       },
-                    },
-                  }}
+                    }}
+                  }
                 />
               </Box>
               <Button
-                variant="contained"
+                // variant="contained"
                 disableRipple
                 sx={{
                   mt: 0.5,
@@ -179,6 +186,8 @@ const BetaDialog = ({ open, handleClose }) => {
                   color: 'white',
                   opacity: 1,
                   boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
+                  textTransform: 'none',
+                  fontSize: "16px",
                   '&:hover': {
                     backgroundColor: '#096B5F',
                     color: 'white',

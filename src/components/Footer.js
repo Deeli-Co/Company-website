@@ -52,7 +52,7 @@ const Footer = () => {
           >
             <Typography
               style={{
-                fontFamily: 'Aileron',
+                fontFamily: 'Manrope',
                 color: "#FFFFFF",
                 fontWeight: 600,
                 fontSize: isMobile ? "32px" : "48px",
@@ -118,7 +118,7 @@ const Footer = () => {
             <Box style={{ paddingRight: isMobile ? "0" : "22.5%", paddingTop: isMobile ? "20px" : "3%" }}>
               <Button
                 sx={{
-                  width: isMobile ? "100%" : "fit-content",
+                  width: isMobile? "325px":"fit-content",
                   height: "52px",
                   padding: "16px 24px",
                   gap: "8px",
@@ -127,7 +127,7 @@ const Footer = () => {
                   backgroundColor: "#0D9786",
                   textTransform: "none",
                   color: "white",
-                  fontFamily: "Aileron",
+                  fontFamily: "Manrope",
                   fontSize: isMobile ? "14px" : "16px",
                   fontWeight: 600,
                   lineHeight: "19.2px",

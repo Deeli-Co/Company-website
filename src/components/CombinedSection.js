@@ -188,7 +188,7 @@ const CombinedSection = () => {
                 fontSize: "14px",
                 boxShadow: "none",
                 marginBottom: "12px",
-                fontFamily: "Aileron",
+                fontFamily: "Manrope",
               }}
             >
               {sections[1].buttonText}
@@ -196,7 +196,7 @@ const CombinedSection = () => {
             <Typography
               variant="h3"
               sx={{
-                fontFamily: "Aileron",
+                fontFamily: "Manrope",
                 fontSize: "36px",
                 fontWeight: 600,
                 lineHeight: "44px",
@@ -231,7 +231,7 @@ const CombinedSection = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontFamily: "Aileron",
+                fontFamily: "Manrope",
                 fontWeight: 600,
                 lineHeight: "24px",
                 textDecoration: "none",
@@ -277,7 +277,7 @@ const CombinedSection = () => {
                 fontSize: "14px",
                 boxShadow: "none",
                 marginBottom: "12px",
-                fontFamily: "Aileron",
+                fontFamily: "Manrope",
               }}
             >
               {sections[2].buttonText}
@@ -285,7 +285,7 @@ const CombinedSection = () => {
             <Typography
               variant="h3"
               sx={{
-                fontFamily: "Aileron",
+                fontFamily: "Manrope",
                 fontSize: "36px",
                 fontWeight: 600,
                 lineHeight: "44px",
@@ -320,7 +320,7 @@ const CombinedSection = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontFamily: "Aileron",
+                fontFamily: "Manrope",
                 fontWeight: 600,
                 lineHeight: "24px",
                 textDecoration: "none",
@@ -366,7 +366,7 @@ const CombinedSection = () => {
                 fontSize: "14px",
                 boxShadow: "none",
                 marginBottom: "12px",
-                fontFamily: "Aileron",
+                fontFamily: "Manrope",
               }}
             >
               {sections[0].buttonText}
@@ -374,7 +374,7 @@ const CombinedSection = () => {
             <Typography
               variant="h3"
               sx={{
-                fontFamily: "Aileron",
+                fontFamily: "Manrope",
                 fontSize: "36px",
                 fontWeight: 600,
                 lineHeight: "44px",
@@ -409,7 +409,7 @@ const CombinedSection = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontFamily: "Aileron",
+                fontFamily: "Manrope",
                 fontWeight: 600,
                 lineHeight: "24px",
                 textDecoration: "none",
