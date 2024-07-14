@@ -29,8 +29,9 @@ const Section1 = () => {
           justifyContent: "center",
           textAlign: "center",
           "@media (max-width: 600px)": {
-            height: "auto",
+            height: "532px",
             padding: "20px",
+            paddingTop: "100px",  // Add top padding for mobile view
           },
           "&::before": {
             content: '""',
@@ -66,7 +67,8 @@ const Section1 = () => {
             opacity: 1,
             marginBottom: "30px",
             "@media (max-width: 600px)": {
-              fontSize: "32px",
+              fontSize: "36px",
+              fontWeight: "600",
               lineHeight: "40px",
               width: "100%",
             },

@@ -33,7 +33,11 @@ const Section3 = () => {
         height: "884px",
         backgroundColor: "#F2F8F7",
         padding: "50px",
-        paddingBottom: "130px"
+        paddingBottom: "130px",
+        "@media (max-width: 600px)": {
+          padding: "20px",
+          height: "auto",
+        },
       }}
     >
       <Container>
@@ -43,6 +47,9 @@ const Section3 = () => {
             flexDirection: "column",
             alignItems: "center",
             marginTop: "100px",
+            "@media (max-width: 600px)": {
+              marginTop: "50px",
+            },
           }}
         >
           <img src={StarIcon} alt="Star" style={{ marginBottom: "10px" }} />
@@ -55,6 +62,9 @@ const Section3 = () => {
               transition: "opacity 1s ease-out, transform 1s ease-out",
               opacity: startAnimation ? 1 : 0,
               transform: startAnimation ? "translateY(0)" : "translateY(50px)",
+              "@media (max-width: 600px)": {
+                fontSize: "28px",
+              },
             }}
           >
             Meet Immortal
@@ -71,6 +81,10 @@ const Section3 = () => {
             transitionDelay: startAnimation ? "0.5s" : "0s",
             opacity: startAnimation ? 1 : 0,
             transform: startAnimation ? "translateY(0)" : "translateY(50px)",
+            "@media (max-width: 600px)": {
+              fontSize: "16px",
+              marginBottom: "30px",
+            },
           }}
         >
           Unveil the AI Visionary Powering Your Competitive Advantage

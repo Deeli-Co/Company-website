@@ -1,27 +1,42 @@
 import React from 'react';
-import { Dialog, DialogTitle, DialogContent, TextField, IconButton, Button, Box, Typography } from '@mui/material';
+import { Dialog, DialogTitle, DialogContent, TextField, IconButton, Button, Box, Typography, Avatar, useMediaQuery } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { CheckCircle, FlashOn } from '@mui/icons-material';
-import Avatar from '@mui/material/Avatar';
+import { useTheme } from '@mui/material/styles';
 import Image1 from "../assets/section10_2.svg";
 import Image2 from "../assets/section10_4.svg";
 
 const BetaDialog = ({ open, handleClose }) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
-    <Dialog open={open} onClose={handleClose} maxWidth="xl" fullWidth PaperProps={{ sx: { height: '75%',width: '70%',top: '-3%' } }}>
-      <Box sx={{ display: 'flex', flexDirection: 'row', height: '100%' }}>
-        <Box sx={{ width: '50%', backgroundColor: '#E8F4F2', padding: 4, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+    <Dialog 
+      open={open} 
+      onClose={handleClose} 
+      maxWidth="xl" 
+      fullWidth 
+      PaperProps={{ 
+        sx: { 
+          height: isMobile ? '90%' : '75%', 
+          width: isMobile ? '90%' : '70%', 
+          top: isMobile ? '5%' : '-3%' 
+        } 
+      }}
+    >
+      <Box sx={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', height: '100%' }}>
+        <Box sx={{ width: isMobile ? '100%' : '50%', backgroundColor: '#E8F4F2', padding: 4, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}>
           <DialogTitle sx={{ padding: 0, textAlign: 'left' }}>
-            <Box sx={{ display: 'flex', justifyContent: 'flex-start', mb: 2, paddingLeft: "15px"}}>
+            <Box sx={{ display: 'flex', justifyContent: 'flex-start', mb: 2 }}>
               <Avatar alt="Person 1" src={Image1} sx={{ width: 56, height: 56, marginRight: '8px' }} />
               <Avatar alt="Person 2" src={Image2} sx={{ width: 56, height: 56 }} />
             </Box>
           </DialogTitle>
-          <Box sx={{ width: '100%', textAlign: 'left', paddingLeft: '16px', paddingRight: '16px' }}>
-            <Typography variant="h4" sx={{ fontFamily: 'Aileron', fontSize: '40px', fontWeight: 600, lineHeight: '54px'}}>
+          <Box sx={{ width: '100%', textAlign: 'left' }}>
+            <Typography variant="h4" sx={{ fontFamily: 'Aileron', fontSize: isMobile ? '24px' : '40px', fontWeight: 600, lineHeight: isMobile ? '32px' : '54px' }}>
               Join our Beta
             </Typography>
-            <Typography variant="h5" sx={{ fontFamily: 'Aileron', fontSize: '40px', fontWeight: 600, lineHeight: '54px', mb: 4 }}>
+            <Typography variant="h5" sx={{ fontFamily: 'Aileron', fontSize: isMobile ? '20px' : '40px', fontWeight: 600, lineHeight: isMobile ? '28px' : '54px', mb: 4 }}>
               Invest in Next-Gen Tech Today
             </Typography>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
@@ -44,7 +59,7 @@ const BetaDialog = ({ open, handleClose }) => {
             </Box>
           </Box>
         </Box>
-        <Box sx={{ width: '50%', padding: 4, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <Box sx={{ width: isMobile ? '100%' : '50%', padding: 4, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <DialogTitle sx={{ padding: 0 }}>
             <IconButton
               aria-label="close"
@@ -61,7 +76,7 @@ const BetaDialog = ({ open, handleClose }) => {
           </DialogTitle>
           <DialogContent>
             <Box component="form" sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              <Box sx={{ display: 'flex', gap: 1}}>
+              <Box sx={{ display: 'flex', gap: 1, flexDirection: isMobile ? 'column' : 'row' }}>
                 <Box sx={{ flex: 1 }}>
                   <Typography>First name*</Typography>
                   <TextField
@@ -77,7 +92,7 @@ const BetaDialog = ({ open, handleClose }) => {
                   />
                 </Box>
                 <Box sx={{ flex: 1 }}>
-                  <Typography >Last name*</Typography>
+                  <Typography>Last name*</Typography>
                   <TextField
                     variant="outlined"
                     fullWidth
@@ -134,7 +149,7 @@ const BetaDialog = ({ open, handleClose }) => {
                 />
               </Box>
               <Box sx={{ mb: 0.5 }}>
-                <Typography >Other Information</Typography>
+                <Typography>Other Information</Typography>
                 <TextField
                   variant="outlined"
                   multiline

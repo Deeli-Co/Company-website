@@ -1,10 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { CssBaseline } from "@mui/material";
+import { CssBaseline, useMediaQuery } from "@mui/material";
+import { useTheme } from '@mui/material/styles';
 import Header from "./components/Header";
 import Section1 from "./components/Section1";
 import Section2 from "./components/Section2";
 import Section3 from "./components/Section3";
 import Section4 from "./components/Section4";
+import Section5 from "./components/Section5";
+import Section6 from "./components/Section6";
+import Section7 from "./components/Section7";
 import Section8 from "./components/Section8";
 import Section9 from "./components/Section9";
 import Section10 from "./components/Section10";
@@ -17,6 +21,9 @@ const App = () => {
   const [open, setOpen] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const scrollAdjustedRef = useRef(false);
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -55,7 +62,15 @@ const App = () => {
       <Section2 />
       <Section3 />
       <Section4 />
-      <CombinedSection />
+      {isMobile ? (
+        <>
+          <Section5 />
+          <Section6 />
+          <Section7 />
+        </>
+      ) : (
+        <CombinedSection />
+      )}
       <Section8 />
       <Section9 />
       <Section10 />

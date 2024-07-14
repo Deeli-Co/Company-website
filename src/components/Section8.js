@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography, Container } from "@mui/material";
 import { ArrowUpward } from "@mui/icons-material";
 import { useInView } from "react-intersection-observer";
 import { useSpring, animated } from "react-spring";
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 const AnimatedNumber = ({ number, delay }) => {
+
   const [count, setCount] = useState(0);
 
   const { number: animatedNumber } = useSpring({
@@ -15,13 +18,27 @@ const AnimatedNumber = ({ number, delay }) => {
     onRest: () => setCount(number),
   });
 
-  return <animated.span>{animatedNumber.to(n => n.toFixed(0))}</animated.span>;
+  return (
+    <animated.span>{animatedNumber.to((n) => n.toFixed(0))}</animated.span>
+  );
 };
 
 const Section8 = () => {
-  const { ref: ref1, inView: inView1 } = useInView({ triggerOnce: true, threshold: 0.15 });
-  const { ref: ref2, inView: inView2 } = useInView({ triggerOnce: true, threshold: 0.15 });
-  const { ref: ref3, inView: inView3 } = useInView({ triggerOnce: true, threshold: 0.15 });
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  
+  const { ref: ref1, inView: inView1 } = useInView({
+    triggerOnce: true,
+    threshold: 0.15,
+  });
+  const { ref: ref2, inView: inView2 } = useInView({
+    triggerOnce: true,
+    threshold: 0.15,
+  });
+  const { ref: ref3, inView: inView3 } = useInView({
+    triggerOnce: true,
+    threshold: 0.15,
+  });
 
   const [box1Visible, setBox1Visible] = useState(false);
   const [box2Visible, setBox2Visible] = useState(false);
@@ -46,173 +63,175 @@ const Section8 = () => {
   }, [inView3]);
 
   return (
-    <Box
+    <Container
       style={{
-        width: "100%",
-        height: "488px",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        boxSizing: "border-box",
-        marginTop: "100px",
+        marginTop: isMobile ? "300px" : "100px",
       }}
     >
-      <Grid container spacing={2} justifyContent="center">
-        {/* First Box */}
-        <Grid item>
-          <Box
-            ref={ref1}
-            style={{
-              padding: "20px",
-              paddingLeft: "0",
-              borderTop: "1px solid #697077",
-              textAlign: "left",
-              width: "420px",
-              height: "325px",
-              transition: "opacity 1s ease-out, transform 1s ease-out",
-              opacity: box1Visible ? 1 : 0,
-              transform: box1Visible ? "translateY(0)" : "translateY(50px)",
-            }}
-          >
-            <Typography
+      <Box
+        style={{
+          width: "100%",
+          height: "488px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          boxSizing: "border-box",
+        }}
+      >
+        <Grid container spacing={2} justifyContent="center" alignItems="center">
+          {/* First Box */}
+          <Grid item xs={12} sm={4}>
+            <Box
+              ref={ref1}
               style={{
-                color: "#096B5F",
-                fontSize: "54px",
-                fontWeight: 500,
-                fontFamily: "Aileron",
-                lineHeight: "64.8px",
+                padding: "20px",
+                borderTop: "1px solid #697077",
+                textAlign: "left",
+                width: "100%",
+                height: "325px",
+                transition: "opacity 1s ease-out, transform 1s ease-out",
+                opacity: box1Visible ? 1 : 0,
+                transform: box1Visible ? "translateY(0)" : "translateY(50px)",
               }}
             >
-              {box1Visible && <AnimatedNumber number={20} delay={500} />}X{" "}
-              <ArrowUpward
+              <Typography
                 style={{
-                  fontSize: "30px",
-                  height: "30px",
-                  width: "30px",
-                  transform: "translateY(-10%)",
+                  color: "#096B5F",
+                  fontSize: "54px",
+                  fontWeight: 500,
+                  fontFamily: "Aileron",
+                  lineHeight: "64.8px",
                 }}
-              />
-            </Typography>
-            <Typography
-              variant="h5"
-              style={{ fontWeight: 600, marginTop: "10px" }}
-            >
-              Faster at Identifying and Investing in New Technologies
-            </Typography>
-            <Typography
-              variant="body1"
-              style={{ marginTop: "30px", color: "#697077"}}
-            >
-              Helps you identify and acquire high-potential, emerging
-              technologies 20x faster than competitors. Never miss game-changing
-              innovations again.
-            </Typography>
-          </Box>
-        </Grid>
+              >
+                {box1Visible && <AnimatedNumber number={20} delay={500} />}X{" "}
+                <ArrowUpward
+                  style={{
+                    fontSize: "30px",
+                    height: "30px",
+                    width: "30px",
+                    transform: "translateY(-10%)",
+                  }}
+                />
+              </Typography>
+              <Typography
+                variant="h5"
+                style={{ fontWeight: 600, marginTop: "10px" }}
+              >
+                Faster at Identifying and Investing in New Technologies
+              </Typography>
+              <Typography
+                variant="body1"
+                style={{ marginTop: "30px", color: "#697077" }}
+              >
+                Helps you identify and acquire high-potential, emerging
+                technologies 20x faster than competitors. Never miss game-changing
+                innovations again.
+              </Typography>
+            </Box>
+          </Grid>
 
-        {/* Second Box */}
-        <Grid item>
-          <Box
-            ref={ref2}
-            style={{
-              padding: "20px",
-              paddingLeft: "0",
-              borderTop: "1px solid #697077",
-              textAlign: "left",
-              width: "420px",
-              height: "325px",
-              transition: "opacity 1s ease-out, transform 1s ease-out",
-              opacity: box2Visible ? 1 : 0,
-              transform: box2Visible ? "translateY(0)" : "translateY(50px)",
-            }}
-          >
-            <Typography
+          {/* Second Box */}
+          <Grid item xs={12} sm={4}>
+            <Box
+              ref={ref2}
               style={{
-                color: "#096B5F",
-                fontSize: "54px",
-                fontWeight: 500,
-                fontFamily: "Aileron",
-                lineHeight: "64.8px",
+                padding: "20px",
+                borderTop: "1px solid #697077",
+                textAlign: "left",
+                width: "100%",
+                height: "325px",
+                transition: "opacity 1s ease-out, transform 1s ease-out",
+                opacity: box2Visible ? 1 : 0,
+                transform: box2Visible ? "translateY(0)" : "translateY(50px)",
               }}
             >
-              {box2Visible && <AnimatedNumber number={40} delay={0} />}{" "}
-              <ArrowUpward
+              <Typography
                 style={{
-                  fontSize: "30px",
-                  height: "30px",
-                  width: "30px",
-                  transform: "translateY(-10%)",
+                  color: "#096B5F",
+                  fontSize: "54px",
+                  fontWeight: 500,
+                  fontFamily: "Aileron",
+                  lineHeight: "64.8px",
                 }}
-              />
-            </Typography>
-            <Typography
-              variant="h5"
-              style={{ fontWeight: 500, marginTop: "10px" }}
-            >
-              Tech Network Growth Fuels Investment Potential
-            </Typography>
-            <Typography
-              variant="body1"
-              style={{ marginTop: "30px", color: "#697077" }}
-            >
-              With 98% prediction accuracy, Immortal's AI models precisely
-              forecast tech roadmaps and market shifts, consistently
-              outperforming human analysis alone.
-            </Typography>
-          </Box>
-        </Grid>
+              >
+                {box2Visible && <AnimatedNumber number={40} delay={0} />}{" "}
+                <ArrowUpward
+                  style={{
+                    fontSize: "30px",
+                    height: "30px",
+                    width: "30px",
+                    transform: "translateY(-10%)",
+                  }}
+                />
+              </Typography>
+              <Typography
+                variant="h5"
+                style={{ fontWeight: 500, marginTop: "10px" }}
+              >
+                Tech Network Growth Fuels Investment Potential
+              </Typography>
+              <Typography
+                variant="body1"
+                style={{ marginTop: "30px", color: "#697077" }}
+              >
+                With 98% prediction accuracy, Immortal's AI models precisely
+                forecast tech roadmaps and market shifts, consistently
+                outperforming human analysis alone.
+              </Typography>
+            </Box>
+          </Grid>
 
-        {/* Third Box */}
-        <Grid item>
-          <Box
-            ref={ref3}
-            style={{
-              padding: "20px",
-              paddingLeft: "0",
-              borderTop: "1px solid #697077",
-              textAlign: "left",
-              width: "420px",
-              height: "325px",
-              transition: "opacity 1s ease-out, transform 1s ease-out",
-              opacity: box3Visible ? 1 : 0,
-              transform: box3Visible ? "translateY(0)" : "translateY(50px)",
-            }}
-          >
-            <Typography
+          {/* Third Box */}
+          <Grid item xs={12} sm={4}>
+            <Box
+              ref={ref3}
               style={{
-                color: "#096B5F",
-                fontSize: "54px",
-                fontWeight: 500,
-                fontFamily: "Aileron",
-                lineHeight: "64.8px",
+                padding: "20px",
+                borderTop: "1px solid #697077",
+                textAlign: "left",
+                width: "100%",
+                height: "325px",
+                transition: "opacity 1s ease-out, transform 1s ease-out",
+                opacity: box3Visible ? 1 : 0,
+                transform: box3Visible ? "translateY(0)" : "translateY(50px)",
               }}
             >
-              {box3Visible && <AnimatedNumber number={18} delay={1000} />}{" "}
-              <span style={{ fontSize: "32px", lineHeight: "38px" }}>
-                Months Ahead
-              </span>
-            </Typography>
-            <Typography
-              style={{
-                fontWeight: 600,
-                marginTop: "10px",
-                fontSize: "23px",
-                lineHeight: "32px",
-              }}
-            >
-              Lead in Forecasting Technological Developments
-            </Typography>
-            <Typography
-              style={{ marginTop: "30px", fontSize: "16px", color: "#697077" }}
-            >
-              Get an 18-month head start on competitors by leveraging Immortal's
-              ability to pinpoint disruptive tech opportunities before
-              mainstream adoption.
-            </Typography>
-          </Box>
+              <Typography
+                style={{
+                  color: "#096B5F",
+                  fontSize: "54px",
+                  fontWeight: 500,
+                  fontFamily: "Aileron",
+                  lineHeight: "64.8px",
+                }}
+              >
+                {box3Visible && <AnimatedNumber number={18} delay={1000} />}{" "}
+                <span style={{ fontSize: "32px", lineHeight: "38px" }}>
+                  Months Ahead
+                </span>
+              </Typography>
+              <Typography
+                style={{
+                  fontWeight: 600,
+                  marginTop: "10px",
+                  fontSize: "23px",
+                  lineHeight: "32px",
+                }}
+              >
+                Lead in Forecasting Technological Developments
+              </Typography>
+              <Typography
+                style={{ marginTop: "30px", fontSize: "16px", color: "#697077" }}
+              >
+                Get an 18-month head start on competitors by leveraging Immortal's
+                ability to pinpoint disruptive tech opportunities before
+                mainstream adoption.
+              </Typography>
+            </Box>
+          </Grid>
         </Grid>
-      </Grid>
-    </Box>
+      </Box>
+    </Container>
   );
 };
 

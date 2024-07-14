@@ -60,6 +60,7 @@ const Header = () => {
                 width: 105.42,
                 marginLeft: 50,
                 marginTop: 10,
+                ...(isMobile && { marginLeft: 12, marginTop: 20, position: 'absolute', top: 0, left: 0 }),
               }}
             />
           </Box>

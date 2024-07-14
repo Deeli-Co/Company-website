@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography, Button, useMediaQuery } from "@mui/material";
 import { Lightning } from "phosphor-react";
 import { useInView } from "react-intersection-observer";
+import { useTheme } from '@mui/material/styles';
 import Image1 from "../assets/section10_1.svg";
 import Image2 from "../assets/section10_2.svg";
 import Image3 from "../assets/section10_3.svg";
 import Image4 from "../assets/section10_4.svg";
+import Image5 from "../assets/section10_5.svg";
 import BetaDialog from "./BetaDialog";
 
 const Section10 = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const { ref: refBox, inView: inViewBox } = useInView({
     triggerOnce: true,
     threshold: 0.15,
@@ -40,7 +44,7 @@ const Section10 = () => {
         ref={refBox}
         style={{
           width: "100%",
-          height: "742px",
+          height: isMobile? "657px" : "742px",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -61,9 +65,10 @@ const Section10 = () => {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            backgroundImage: `url(${Image1})`,
-            borderRadius: "10px",
+            backgroundImage: `url(${isMobile ? Image5 : Image1})`,
+            borderRadius: isMobile? "0px": "10px",
             color: "#fff",
+            padding: isMobile ? "20px" : "0", // Add padding for mobile view
           }}
         >
           <Box
@@ -135,7 +140,7 @@ const Section10 = () => {
               transition: "opacity 1s ease-out, transform 1s ease-out",
             }}
           >
-            Never waste another resource chasing the wrong technologies or
+            Never waste another resource <br/> chasing the wrong technologies or <br/>
             opportunities.
           </Typography>
           <Box
@@ -156,7 +161,7 @@ const Section10 = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                width: "fit-content",
+                width: isMobile? "325px":"fit-content",
                 height: "56px",
                 gap: "8px",
                 fontSize: "20px",

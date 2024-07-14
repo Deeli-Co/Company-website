@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { Box, Typography, Button, Grid } from "@mui/material";
+import { Box, Typography, Button, Grid, useMediaQuery } from "@mui/material";
 import { Lightning } from "phosphor-react";
+import { useTheme } from '@mui/material/styles';
 import Image1 from "../assets/footer.svg";
 import Logo from "../assets/footer_logo.svg";
 import BetaDialog from "./BetaDialog";
 
 const Footer = () => {
   const [open, setOpen] = useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -15,25 +18,26 @@ const Footer = () => {
   const handleClose = () => {
     setOpen(false);
   };
+
   return (
     <>
       <footer
         style={{
           backgroundColor: "#132B24",
-          height: "520px",
+          height: isMobile ? "auto" : "520px",
           backgroundImage: `url(${Image1})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          padding: "5%",
+          padding: isMobile ? "20px" : "5%",
         }}
       >
         <Grid container spacing={2} style={{ marginBottom: "20px" }}>
           <Grid item xs={12} style={{ display: "flex", alignItems: "center" }}>
-            <img src={Logo} alt="Logo" />
+            <img src={Logo} alt="Logo" style={{ maxWidth: "100%" }} />
           </Grid>
         </Grid>
-        <Grid container spacing={2} style={{ flex: 1, marginBottom: "40px" }}>
+        <Grid container spacing={2} style={{ flex: 1, marginBottom: isMobile ? "20px" : "40px" }}>
           <Grid
             item
             xs={12}
@@ -42,6 +46,8 @@ const Footer = () => {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
+              alignItems: isMobile ? "flex-start" : "flex-start",  // Align items to flex-start on mobile
+              textAlign: isMobile ? "left" : "left",
             }}
           >
             <Typography
@@ -49,7 +55,7 @@ const Footer = () => {
                 fontFamily: 'Aileron',
                 color: "#FFFFFF",
                 fontWeight: 600,
-                fontSize: "48px",
+                fontSize: isMobile ? "32px" : "48px",
                 marginBottom: "20px",
               }}
             >
@@ -65,7 +71,7 @@ const Footer = () => {
             style={{
               display: "flex",
               flexDirection: "column",
-              alignItems: "flex-end",
+              alignItems: isMobile ? "flex-start" : "flex-end",
               justifyContent: "center",
             }}
           >
@@ -73,8 +79,8 @@ const Footer = () => {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "flex-start",
-                paddingRight: "30%",
+                alignItems: isMobile ? "flex-start" : "flex-start",  // Align items to flex-start on mobile
+                paddingRight: isMobile ? "0" : "30%",
                 gap: "10px",
               }}
             >
@@ -86,7 +92,7 @@ const Footer = () => {
                   borderBottom: "1px solid #FFFFFF",
                 }}
               >
-                Follow on Linkedin
+                Follow on LinkedIn
               </Typography>
               <Typography
                 variant="body1"
@@ -109,10 +115,10 @@ const Footer = () => {
                 Privacy policy
               </Typography>
             </Box>
-            <Box style={{ paddingRight: "22.5%", paddingTop: "3%" }}>
+            <Box style={{ paddingRight: isMobile ? "0" : "22.5%", paddingTop: isMobile ? "20px" : "3%" }}>
               <Button
                 sx={{
-                  width: "fit-content",
+                  width: isMobile ? "100%" : "fit-content",
                   height: "52px",
                   padding: "16px 24px",
                   gap: "8px",
@@ -122,16 +128,11 @@ const Footer = () => {
                   textTransform: "none",
                   color: "white",
                   fontFamily: "Aileron",
-                  fontSize: "16px",
+                  fontSize: isMobile ? "14px" : "16px",
                   fontWeight: 600,
                   lineHeight: "19.2px",
                   letterSpacing: "0.01em",
                   textAlign: "left",
-                  "@media (max-width: 600px)": {
-                    width: "100%",
-                    height: "auto",
-                    fontSize: "14px",
-                  },
                   "&:hover": {
                     backgroundColor: "#096B5F",
                   },
@@ -152,10 +153,10 @@ const Footer = () => {
             flex: 1,
             justifyContent: "center",
             alignItems: "flex-end",
-            paddingTop: "80px",
+            paddingTop: isMobile ? "40px" : "80px",
           }}
         >
-          <Typography variant="body2" style={{ color: "#FFFFFF" }}>
+          <Typography variant="body2" style={{ color: "#FFFFFF", textAlign: "center" }}>
             © Deeli.ai Inc. 2024
           </Typography>
         </Grid>
