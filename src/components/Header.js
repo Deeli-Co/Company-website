@@ -37,6 +37,9 @@ const Header = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [lastScrollY]);
+  const handleLink= () => {
+    window.location.href = 'https://www.linkedin.com/company/deeliai';
+  };
 
   return (
     <>
@@ -74,6 +77,7 @@ const Header = () => {
               }}
             >
               <Button
+               onClick={handleLink}
                 sx={{
                   border: '1px solid #121619',
                   width: '175px',

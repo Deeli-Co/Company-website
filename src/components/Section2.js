@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
@@ -11,27 +11,30 @@ import { useTheme } from '@mui/material/styles';
 function Section2() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMedium = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+  const isSmallLaptop = useMediaQuery('(min-width: 1280px) and (max-width: 1540px)');
 
-  const options = isMobile ? {
+  const [gap, setGap] = useState("450px");
+
+  useEffect(() => {
+    if (isMobile) {
+      setGap("20px");
+    } else if (isSmallLaptop) {
+      setGap("700px"); // Adjust this value as needed for 14-inch MacBook
+    } else if (isMedium) {
+      setGap("900px"); // Adjust this value as needed for medium screens
+    } else {
+      setGap("450px");
+    }
+  }, [isMobile, isMedium, isSmallLaptop]);
+
+  const options = {
     type: "loop",
-    gap: "20px",
+    gap: gap,
     drag: "free",
     arrows: false,
     pagination: false,
-    perPage: 1,
-    autoScroll: {
-      pauseOnHover: true,
-      pauseOnFocus: true,
-      rewind: true,
-      speed: 1,
-    },
-  } : {
-    type: "loop",
-    gap: "450px",
-    drag: "free",
-    arrows: false,
-    pagination: false,
-    perPage: 2,
+    perPage: isMobile ? 1 : 2,
     autoScroll: {
       pauseOnHover: true,
       pauseOnFocus: true,
@@ -39,7 +42,6 @@ function Section2() {
       speed: 1,
     },
   };
-
   return (
     <Splide options={options} extensions={{ AutoScroll }}>
       <SplideSlide style={isMobile ? { width: "100%" } : {}}>

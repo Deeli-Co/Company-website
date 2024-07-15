@@ -157,7 +157,7 @@ const Footer = () => {
           }}
         >
           <Typography variant="body2" style={{ color: "#FFFFFF", textAlign: "center" }}>
-            © Deeli.ai Inc. 2024
+            © Deeli AI, Inc. 2024
           </Typography>
         </Grid>
       </footer>
