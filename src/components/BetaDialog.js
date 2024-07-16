@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Dialog, DialogTitle, DialogContent, TextField, IconButton, Button, Box, Typography, Avatar, useMediaQuery } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { CheckCircle, FlashOn } from '@mui/icons-material';
@@ -10,6 +10,52 @@ import Image3 from "../assets/section10_3.svg";
 const BetaDialog = ({ open, handleClose }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    workEmail: '',
+    company: '',
+    jobFunction: '',
+    otherInformation: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('https://us-central1-immortal-407108.cloudfunctions.net/dashboard-notion', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          first_name: formData.firstName,
+          last_name: formData.lastName,
+          work_email: formData.workEmail,
+          company: formData.company,
+          job_function: formData.jobFunction,
+          other_information: formData.otherInformation
+        })
+      });
+
+      if (response.ok) {
+        console.log('Success! Record added.');
+        handleClose();
+      } else {
+        const error = await response.json();
+        console.error('Failed to add record:', error);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
 
   return (
     <Dialog 
@@ -36,16 +82,15 @@ const BetaDialog = ({ open, handleClose }) => {
           </DialogTitle>
           <Box sx={{ width: '100%', textAlign: 'left' }}>
             <Typography variant="h4" sx={{ fontFamily: "Manrope", fontSize: isMobile ? '24px' : '40px', fontWeight: 600, lineHeight: isMobile ? '32px' : '38.25px', marginBottom: "20px"}}>
-             {isMobile ? (
-              <>
-               Join our Beta Invest in Next-Gen Tech Today
-              </>
-             ): (
-             <>
-              Join our Beta <br/> Invest in Next-Gen <br/> Tech Today
-             </>
-             )
-             }
+              {isMobile ? (
+                <>
+                  Join our Beta Invest in Next-Gen Tech Today
+                </>
+              ): (
+                <>
+                  Join our Beta <br/> Invest in Next-Gen <br/> Tech Today
+                </>
+              )}
             </Typography>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
               <CheckCircle sx={{ color: '#0D9786', mr: 1 }} />
@@ -83,13 +128,16 @@ const BetaDialog = ({ open, handleClose }) => {
             </IconButton>
           </DialogTitle>
           <DialogContent sx={{ padding: isMobile ? 0 : 4 }}>
-            <Box component="form" sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+            <Box component="form" sx={{ display: 'flex', flexDirection: 'column', gap: 2 }} onSubmit={handleSubmit}>
               <Box sx={{ display: 'flex', gap: 1, flexDirection: isMobile ? 'column' : 'row' }}>
                 <Box sx={{ flex: 1 }}>
                   <Typography>First name*</Typography>
                   <TextField
                     variant="outlined"
                     fullWidth
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
                     sx={{
                       '& .MuiOutlinedInput-root': {
                         '&.Mui-focused fieldset': {
@@ -104,6 +152,9 @@ const BetaDialog = ({ open, handleClose }) => {
                   <TextField
                     variant="outlined"
                     fullWidth
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
                     sx={{
                       '& .MuiOutlinedInput-root': {
                         '&.Mui-focused fieldset': {
@@ -119,6 +170,9 @@ const BetaDialog = ({ open, handleClose }) => {
                 <TextField
                   variant="outlined"
                   fullWidth
+                  name="workEmail"
+                  value={formData.workEmail}
+                  onChange={handleChange}
                   sx={{
                     '& .MuiOutlinedInput-root': {
                       '&.Mui-focused fieldset': {
@@ -132,6 +186,9 @@ const BetaDialog = ({ open, handleClose }) => {
                 <TextField
                   variant="outlined"
                   fullWidth
+                  name="company"
+                  value={formData.company}
+                  onChange={handleChange}
                   sx={{
                     '& .MuiOutlinedInput-root': {
                       '&.Mui-focused fieldset': {
@@ -146,6 +203,9 @@ const BetaDialog = ({ open, handleClose }) => {
                 <TextField
                   variant="outlined"
                   fullWidth
+                  name="jobFunction"
+                  value={formData.jobFunction}
+                  onChange={handleChange}
                   sx={{
                     '& .MuiOutlinedInput-root': {
                       '&.Mui-focused fieldset': {
@@ -162,6 +222,9 @@ const BetaDialog = ({ open, handleClose }) => {
                   multiline
                   rows={4}
                   fullWidth
+                  name="otherInformation"
+                  value={formData.otherInformation}
+                  onChange={handleChange}
                   sx={{
                     '& .MuiOutlinedInput-root': {
                       '&.Mui-focused fieldset': {
@@ -172,7 +235,7 @@ const BetaDialog = ({ open, handleClose }) => {
                 />
               </Box>
               <Button
-                // variant="contained"
+                type="submit"
                 disableRipple
                 sx={{
                   mt: 0.5,
