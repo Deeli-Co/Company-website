@@ -1,16 +1,7 @@
 {
   "files": {
     "main.css": "/Company-website/static/css/main.ea272a04.css",
-    "main.js": "/Company-website/static/js/main.ba17bad2.js",
-    "static/js/231.ac46c057.chunk.js": "/Company-website/static/js/231.ac46c057.chunk.js",
-    "static/js/318.9d27fbf4.chunk.js": "/Company-website/static/js/318.9d27fbf4.chunk.js",
-    "static/js/222.8a2d0749.chunk.js": "/Company-website/static/js/222.8a2d0749.chunk.js",
-    "static/js/36.516de868.chunk.js": "/Company-website/static/js/36.516de868.chunk.js",
-    "static/js/2.74f1726b.chunk.js": "/Company-website/static/js/2.74f1726b.chunk.js",
-    "static/js/465.1bf2dfc9.chunk.js": "/Company-website/static/js/465.1bf2dfc9.chunk.js",
-    "static/js/569.c2e65e4e.chunk.js": "/Company-website/static/js/569.c2e65e4e.chunk.js",
-    "static/js/371.0b3d9489.chunk.js": "/Company-website/static/js/371.0b3d9489.chunk.js",
-    "static/js/423.fe966399.chunk.js": "/Company-website/static/js/423.fe966399.chunk.js",
+    "main.js": "/Company-website/static/js/main.4186a753.js",
     "static/js/453.9afe920c.chunk.js": "/Company-website/static/js/453.9afe920c.chunk.js",
     "static/media/section6_1.svg": "/Company-website/static/media/section6_1.b31210a4277c89a12e71bcc835613283.svg",
     "static/media/section4_4.svg": "/Company-website/static/media/section4_4.18e7e169583f8cce1a261ad8cce2406c.svg",
@@ -38,11 +29,11 @@
     "index.html": "/Company-website/index.html",
     "static/media/star.svg": "/Company-website/static/media/star.44efd94c68985f4dbb95a36b99671b63.svg",
     "main.ea272a04.css.map": "/Company-website/static/css/main.ea272a04.css.map",
-    "main.ba17bad2.js.map": "/Company-website/static/js/main.ba17bad2.js.map",
+    "main.4186a753.js.map": "/Company-website/static/js/main.4186a753.js.map",
     "453.9afe920c.chunk.js.map": "/Company-website/static/js/453.9afe920c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ea272a04.css",
-    "static/js/main.ba17bad2.js"
+    "static/js/main.4186a753.js"
   ]
 }
