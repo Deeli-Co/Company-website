@@ -134,7 +134,10 @@ const Footer = () => {
                   letterSpacing: "0.01em",
                   textAlign: "left",
                   "&:hover": {
-                    backgroundColor: "#096B5F",
+                    // width: '191px',
+                    backgroundColor: "#F2F8F7",
+                    color: "#132B24",
+                    border: "0"
                   },
                 }}
                 startIcon={<Lightning weight="fill" />}

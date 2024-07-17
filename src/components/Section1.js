@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Box, Typography, Button } from "@mui/material";
 import { Lightning } from "phosphor-react";
 import BetaDialog from "./BetaDialog";
-import LottieAnimation from "./LottieAnimation";
 
 const Section1 = () => {
   const [open, setOpen] = useState(false);
+  const [hover, setHover] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -124,7 +124,9 @@ const Section1 = () => {
               alignItems: "center",
               justifyContent: "center",
               "&:hover": {
-                backgroundColor: "#E4F0EE",
+                backgroundColor: "#0D9786",
+                color: "white",
+                border: "1px solid #132B24",
               },
               "@media (max-width: 600px)": {
                 width: "100%",
@@ -132,8 +134,15 @@ const Section1 = () => {
                 padding: "10px 20px",
               },
             }}
-            startIcon={<Lightning color="#132B24" weight="fill" />}
+            startIcon={
+              <Lightning
+                color={hover ? "white" : "#132B24"}
+                weight="fill"
+              />
+            }
             onClick={handleClickOpen}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
             disableRipple
           >
             Join Beta Now

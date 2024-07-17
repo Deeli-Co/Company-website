@@ -20,13 +20,13 @@ function Section2() {
 
   useEffect(() => {
     if (isMobile) {
-      setGap("20px");
+      setGap("0px");
     } else if (isSmallLaptop) {
-      setGap("800px"); // Adjust this value as needed for 14-inch MacBook
+      setGap("700px"); // Adjust this value as needed for 14-inch MacBook
     } else if (isMedium) {
       setGap("900px"); // Adjust this value as needed for medium screens
     } else {
-      setGap("500px");
+      setGap("400px");
     }
   }, [isMobile, isMedium, isSmallLaptop]);
 

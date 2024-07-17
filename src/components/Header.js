@@ -10,6 +10,7 @@ const Header = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [open, setOpen] = useState(false);
+  const [hover, setHover] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -99,8 +100,9 @@ const Header = () => {
                     fontSize: '14px',
                   },
                   '&:hover': {
-                    backgroundColor: 'rgba(13, 151, 134, 0.2)',
-                    color: '#0D9786',
+                    backgroundColor: "#0D9786",
+                    color: "white",
+                    border: "0px solid #132B24",
                   },
                 }}
                 disableRipple
@@ -130,11 +132,16 @@ const Header = () => {
                     fontSize: '14px',
                   },
                   '&:hover': {
-                    backgroundColor: '#096B5F',
+                    width: '191px',
+                    backgroundColor: "#F2F8F7",
+                    color: "#132B24",
+                    border: "0"
                   },
                 }}
                 startIcon={<Lightning weight="fill" />}
                 onClick={handleClickOpen}
+                onMouseEnter={() => setHover(true)}
+                onMouseLeave={() => setHover(false)}
                 disableRipple
               >
                 Join Beta Now
