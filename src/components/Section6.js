@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Grid, Typography, Button } from "@mui/material";
 import { Lightning } from "phosphor-react";
 import Image1 from "../assets/section5_1.svg";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+import BetaDialog from "./BetaDialog";
 
 const Section6 = (props) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const [open, setOpen] = useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
 
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
+    <>
     <Box
       id="section5"
       sx={{
@@ -61,11 +70,13 @@ const Section6 = (props) => {
                 color: "white",
                 textAlign: "center",
                 whiteSpace: "normal",
-                lineHeight: "1.2",
+                lineHeight: "20px",
                 fontSize: "14px",
                 boxShadow: "none",
                 marginTop: "20px",
                 fontFamily: "Manrope",
+                textTransform: "none",
+                padding: "8px, 12px, 8px, 12px",
               }}
             >
              Cut Through Fragmented Searches
@@ -74,7 +85,7 @@ const Section6 = (props) => {
               variant="h3"
               sx={{
                 fontFamily: "Aileron",
-                fontSize: "36px",
+                fontSize: "32px",
                 fontWeight: 600,
                 lineHeight: "44px",
                 marginBottom: "5px",
@@ -85,9 +96,11 @@ const Section6 = (props) => {
             <Typography
               variant="body1"
               sx={{
+                width: "335px",
+                height: "160px",
                 fontSize: "20px",
                 lineHeight: "32px",
-                marginBottom: "24px",
+                marginBottom: "50px",
               }}
             >
             Cut through fragmentation with Immortal's unified AI vision. Our advanced algorithms seamlessly integrate all data streams into precise, comprehensive tech predictions.
@@ -97,7 +110,7 @@ const Section6 = (props) => {
               href="#"
               sx={{
                 width: "fit-content",
-                height: "33px",
+                height: "43px",
                 gap: "0px",
                 borderBottom: "1px solid #0EA996",
                 paddingBottom: "10px",
@@ -105,7 +118,7 @@ const Section6 = (props) => {
                 color: "#0EA996",
                 textTransform: "none",
                 padding: "0",
-                fontSize: "18px",
+                fontSize: "20px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -115,11 +128,12 @@ const Section6 = (props) => {
                 textDecoration: "none",
                 cursor: "pointer",
               }}
+              onClick={handleClickOpen}
             >
               <Lightning
                 size={24}
                 weight="fill"
-                sx={{ marginRight: "4px" }}
+                sx={{ marginRight: "5px" }}
               />
               Join Beta Now
             </Box>
@@ -151,6 +165,8 @@ const Section6 = (props) => {
         </Grid>
       </Grid>
     </Box>
+    <BetaDialog open={open} handleClose={handleClose} />
+    </>
   );
 };
 

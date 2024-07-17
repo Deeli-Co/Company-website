@@ -28,7 +28,8 @@ const Section4 = () => {
         backgroundColor: "#132B24",
         padding: "40px 20px",
         "@media (max-width: 600px)": {
-          padding: "20px 10px",
+          padding: "20px 20px",
+          paddingBottom: "60px"
         },
       }}
     >
@@ -41,16 +42,17 @@ const Section4 = () => {
           marginBottom: "40px",
           fontFamily: "Aileron",
           fontSize: "54px",
-          fontWeight: 500,
+          fontWeight: 600,
           lineHeight: "76.8px",
           paddingTop: "80px",
           transition: "opacity 1s ease-out, transform 1s ease-out",
           opacity: inViewText ? 1 : 0,
           transform: inViewText ? "translateY(0)" : "translateY(50px)",
           "@media (max-width: 600px)": {
-            fontSize: "32px",
-            lineHeight: "48px",
+            fontSize: "28px",
+            lineHeight: "40px",
             paddingTop: "40px",
+            marginBottom: "0px",
           },
         }}
         ref={refText}
@@ -71,10 +73,10 @@ const Section4 = () => {
         paddingLeft="1%"
         paddingRight="1%"
         sx={{
-          // "@media (max-width: 600px)": {
-          //   paddingTop: "200px",
-          //   paddingBottom: "40px",
-          // },
+          "@media (max-width: 600px)": {
+            // paddingTop: "200px",
+            paddingBottom: "110px",
+          },
         }}
       >
         <Chip
@@ -93,7 +95,7 @@ const Section4 = () => {
             // opacity: inView1 ? 1 : 0,
             transform: inView1 ? "translateY(0)" : "translateY(50px)",
             "@media (max-width: 600px)": {
-              width: "200px",
+              width: "180px",
               height: "40px",
               fontSize: "14px",
             },
@@ -214,7 +216,7 @@ const Section4 = () => {
           options={{
             type: "loop",
             perPage: 1,
-            gap: "10px",
+            gap: "0px",
             pagination: false,
             arrows: false,
             autoScroll: {
@@ -230,28 +232,28 @@ const Section4 = () => {
             <img
               src={Image2}
               alt="IT & Software"
-              style={{ width: "100%" }}
+              style={{ width: "90%" }}
             />
           </SplideSlide>
           <SplideSlide>
             <img
               src={Image1}
               alt="Life Science"
-              style={{ width: "100%" }}
+              style={{ width: "90%" }}
             />
           </SplideSlide>
           <SplideSlide>
             <img
               src={Image3}
               alt="Robotics"
-              style={{ width: "100%" }}
+              style={{ width: "90%" }}
             />
           </SplideSlide>
           <SplideSlide>
             <img
               src={Image4}
               alt="Automotive"
-              style={{ width: "100%" }}
+              style={{ width: "90%" }}
             />
           </SplideSlide>
         </Splide>

@@ -24,7 +24,7 @@ const Footer = () => {
       <footer
         style={{
           backgroundColor: "#132B24",
-          height: isMobile ? "auto" : "520px",
+          height: isMobile ? "614px" : "520px",
           backgroundImage: `url(${Image1})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -32,7 +32,7 @@ const Footer = () => {
           padding: isMobile ? "20px" : "5%",
         }}
       >
-        <Grid container spacing={2} style={{ marginBottom: "20px" }}>
+        <Grid container spacing={2} style={{ marginBottom: "20px", paddingTop: isMobile ? "25px" : "0px"}}>
           <Grid item xs={12} style={{ display: "flex", alignItems: "center" }}>
             <img src={Logo} alt="Logo" style={{ maxWidth: "100%" }} />
           </Grid>
@@ -56,7 +56,7 @@ const Footer = () => {
                 color: "#FFFFFF",
                 fontWeight: 600,
                 fontSize: isMobile ? "32px" : "48px",
-                marginBottom: "20px",
+                marginBottom: isMobile ? "70px" : "20px",
               }}
             >
               Today's insight,
@@ -88,7 +88,7 @@ const Footer = () => {
                 variant="body1"
                 style={{
                   color: "#FFFFFF",
-                  marginBottom: "10px",
+                  marginBottom: isMobile ? "20px" : "10px",
                   borderBottom: "1px solid #FFFFFF",
                 }}
               >
@@ -98,7 +98,7 @@ const Footer = () => {
                 variant="body1"
                 style={{
                   color: "#FFFFFF",
-                  marginBottom: "10px",
+                  marginBottom: isMobile ? "20px" : "10px",
                   borderBottom: "1px solid #FFFFFF",
                 }}
               >
@@ -127,8 +127,8 @@ const Footer = () => {
                   backgroundColor: "#0D9786",
                   textTransform: "none",
                   color: "white",
-                  fontFamily: "Manrope",
-                  fontSize: isMobile ? "14px" : "16px",
+                  fontFamily: "Aileron",
+                  fontSize: isMobile ? "19px" : "16px",
                   fontWeight: 600,
                   lineHeight: "19.2px",
                   letterSpacing: "0.01em",

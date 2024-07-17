@@ -27,8 +27,8 @@ const Section9 = () => {
         src={isMobile ? Image2 : Image1}
         alt="Center SVG"
         style={{
-          width: isMobile ? '90%' : '40%', // Adjust width for mobile view
-          height: isMobile ? '90%' : '23%', // Adjust height for mobile view
+          width: isMobile ? '100%' : '40%', // Adjust width for mobile view
+          height: isMobile ? '100%' : '23%', // Adjust height for mobile view
         }}
       />
     </Box>

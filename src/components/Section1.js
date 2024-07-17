@@ -46,7 +46,7 @@ const Section1 = () => {
             zIndex: 1,
           }}
         >
-          <LottieAnimation
+          {/* <LottieAnimation
             src="https://lottie.host/68db221a-d566-492f-a599-2a388798c4e2/WzG9x5aAor.json"
             width="100%"
             height="100%"
@@ -54,7 +54,7 @@ const Section1 = () => {
             speed="1"
             loop
             autoplay
-          />
+          /> */}
         </Box>
         <Box
           sx={{
@@ -76,7 +76,7 @@ const Section1 = () => {
               opacity: 1,
               marginBottom: "30px",
               "@media (max-width: 600px)": {
-                fontSize: "36px",
+                fontSize: "28px",
                 fontWeight: "600",
                 lineHeight: "40px",
                 width: "100%",
@@ -128,7 +128,7 @@ const Section1 = () => {
               },
               "@media (max-width: 600px)": {
                 width: "100%",
-                height: "auto",
+                height: "64px",
                 padding: "10px 20px",
               },
             }}

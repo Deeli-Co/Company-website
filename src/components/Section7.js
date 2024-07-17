@@ -1,15 +1,25 @@
-import React from "react";
+import React , { useState }from "react";
 import { Box, Grid, Typography, Button } from "@mui/material";
 import { Lightning } from "phosphor-react";
 import Image1 from "../assets/section6_1.svg";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+import BetaDialog from "./BetaDialog";
+
 
 const Section6 = (props) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const [open, setOpen] = useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
 
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
+    <>
     <Box
       id="section5"
       sx={{
@@ -62,14 +72,16 @@ const Section6 = (props) => {
                 color: "white",
                 textAlign: "center",
                 whiteSpace: "normal",
-                lineHeight: "1.2",
+                lineHeight: "20px",
                 fontSize: "14px",
                 boxShadow: "none",
                 marginTop: "20px",
                 fontFamily: "Manrope",
+                textTransform: "none",
+                padding: "8px, 12px, 8px, 12px",
               }}
             >
-             Cut Through Fragmented Searches
+             Access Innovation Network
             </Button>
             <Typography
               variant="h3"
@@ -81,7 +93,7 @@ const Section6 = (props) => {
                 marginBottom: "5px",
               }}
             >
-             Unifying fragmented data in one click 
+             Connecting Innovation Scouts and Tech Visionaries
             </Typography>
             <Typography
               variant="body1"
@@ -91,14 +103,14 @@ const Section6 = (props) => {
                 marginBottom: "24px",
               }}
             >
-            Cut through fragmentation with Immortal's unified AI vision. Our advanced algorithms seamlessly integrate all data streams into precise, comprehensive tech predictions.
+            Immortal connects investors with emerging tech Innovators, accelerating investment research with exclusive data. Our database uncovers the human experts behind hidden tech innovations, bridging the gap in investment information.
             </Typography>
             <Box
               component="a"
               href="#"
               sx={{
                 width: "fit-content",
-                height: "33px",
+                height: "43px",
                 gap: "0px",
                 borderBottom: "1px solid #0EA996",
                 paddingBottom: "10px",
@@ -106,7 +118,7 @@ const Section6 = (props) => {
                 color: "#0EA996",
                 textTransform: "none",
                 padding: "0",
-                fontSize: "18px",
+                fontSize: "20px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -116,6 +128,7 @@ const Section6 = (props) => {
                 textDecoration: "none",
                 cursor: "pointer",
               }}
+              onClick={handleClickOpen}
             >
               <Lightning
                 size={24}
@@ -153,6 +166,8 @@ const Section6 = (props) => {
         </Grid>
       </Grid>
     </Box>
+    <BetaDialog open={open} handleClose={handleClose} />
+    </>
   );
 };
 

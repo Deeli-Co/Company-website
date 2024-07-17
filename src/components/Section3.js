@@ -14,17 +14,38 @@ import Image2 from "../assets/section3_2.svg";
 import Image3 from "../assets/section3_3.svg";
 import StarIcon from "../assets/star.svg";
 
+const cardsData = [
+  {
+    image: Image1,
+    alt: "Smart, Fast Searches",
+    title: "Smart, Fast Searches",
+    description: "Use AI to scan all sources quickly, eliminating bias and missing nothing.",
+  },
+  {
+    image: Image2,
+    alt: "Unified Data Platform",
+    title: "Unified Data Platform",
+    description: "Combine journals, patents, and more comprehensive tech evaluations.",
+  },
+  {
+    image: Image3,
+    alt: "Clear, Data-Driven Insights",
+    title: "Unlock faster connections",
+    description: "with innovators to seamlessly integrate and adapt to cutting-edge technologies.",
+  },
+];
+
 const Section3 = () => {
+  const [startAnimation, setStartAnimation] = useState(false);
   const [ref1, inView1] = useInView({ triggerOnce: true, threshold: 0.15 });
   const [ref2, inView2] = useInView({ triggerOnce: true, threshold: 0.15 });
   const [ref3, inView3] = useInView({ triggerOnce: true, threshold: 0.15 });
-  const [startAnimation, setStartAnimation] = useState(false);
 
   useEffect(() => {
-    if (inView1) {
+    if (inView1 || inView2 || inView3) {
       setStartAnimation(true);
     }
-  }, [inView1]);
+  }, [inView1, inView2, inView3]);
 
   return (
     <Box
@@ -35,8 +56,9 @@ const Section3 = () => {
         padding: "50px",
         paddingBottom: "130px",
         "@media (max-width: 600px)": {
-          padding: "20px",
-          height: "auto",
+          padding: "10px",
+          height: "1616px",
+          paddingBottom: "100px"
         },
       }}
     >
@@ -104,15 +126,15 @@ const Section3 = () => {
             >
               <CardMedia
                 component="img"
-                alt="Smart, Fast Searches"
-                image={Image1}
+                alt={cardsData[0].alt}
+                image={cardsData[0].image}
               />
               <CardContent>
                 <Typography variant="body1" component="div" sx={{ color: '#6F6F6F' }}>
                   <Box component="span" fontWeight="fontWeightBold" sx={{ color: '#000000' }}>
-                    Smart, Fast Searches,
+                    {cardsData[0].title},
                   </Box>{" "}
-                  Use AI to scan all sources quickly, eliminating bias and missing nothing.
+                  {cardsData[0].description}
                 </Typography>
               </CardContent>
             </Card>
@@ -131,15 +153,15 @@ const Section3 = () => {
             >
               <CardMedia
                 component="img"
-                alt="Unified Data Platform"
-                image={Image2}
+                alt={cardsData[1].alt}
+                image={cardsData[1].image}
               />
               <CardContent>
                 <Typography variant="body1" component="div" sx={{ color: '#6F6F6F' }}>
                   <Box component="span" fontWeight="fontWeightBold" sx={{ color: '#000000' }}>
-                    Unified Data Platform,
+                    {cardsData[1].title},
                   </Box>{" "}
-                  Combine journals, patents, and more comprehensive tech evaluations.
+                  {cardsData[1].description}
                 </Typography>
               </CardContent>
             </Card>
@@ -158,15 +180,15 @@ const Section3 = () => {
             >
               <CardMedia
                 component="img"
-                alt="Clear, Data-Driven Insights"
-                image={Image3}
+                alt={cardsData[2].alt}
+                image={cardsData[2].image}
               />
               <CardContent>
                 <Typography variant="body1" component="div" sx={{ color: '#6F6F6F' }}>
                   <Box component="span" fontWeight="fontWeightBold" sx={{ color: '#000000' }}>
-                    Unlock faster connections,
+                    {cardsData[2].title},
                   </Box>{" "}
-                  with innovators to seamlessly integrate and adapt to cutting-edge technologies
+                  {cardsData[2].description}
                 </Typography>
               </CardContent>
             </Card>

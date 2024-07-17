@@ -7,14 +7,11 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
 const AnimatedNumber = ({ number, delay }) => {
-  const [count, setCount] = useState(0);
-
   const { number: animatedNumber } = useSpring({
     from: { number: 0 },
     number,
     delay,
     config: { duration: 2000 },
-    onRest: () => setCount(number),
   });
 
   return (
@@ -64,7 +61,7 @@ const Section8 = () => {
   return (
     <Container
       style={{
-        marginTop: isMobile ? "300px" : "100px",
+        marginTop: isMobile ? "430px" : "100px",
       }}
     >
       <Box
@@ -82,29 +79,30 @@ const Section8 = () => {
           <Grid item xs={12} sm={4}>
             <Box
               ref={ref1}
-              style={{
-                padding: "20px",
+              sx={{
+                padding: "10px",
                 borderTop: "1px solid #697077",
                 textAlign: "left",
                 width: "100%",
-                height: "325px",
+                height: { xs: "350px", sm: "325px" },
                 transition: "opacity 1s ease-out, transform 1s ease-out",
                 opacity: box1Visible ? 1 : 0,
                 transform: box1Visible ? "translateY(0)" : "translateY(50px)",
               }}
             >
               <Typography
-                style={{
+                sx={{
                   color: "#096B5F",
                   fontSize: "54px",
-                  fontWeight: 500,
-                  fontFamily: "Aileron",
+                  fontWeight: 600,
+                  fontFamily: "Manrope",
                   lineHeight: "64.8px",
+                  paddingTop: "10px"
                 }}
               >
                 {box1Visible && <AnimatedNumber number={20} delay={500} />}X{" "}
                 <ArrowUpward
-                  style={{
+                  sx={{
                     fontSize: "30px",
                     height: "30px",
                     width: "30px",
@@ -114,7 +112,7 @@ const Section8 = () => {
               </Typography>
               <Typography
                 variant="h5"
-                style={{
+                sx={{
                   fontFamily: "Manrope",
                   fontWeight: 600,
                   marginTop: "10px",
@@ -124,7 +122,7 @@ const Section8 = () => {
               </Typography>
               <Typography
                 variant="body1"
-                style={{ marginTop: "30px", color: "#697077" }}
+                sx={{ marginTop: "30px", color: "#697077" }}
               >
                 Helps you identify and acquire high-potential, emerging
                 technologies 20x faster than competitors. Never miss
@@ -137,29 +135,30 @@ const Section8 = () => {
           <Grid item xs={12} sm={4}>
             <Box
               ref={ref2}
-              style={{
-                padding: "20px",
+              sx={{
+                padding: "10px",
                 borderTop: "1px solid #697077",
                 textAlign: "left",
                 width: "100%",
-                height: "325px",
+                height: { xs: "360px", sm: "325px" },
                 transition: "opacity 1s ease-out, transform 1s ease-out",
                 opacity: box2Visible ? 1 : 0,
                 transform: box2Visible ? "translateY(0)" : "translateY(50px)",
               }}
             >
               <Typography
-                style={{
+                sx={{
                   color: "#096B5F",
                   fontSize: "54px",
-                  fontWeight: 500,
-                  fontFamily: "Aileron",
+                  fontWeight: 600,
+                  fontFamily: "Manrope",
                   lineHeight: "64.8px",
+                  paddingTop: "10px"
                 }}
               >
-                {box2Visible && <AnimatedNumber number={40} delay={0} />}{" "}
+                {box2Visible && <AnimatedNumber number={40} delay={0} />}%{" "}
                 <ArrowUpward
-                  style={{
+                  sx={{
                     fontSize: "30px",
                     height: "30px",
                     width: "30px",
@@ -169,7 +168,7 @@ const Section8 = () => {
               </Typography>
               <Typography
                 variant="h5"
-                style={{
+                sx={{
                   fontFamily: "Manrope",
                   fontWeight: 600,
                   marginTop: "10px",
@@ -179,7 +178,7 @@ const Section8 = () => {
               </Typography>
               <Typography
                 variant="body1"
-                style={{ marginTop: "50px", color: "#697077" }}
+                sx={{ marginTop: "30px", color: "#697077", fontSize: "16px" }}
               >
                 Tech scouts are 40% more likely to discover unique, hidden
                 technologies not found elsewhere. Our emphasis on connections to
@@ -193,33 +192,40 @@ const Section8 = () => {
           <Grid item xs={12} sm={4}>
             <Box
               ref={ref3}
-              style={{
-                padding: "20px",
+              sx={{
+                padding: "10px",
                 borderTop: "1px solid #697077",
                 textAlign: "left",
                 width: "100%",
-                height: "325px",
+                height: { xs: "325px", sm: "325px" },
                 transition: "opacity 1s ease-out, transform 1s ease-out",
                 opacity: box3Visible ? 1 : 0,
                 transform: box3Visible ? "translateY(0)" : "translateY(50px)",
               }}
             >
               <Typography
-                style={{
+                sx={{
                   color: "#096B5F",
                   fontSize: "54px",
-                  fontWeight: 500,
-                  fontFamily: "Aileron",
+                  fontWeight: 600,
+                  fontFamily: "Manrope",
                   lineHeight: "64.8px",
+                  paddingTop: "10px"
                 }}
               >
                 {box3Visible && <AnimatedNumber number={18} delay={1000} />}{" "}
-                <span style={{  fontFamily: "Manrope", fontSize: "32px", lineHeight: "38px" }}>
+                <span
+                  style={{
+                    fontFamily: "Manrope",
+                    fontSize: "32px",
+                    lineHeight: "38px",
+                  }}
+                >
                   Months Ahead
                 </span>
               </Typography>
               <Typography
-                style={{
+                sx={{
                   fontWeight: 600,
                   marginTop: "10px",
                   fontSize: "23px",
@@ -230,8 +236,8 @@ const Section8 = () => {
                 Lead in Forecasting Technological Developments
               </Typography>
               <Typography
-                style={{
-                  marginTop: "50px",
+                sx={{
+                  marginTop: "30px",
                   fontSize: "16px",
                   color: "#697077",
                 }}

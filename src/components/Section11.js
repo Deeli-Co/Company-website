@@ -9,7 +9,7 @@ const Section11 = () => {
 
   return (
     <Box
-      style={{
+      sx={{
         width: '100%',
         height: '244px',
         display: 'flex',
@@ -18,11 +18,11 @@ const Section11 = () => {
         alignItems: 'center',
         gap: '10px',
         opacity: 1,
-        padding: isMobile ? '5px' : '0', // Add padding for mobile view
+        padding: isMobile ? '40px' : '0', // Add more padding for mobile view
       }}
     >
       <Box
-        style={{
+        sx={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -37,7 +37,7 @@ const Section11 = () => {
       </Box>
       <Typography
         variant="body1"
-        style={{
+        sx={{
           textAlign: 'center',
           fontSize: '14px',
           color: '#1E3A3A',
@@ -46,18 +46,18 @@ const Section11 = () => {
       >
         {isMobile ? (
           <>
-            With cutting-edge security protocols and an elite team <br />
-            safeguarding your proprietary information, you can <br />
-            confidently embrace visionary AI knowing your mission- <br />
+            With cutting-edge security protocols and an elite team
+            safeguarding your proprietary information, you can
+            confidently embrace visionary AI knowing your mission-
             critical data integrity is assured.
           </>
         ) : (
           <>
             With cutting-edge security protocols and an elite team safeguarding
-        <br />
-        your proprietary information, you can confidently embrace visionary AI
-        <br />
-        knowing your mission-critical data integrity is assured.
+            <br />
+            your proprietary information, you can confidently embrace visionary AI
+            <br />
+            knowing your mission-critical data integrity is assured.
           </>
         )}
       </Typography>

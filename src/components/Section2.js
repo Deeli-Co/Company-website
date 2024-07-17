@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
@@ -7,6 +7,8 @@ import Image2 from "../assets/section2_2.svg";
 import Image3 from "../assets/section2_3.svg";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+
+const images = [Image1, Image2, Image3];
 
 function Section2() {
   const theme = useTheme();
@@ -20,15 +22,15 @@ function Section2() {
     if (isMobile) {
       setGap("20px");
     } else if (isSmallLaptop) {
-      setGap("700px"); // Adjust this value as needed for 14-inch MacBook
+      setGap("800px"); // Adjust this value as needed for 14-inch MacBook
     } else if (isMedium) {
       setGap("900px"); // Adjust this value as needed for medium screens
     } else {
-      setGap("450px");
+      setGap("500px");
     }
   }, [isMobile, isMedium, isSmallLaptop]);
 
-  const options = {
+  const options = useMemo(() => ({
     type: "loop",
     gap: gap,
     drag: "free",
@@ -41,45 +43,15 @@ function Section2() {
       rewind: true,
       speed: 1,
     },
-  };
+  }), [gap, isMobile]);
+
   return (
     <Splide options={options} extensions={{ AutoScroll }}>
-      <SplideSlide style={isMobile ? { width: "100%" } : {}}>
-        <img src={Image1} alt="Slide 1" style={isMobile ? { width: "100%" } : {}} />
-      </SplideSlide>
-      <SplideSlide style={isMobile ? { width: "100%" } : {}}>
-        <img src={Image2} alt="Slide 2" style={isMobile ? { width: "100%" } : {}} />
-      </SplideSlide>
-      <SplideSlide style={isMobile ? { width: "100%" } : {}}>
-        <img src={Image3} alt="Slide 3" style={isMobile ? { width: "100%" } : {}} />
-      </SplideSlide>
-      <SplideSlide style={isMobile ? { width: "100%" } : {}}>
-        <img src={Image1} alt="Slide 4" style={isMobile ? { width: "100%" } : {}} />
-      </SplideSlide>
-      <SplideSlide style={isMobile ? { width: "100%" } : {}}>
-        <img src={Image2} alt="Slide 5" style={isMobile ? { width: "100%" } : {}} />
-      </SplideSlide>
-      <SplideSlide style={isMobile ? { width: "100%" } : {}}>
-        <img src={Image3} alt="Slide 6" style={isMobile ? { width: "100%" } : {}} />
-      </SplideSlide>
-      <SplideSlide style={isMobile ? { width: "100%" } : {}}>
-        <img src={Image1} alt="Slide 7" style={isMobile ? { width: "100%" } : {}} />
-      </SplideSlide>
-      <SplideSlide style={isMobile ? { width: "100%" } : {}}>
-        <img src={Image2} alt="Slide 8" style={isMobile ? { width: "100%" } : {}} />
-      </SplideSlide>
-      <SplideSlide style={isMobile ? { width: "100%" } : {}}>
-        <img src={Image3} alt="Slide 9" style={isMobile ? { width: "100%" } : {}} />
-      </SplideSlide>
-      <SplideSlide style={isMobile ? { width: "100%" } : {}}>
-        <img src={Image1} alt="Slide 10" style={isMobile ? { width: "100%" } : {}} />
-      </SplideSlide>
-      <SplideSlide style={isMobile ? { width: "100%" } : {}}>
-        <img src={Image2} alt="Slide 11" style={isMobile ? { width: "100%" } : {}} />
-      </SplideSlide>
-      <SplideSlide style={isMobile ? { width: "100%" } : {}}>
-        <img src={Image3} alt="Slide 12" style={isMobile ? { width: "100%" } : {}} />
-      </SplideSlide>
+      {Array.from({ length: 12 }).map((_, index) => (
+        <SplideSlide key={index} style={isMobile ? { width: "100%" } : {}}>
+          <img src={images[index % images.length]} alt={`Slide ${index + 1}`} style={isMobile ? { width: "100%" } : {}} />
+        </SplideSlide>
+      ))}
     </Splide>
   );
 }
