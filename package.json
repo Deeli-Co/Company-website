@@ -34,7 +34,6 @@
     "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://deeli-co.github.io/Company-website",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
