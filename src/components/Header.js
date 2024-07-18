@@ -80,14 +80,14 @@ const Header = () => {
               <Button
                onClick={handleLink}
                 sx={{
-                  border: '1px solid #121619',
+                  // border: '1px solid #121619',
                   width: '175px',
                   height: '51px',
                   gap: '8px',
                   borderRadius: '4px',
                   borderTopWidth: '1px',
                   textTransform: 'none',
-                  color: 'black',
+                  color: '#697077',
                   fontFamily: 'Aileron',
                   fontSize: '16px',
                   fontWeight: 600,
@@ -100,8 +100,8 @@ const Header = () => {
                     fontSize: '14px',
                   },
                   '&:hover': {
-                    backgroundColor: "#0D9786",
-                    color: "white",
+                    backgroundColor: "#ffffff",
+                    color: "#132B24",
                     border: "0px solid #132B24",
                   },
                 }}

@@ -63,21 +63,22 @@ const BetaDialog = ({ open, handleClose }) => {
       onClose={handleClose} 
       maxWidth="xl" 
       fullWidth 
+      fullScreen={isMobile}
       PaperProps={{ 
         sx: { 
-          height: isMobile ? '90%' : '75%', 
-          width: isMobile ? '90%' : '70%', 
-          top: isMobile ? '5%' : '-3%' 
+          height: isMobile ? '100%' : '75%', 
+          width: isMobile ? '100%' : '70%', 
+          top: isMobile ? '0' : '-3%', 
         } 
       }}
     >
       <Box sx={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', height: '100%' }}>
-        <Box sx={{ width: isMobile ? '100%' : '50%', backgroundColor: '#E8F4F2', padding: 4, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}>
+        <Box sx={{ width: isMobile ? '100%' : '50%', backgroundColor: '#E8F4F2', padding: isMobile ? 4: 7, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}>
           <DialogTitle sx={{ padding: 0, textAlign: 'left' }}>
             <Box sx={{ display: 'flex', justifyContent: 'flex-start', mb: 2, mt: 4}}>
-              <Avatar alt="Person 1" src={Image1} sx={{ width: isMobile? 32 :56, height: isMobile? 32 : 56, marginRight: '8px' }} />
-              <Avatar alt="Person 2" src={Image2} sx={{ width: isMobile? 32 :56, height: isMobile? 32 : 56, marginRight: '8px'}} />
-              <Avatar alt="Person 2" src={Image3} sx={{ width: isMobile? 32 :56, height: isMobile? 32 : 56 }} />
+              <Avatar alt="Person 1" src={Image1} sx={{ width: isMobile ? 32 : 56, height: isMobile ? 32 : 56, marginRight: '8px' }} />
+              <Avatar alt="Person 2" src={Image2} sx={{ width: isMobile ? 32 : 56, height: isMobile ? 32 : 56, marginRight: '8px'}} />
+              <Avatar alt="Person 2" src={Image3} sx={{ width: isMobile ? 32 : 56, height: isMobile ? 32 : 56 }} />
             </Box>
           </DialogTitle>
           <Box sx={{ width: '100%', textAlign: 'left' }}>
@@ -86,7 +87,7 @@ const BetaDialog = ({ open, handleClose }) => {
                 <>
                   Join our Beta Invest in Next-Gen Tech Today
                 </>
-              ): (
+              ) : (
                 <>
                   Join our Beta <br/> Invest in Next-Gen <br/> Tech Today
                 </>
@@ -94,19 +95,19 @@ const BetaDialog = ({ open, handleClose }) => {
             </Typography>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
               <CheckCircle sx={{ color: '#0D9786', mr: 1 }} />
-              <Typography sx={{ fontFamily: 'Aileron', fontSize:  isMobile ? '14px' : '16px', fontWeight:  isMobile ?  400: 600, lineHeight: '20px', textAlign: 'left' }}>
+              <Typography sx={{ fontFamily: 'Aileron', fontSize: isMobile ? '14px' : '16px', fontWeight: isMobile ? 400 : 600, lineHeight: '20px', textAlign: 'left' }}>
                 <strong style={{color: "#096B5F"}}>20X</strong> Faster at Identifying and Investing in New Technologies
               </Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
               <CheckCircle sx={{ color: '#0D9786', mr: 1 }} />
-              <Typography sx={{ fontFamily: 'Aileron', fontSize:  isMobile ? '14px' : '16px', fontWeight:  isMobile ?  400: 600, lineHeight: '20px', textAlign: 'left' }}>
+              <Typography sx={{ fontFamily: 'Aileron', fontSize: isMobile ? '14px' : '16px', fontWeight: isMobile ? 400 : 600, lineHeight: '20px', textAlign: 'left' }}>
                 <strong style={{color: "#096B5F"}}>40%</strong> higher chance to meet innovators with hidden innovations
               </Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
               <CheckCircle sx={{ color: '#0D9786', mr: 1 }} />
-              <Typography sx={{ fontFamily: 'Aileron', fontSize:  isMobile ? '14px' : '16px', fontWeight:  isMobile ?  400: 600, lineHeight: '20px', textAlign: 'left' }}>
+              <Typography sx={{ fontFamily: 'Aileron', fontSize: isMobile ? '14px' : '16px', fontWeight: isMobile ? 400 : 600, lineHeight: '20px', textAlign: 'left' }}>
                 <strong style={{color: "#096B5F"}}>18 Mon</strong> Tech Network Growth Fuels Investment Potential
               </Typography>
             </Box>

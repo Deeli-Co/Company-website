@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Box, Typography, Button } from "@mui/material";
 import { Lightning } from "phosphor-react";
 import BetaDialog from "./BetaDialog";
+import Image1 from "../assets/section1.svg";
 
 const Section1 = () => {
   const [open, setOpen] = useState(false);
@@ -22,6 +23,9 @@ const Section1 = () => {
           width: "100%",
           height: "768px",
           backgroundColor: "#132B24",
+          backgroundImage: `url(${Image1})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
           position: "relative",
           overflow: "hidden",
           display: "flex",
