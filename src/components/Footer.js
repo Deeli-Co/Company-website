@@ -18,6 +18,9 @@ const Footer = () => {
   const handleClose = () => {
     setOpen(false);
   };
+  const handleLink= () => {
+    window.location.href = 'https://www.linkedin.com/company/deeliai';
+  };
 
   return (
     <>
@@ -90,7 +93,9 @@ const Footer = () => {
                   color: "#FFFFFF",
                   marginBottom: isMobile ? "20px" : "10px",
                   borderBottom: "1px solid #FFFFFF",
+                  cursor: "pointer"
                 }}
+                onClick={handleLink}
               >
                 Follow on LinkedIn
               </Typography>
@@ -121,7 +126,7 @@ const Footer = () => {
             <Box style={{ paddingRight: isMobile ? "0" : "22.5%", paddingTop: isMobile ? "20px" : "3%" }}>
               <Button
                 sx={{
-                  width: isMobile? "325px":"fit-content",
+                  width: isMobile? "334px":"fit-content",
                   height: "52px",
                   padding: "16px 24px",
                   gap: "8px",

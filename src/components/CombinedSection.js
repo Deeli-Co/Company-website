@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Box, Typography, Button } from "@mui/material";
 import { Lightning } from "phosphor-react";
 import { useInView } from "react-intersection-observer";
@@ -28,7 +28,7 @@ const sections = [
     id: "section6",
     title: "Connecting Innovation Scouters and Tech Visionaries",
     description:
-      "De-risk investments with Immortal's data-driven authority. Our models forecast maturity and ROI potential with 98% accuracy, accelerating buy-in for future-defining tech.",
+      "Immortal connects investors with emerging tech Innovators, accelerating investment research with exclusive data. Our database uncovers the human experts behind hidden tech innovations, bridging the gap in investment information.",
     buttonText: "Access Innovation Network",
     image: section6Image,
   },
@@ -58,8 +58,7 @@ const CombinedSection = () => {
     threshold: 0.2,
   });
 
-  const calculateVisiblePortion = React.useCallback((y, h) => {
-    // assume each element height equals to viewport height (i.e., height = 100vh)
+  const calculateVisiblePortion = useCallback((y, h) => {
     if (y !== 0 && !y) {
       return 0;
     }
@@ -79,7 +78,7 @@ const CombinedSection = () => {
     }
   }, []);
 
-  const handleScroll = React.useCallback(() => {
+  const handleScroll = useCallback(() => {
     const vh = window.innerHeight;
     const section5 = document.getElementById("section5");
     const section6 = document.getElementById("section6");
@@ -107,10 +106,9 @@ const CombinedSection = () => {
     setCurrentSection(indexOfLargestValue);
   }, [calculateVisiblePortion]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
-    // unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -152,7 +150,6 @@ const CombinedSection = () => {
           padding: 0,
         }}
       >
-        {/* Left Half */}
         <Box
           id="leftContent"
           sx={{
@@ -172,7 +169,7 @@ const CombinedSection = () => {
               justifyContent: "center",
               alignItems: "flex-start",
               margin: 0,
-              transition: "opacity 1s ease-out, transform 1s ease-out",
+              transition: "opacity 1.5s ease-out, transform 1.5s ease-out",
               opacity: inView5 ? 1 : 0,
               transform: inView5 ? "translateY(0)" : "translateY(50px)",
             }}
@@ -188,200 +185,6 @@ const CombinedSection = () => {
                 gap: "10px",
                 borderRadius: "100px",
                 backgroundColor: "#132B24",
-                textAlign: "center",
-                whiteSpace: "normal",
-                lineHeight: "1.2",
-                fontSize: "14px",
-                boxShadow: "none",
-                marginBottom: "12px",
-                fontFamily: "Manrope",
-                '&:hover': {
-                  backgroundColor: "#132B24",
-                  boxShadow: "none",
-                }
-              }}
-            >
-              {sections[1].buttonText}
-            </Button>
-            <Typography
-              variant="h3"
-              sx={{
-                fontFamily: "Manrope",
-                fontSize: "36px",
-                fontWeight: 600,
-                lineHeight: "44px",
-                marginBottom: "5px",
-              }}
-            >
-              {sections[1].title}
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: "20px",
-                lineHeight: "32px",
-                marginBottom: "24px",
-              }}
-            >
-              {sections[1].description}
-            </Typography>
-            <Box
-              component="a"
-              href="#"
-              sx={{
-                width: "fit-content",
-                height: "33px",
-                gap: "0px",
-                borderBottom: "1px solid #0EA996",
-                paddingBottom: "10px",
-                color: "#0EA996",
-                textTransform: "none",
-                padding: "0",
-                fontSize: "18px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontFamily: "Manrope",
-                fontWeight: 600,
-                lineHeight: "24px",
-                textDecoration: "none",
-                cursor: "pointer",
-                "&:hover": {
-                  color: "#132B24",
-                  borderBottom: "1px solid #132B24",
-                },
-              }}
-              onClick={handleClickOpen}
-            >
-              <Lightning size={24} weight="fill" sx={{ marginRight: "4px" }} />
-              Join Beta Now
-            </Box>
-          </Box>
-          <Box
-            id="section6"
-            sx={{
-              paddingLeft: "15%",
-              paddingRight: "15%",
-              height: "100vh",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "flex-start",
-              margin: 0,
-              transition: "opacity 1s ease-out, transform 1s ease-out",
-              opacity: inView6 ? 1 : 0,
-              transform: inView6 ? "translateY(0)" : "translateY(50px)",
-            }}
-            ref={ref6}
-          >
-            <Button
-              variant="contained"
-              disableRipple
-              sx={{
-                width: "fit-content",
-                height: "auto",
-                padding: "8px 12px",
-                gap: "10px",
-                borderRadius: "100px",
-                backgroundColor: "#132B24",
-                color: "white",
-                textAlign: "center",
-                whiteSpace: "normal",
-                lineHeight: "1.2",
-                fontSize: "14px",
-                boxShadow: "none",
-                marginBottom: "12px",
-                fontFamily: "Manrope",
-                '&:hover': {
-                  backgroundColor: "#132B24",
-                  boxShadow: "none",
-                }
-              }}
-            >
-              {sections[2].buttonText}
-            </Button>
-            <Typography
-              variant="h3"
-              sx={{
-                fontFamily: "Manrope",
-                fontSize: "36px",
-                fontWeight: 600,
-                lineHeight: "44px",
-                marginBottom: "5px",
-              }}
-            >
-              {sections[2].title}
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: "20px",
-                lineHeight: "32px",
-                marginBottom: "24px",
-              }}
-            >
-              {sections[2].description}
-            </Typography>
-            <Box
-              component="a"
-              href="#"
-              sx={{
-                width: "fit-content",
-                height: "33px",
-                gap: "0px",
-                borderBottom: "1px solid #0EA996",
-                paddingBottom: "10px",
-                color: "#0EA996",
-                textTransform: "none",
-                padding: "0",
-                fontSize: "18px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontFamily: "Manrope",
-                fontWeight: 600,
-                lineHeight: "24px",
-                textDecoration: "none",
-                cursor: "pointer",
-                "&:hover": {
-                  color: "#132B24",
-                  borderBottom: "1px solid #132B24",
-                },
-              }}
-              onClick={handleClickOpen}
-            >
-              <Lightning size={24} weight="fill" sx={{ marginRight: "4px" }} />
-              Join Beta Now
-            </Box>
-          </Box>
-          <Box
-            id="section7"
-            sx={{
-              paddingLeft: "15%",
-              paddingRight: "15%",
-              height: "100vh",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "flex-start",
-              margin: 0,
-              transition: "opacity 1s ease-out, transform 1s ease-out",
-              opacity: inView7 ? 1 : 0,
-              transform: inView7 ? "translateY(0)" : "translateY(50px)",
-            }}
-            ref={ref7}
-          >
-            <Button
-              variant="contained"
-              disableRipple
-              sx={{
-                width: "fit-content",
-                height: "auto",
-                padding: "8px 12px",
-                gap: "10px",
-                borderRadius: "100px",
-                backgroundColor: "#132B24",
-                color: "white",
                 textAlign: "center",
                 whiteSpace: "normal",
                 lineHeight: "1.2",
@@ -451,9 +254,202 @@ const CombinedSection = () => {
               Join Beta Now
             </Box>
           </Box>
+          <Box
+            id="section6"
+            sx={{
+              paddingLeft: "15%",
+              paddingRight: "15%",
+              height: "100vh",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "flex-start",
+              margin: 0,
+              transition: "opacity 1.5s ease-out, transform 1.5s ease-out",
+              opacity: inView6 ? 1 : 0,
+              transform: inView6 ? "translateY(0)" : "translateY(50px)",
+            }}
+            ref={ref6}
+          >
+            <Button
+              variant="contained"
+              disableRipple
+              sx={{
+                width: "fit-content",
+                height: "auto",
+                padding: "8px 12px",
+                gap: "10px",
+                borderRadius: "100px",
+                backgroundColor: "#132B24",
+                color: "white",
+                textAlign: "center",
+                whiteSpace: "normal",
+                lineHeight: "1.2",
+                fontSize: "14px",
+                boxShadow: "none",
+                marginBottom: "20px",
+                fontFamily: "Manrope",
+                '&:hover': {
+                  backgroundColor: "#132B24",
+                  boxShadow: "none",
+                }
+              }}
+            >
+              {sections[1].buttonText}
+            </Button>
+            <Typography
+              variant="h3"
+              sx={{
+                fontFamily: "Manrope",
+                fontSize: "36px",
+                fontWeight: 600,
+                lineHeight: "44px",
+                marginBottom: "20px",
+              }}
+            >
+              {sections[1].title}
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: "20px",
+                lineHeight: "32px",
+                marginBottom: "24px",
+              }}
+            >
+              {sections[1].description}
+            </Typography>
+            <Box
+              component="a"
+              href="#"
+              sx={{
+                width: "fit-content",
+                height: "33px",
+                gap: "0px",
+                borderBottom: "1px solid #0EA996",
+                paddingBottom: "10px",
+                color: "#0EA996",
+                textTransform: "none",
+                padding: "0",
+                fontSize: "18px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontFamily: "Manrope",
+                fontWeight: 600,
+                lineHeight: "24px",
+                textDecoration: "none",
+                cursor: "pointer",
+                "&:hover": {
+                  color: "#132B24",
+                  borderBottom: "1px solid #132B24",
+                },
+              }}
+              onClick={handleClickOpen}
+            >
+              <Lightning size={24} weight="fill" sx={{ marginRight: "4px" }} />
+              Join Beta Now
+            </Box>
+          </Box>
+          <Box
+            id="section7"
+            sx={{
+              paddingLeft: "15%",
+              paddingRight: "15%",
+              height: "100vh",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "flex-start",
+              margin: 0,
+              transition: "opacity 1.5s ease-out, transform 1.5s ease-out",
+              opacity: inView7 ? 1 : 0,
+              transform: inView7 ? "translateY(0)" : "translateY(50px)",
+            }}
+            ref={ref7}
+          >
+            <Button
+              variant="contained"
+              disableRipple
+              sx={{
+                width: "fit-content",
+                height: "auto",
+                padding: "8px 12px",
+                gap: "10px",
+                borderRadius: "100px",
+                backgroundColor: "#132B24",
+                color: "white",
+                textAlign: "center",
+                whiteSpace: "normal",
+                lineHeight: "1.2",
+                fontSize: "14px",
+                boxShadow: "none",
+                marginBottom: "12px",
+                fontFamily: "Manrope",
+                '&:hover': {
+                  backgroundColor: "#132B24",
+                  boxShadow: "none",
+                }
+              }}
+            >
+              {sections[2].buttonText}
+            </Button>
+            <Typography
+              variant="h3"
+              sx={{
+                fontFamily: "Manrope",
+                fontSize: "36px",
+                fontWeight: 600,
+                lineHeight: "44px",
+                marginBottom: "20px",
+              }}
+            >
+              {sections[2].title}
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: "20px",
+                lineHeight: "32px",
+                marginBottom: "24px",
+              }}
+            >
+              {sections[2].description}
+            </Typography>
+            <Box
+              component="a"
+              href="#"
+              sx={{
+                width: "fit-content",
+                height: "33px",
+                gap: "0px",
+                borderBottom: "1px solid #0EA996",
+                paddingBottom: "10px",
+                color: "#0EA996",
+                textTransform: "none",
+                padding: "0",
+                fontSize: "18px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontFamily: "Manrope",
+                fontWeight: 600,
+                lineHeight: "24px",
+                textDecoration: "none",
+                cursor: "pointer",
+                "&:hover": {
+                  color: "#132B24",
+                  borderBottom: "1px solid #132B24",
+                },
+              }}
+              onClick={handleClickOpen}
+            >
+              <Lightning size={24} weight="fill" sx={{ marginRight: "4px" }} />
+              Join Beta Now
+            </Box>
+          </Box>
         </Box>
 
-        {/* Right Half */}
         <Box
           id="rightContent"
           sx={{
@@ -470,7 +466,7 @@ const CombinedSection = () => {
             sx={{
               transition:
                 currentSection === 0 &&
-                "opacity 1s ease-out, transform 1s ease-out",
+                "opacity 1.5s ease-out, transform 1.5s ease-out",
               opacity: currentSection === 0 ? 1 : 0,
               transform:
                 inView5 || inView6 || inView7
@@ -492,7 +488,7 @@ const CombinedSection = () => {
             sx={{
               transition:
                 currentSection === 1 &&
-                "opacity 1s ease-out, transform 1s ease-out",
+                "opacity 1.5s ease-out, transform 1.5s ease-out",
               opacity: currentSection === 1 ? 1 : 0,
               transform:
                 inView5 || inView6 || inView7
@@ -513,7 +509,7 @@ const CombinedSection = () => {
             sx={{
               transition:
                 currentSection === 2 &&
-                "opacity 1s ease-out, transform 1s ease-out",
+                "opacity 1.5s ease-out, transform 1.5s ease-out",
               opacity: currentSection === 2 ? 1 : 0,
               transform:
                 inView5 || inView6 || inView7

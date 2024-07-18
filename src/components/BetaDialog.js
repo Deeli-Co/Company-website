@@ -6,6 +6,7 @@ import { useTheme } from '@mui/material/styles';
 import Image1 from "../assets/section10_2.svg";
 import Image2 from "../assets/section10_4.svg";
 import Image3 from "../assets/section10_3.svg";
+import { SpinnerGap } from 'phosphor-react';
 
 const BetaDialog = ({ open, handleClose }) => {
   const theme = useTheme();
@@ -21,6 +22,7 @@ const BetaDialog = ({ open, handleClose }) => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);  // Loading state
 
   const handleChange = (e) => {
     setFormData({
@@ -31,6 +33,7 @@ const BetaDialog = ({ open, handleClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);  // Set loading to true when starting the request
     try {
       const response = await fetch('https://us-central1-immortal-407108.cloudfunctions.net/dashboard-notion', {
         method: 'POST',
@@ -57,6 +60,7 @@ const BetaDialog = ({ open, handleClose }) => {
     } catch (error) {
       console.error('Error:', error);
     }
+    setLoading(false);  // Set loading to false after the request is complete
   };
 
   const handleDialogClose = () => {
@@ -83,11 +87,12 @@ const BetaDialog = ({ open, handleClose }) => {
         sx: { 
           height: isMobile ? '100%' : '75%', 
           width: isMobile ? '100%' : '70%', 
-          top: isMobile ? (isSubmitted ? '28%' : '0') : '-3%', 
+          top: isMobile ? (isSubmitted ? '20%' : '0') : '-3%', 
           padding: isMobile ? '0' : '0',
           borderRadius: isMobile ? (isSubmitted ? '1%' : '0')  : '0',
           opacity: isMobile ? '1' : '1',
-          margin: isMobile ? '0 auto' : 'initial',
+          margin: isMobile ? '"0 auto"' : 'initial',
+          backgroundColor: isMobile ? '#F2F8F7' : '#FFFFFF'
         } 
       }}
     >
@@ -95,17 +100,17 @@ const BetaDialog = ({ open, handleClose }) => {
         {isSubmitted ? (
           <Box 
             sx={{ 
-              width: isMobile ? '375px' : '100%', 
-              height: isMobile ? '531px' : 'auto', 
+              width: isMobile ? '100%' : '100%', 
+              height: isMobile ? '100%' : 'auto', 
               padding: isMobile ? '24px 20px' : '4', 
               gap: isMobile ? '16px' : '0',
               borderRadius: isMobile ? '8px 8px 0px 0px' : '0',
               display: 'flex', 
               flexDirection: 'column', 
-              justifyContent: 'center', 
+              justifyContent: isMobile ? 'flex-start' : 'center', 
               alignItems: 'center', 
               backgroundColor: "#F2F8F7",
-              mt: isMobile? -10: 0,
+              mt: isMobile? 10: 0,
             }}>
             <DialogTitle sx={{ padding: 0 }}>
               <IconButton
@@ -131,7 +136,7 @@ const BetaDialog = ({ open, handleClose }) => {
           </Box>
         ) : (
           <>
-            <Box sx={{ width: isMobile ? '100%' : '50%', backgroundColor: '#E8F4F2', padding: isMobile ? 4: 7, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}>
+            <Box sx={{ width: isMobile ? '100%' : '50%', backgroundColor: '#E8F4F2', padding: isMobile ? 4 : 7, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}>
               <DialogTitle sx={{ padding: 0, textAlign: 'left' }}>
                 <Box sx={{ display: 'flex', justifyContent: 'flex-start', mb: 2, mt: 4}}>
                   <Avatar alt="Person 1" src={Image1} sx={{ width: isMobile ? 32 : 56, height: isMobile ? 32 : 56, marginRight: '8px' }} />
@@ -316,10 +321,30 @@ const BetaDialog = ({ open, handleClose }) => {
                         boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)', // Ensuring box shadow also remains the same
                       },
                     }}
-                    startIcon={<FlashOn />}
+                    startIcon={loading ? null : <FlashOn />}
                   >
-                    Join Beta Now
+                    {loading ? (
+                      <SpinnerGap
+                        size={24}
+                        color="#FFFFFF"
+                        style={{ animation: "spin 1s linear infinite" }}
+                      />
+                    ) : (
+                      "Join Beta Now"
+                    )}
                   </Button>
+                  <style>
+                  {`
+                      @keyframes spin {
+                        0% { transform: rotate(0deg); }
+                        100% { transform: rotate(360deg); }
+                      }
+                      @keyframes fadeInUp {
+                        0% { opacity: 0; transform: translateY(20px); }
+                        100% { opacity: 1; transform: translateY(0); }
+                      }
+                  `}
+                </style>
                 </Box>
               </DialogContent>
             </Box>
