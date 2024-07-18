@@ -38,6 +38,7 @@ const Section10 = () => {
   const handleClose = () => {
     setOpen(false);
   };
+
   return (
     <>
       <Box
@@ -140,8 +141,13 @@ const Section10 = () => {
               transition: "opacity 1s ease-out, transform 1s ease-out",
             }}
           >
-            Never waste another resource <br/> chasing the wrong technologies or <br/>
-            opportunities.
+            {isMobile ? (
+              <>
+                Never waste another resource <br /> chasing the wrong technologies or <br /> opportunities.
+              </>
+            ) : (
+              "Never waste another resource chasing the wrong technologies or opportunities."
+            )}
           </Typography>
           <Box
             ref={refButton}
@@ -157,7 +163,7 @@ const Section10 = () => {
             <Button
               variant="contained"
               disableRipple
-              style={{
+              sx={{
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -171,6 +177,11 @@ const Section10 = () => {
                 borderRadius: "4px",
                 borderBottom: "1px solid #132B24",
                 boxShadow: "none",
+                "&:hover": {
+                  backgroundColor: "#0D9786",
+                  color: "white",
+                  // border: "1px solid #132B24",
+                },
               }}
               onClick={handleClickOpen}
             >
