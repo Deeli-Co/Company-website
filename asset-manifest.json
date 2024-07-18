@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Company-website/static/css/main.ea272a04.css",
-    "main.js": "/Company-website/static/js/main.bb058382.js",
+    "main.js": "/Company-website/static/js/main.ed1b1e88.js",
     "static/js/453.9afe920c.chunk.js": "/Company-website/static/js/453.9afe920c.chunk.js",
     "static/media/section6_1.svg": "/Company-website/static/media/section6_1.b31210a4277c89a12e71bcc835613283.svg",
     "static/media/section4_4.svg": "/Company-website/static/media/section4_4.18e7e169583f8cce1a261ad8cce2406c.svg",
@@ -19,7 +19,7 @@
     "static/media/section5_1.svg": "/Company-website/static/media/section5_1.8faa2379046233c8860bc4125ee2e342.svg",
     "static/media/section10_2.svg": "/Company-website/static/media/section10_2.8e0172ac2939c50e91e88074f10027e5.svg",
     "static/media/section10_3.svg": "/Company-website/static/media/section10_3.b08bf359c51bf5de85ba0f0cbe110896.svg",
-    "static/media/section1.svg": "/Company-website/static/media/section1.cb092c56c661a2df2699204f3bb8a10d.svg",
+    "static/media/background.svg": "/Company-website/static/media/background.f26757cd2fb48f52a703c278586f4e92.svg",
     "static/media/footer.svg": "/Company-website/static/media/footer.19b2df7c7eb3c0c515fb696755066d47.svg",
     "static/media/section2_2.svg": "/Company-website/static/media/section2_2.f1bdd162de70736114b83f716dc7b540.svg",
     "static/media/section3_2.svg": "/Company-website/static/media/section3_2.475173c16f06a129258f1aa6b1dfa026.svg",
@@ -30,11 +30,11 @@
     "index.html": "/Company-website/index.html",
     "static/media/star.svg": "/Company-website/static/media/star.44efd94c68985f4dbb95a36b99671b63.svg",
     "main.ea272a04.css.map": "/Company-website/static/css/main.ea272a04.css.map",
-    "main.bb058382.js.map": "/Company-website/static/js/main.bb058382.js.map",
+    "main.ed1b1e88.js.map": "/Company-website/static/js/main.ed1b1e88.js.map",
     "453.9afe920c.chunk.js.map": "/Company-website/static/js/453.9afe920c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ea272a04.css",
-    "static/js/main.bb058382.js"
+    "static/js/main.ed1b1e88.js"
   ]
 }
