@@ -107,7 +107,7 @@ const Footer = () => {
               >
                 Contact us
               </Typography>
-              <Typography
+              {/* <Typography
                 variant="body1"
                 style={{
                   color: "#FFFFFF",
@@ -116,7 +116,7 @@ const Footer = () => {
                 }}
               >
                 Privacy policy
-              </Typography>
+              </Typography> */}
             </Box>
             <Box style={{ paddingRight: isMobile ? "0" : "22.5%", paddingTop: isMobile ? "20px" : "3%" }}>
               <Button

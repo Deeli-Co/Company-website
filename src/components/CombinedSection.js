@@ -44,64 +44,77 @@ const CombinedSection = () => {
   const handleClose = () => {
     setOpen(false);
   };
-  const [lockScroll, setLockScroll] = useState(false);
+
   const [currentSection, setCurrentSection] = useState(0);
-  const {
-    ref: ref5,
-    inView: inView5,
-    entry: entry5,
-  } = useInView({
+  const { ref: ref5, inView: inView5 } = useInView({
     threshold: 0.2,
   });
 
-  const {
-    ref: ref6,
-    inView: inView6,
-    entry: entry6,
-  } = useInView({
+  const { ref: ref6, inView: inView6 } = useInView({
     threshold: 0.2,
   });
 
-  const {
-    ref: ref7,
-    inView: inView7,
-    entry: entry7,
-  } = useInView({
+  const { ref: ref7, inView: inView7 } = useInView({
     threshold: 0.2,
   });
 
-  useEffect(() => {
-    if (
-      entry5?.isIntersecting ||
-      entry6?.isIntersecting ||
-      entry7?.isIntersecting
-    ) {
-      setLockScroll(true);
-    } else {
-      setLockScroll(false);
+  const calculateVisiblePortion = React.useCallback((y, h) => {
+    // assume each element height equals to viewport height (i.e., height = 100vh)
+    if (y !== 0 && !y) {
+      return 0;
     }
-  }, [entry5, entry6, entry7]);
 
-  const handleLeftScroll = () => {
-    const leftContent = document.getElementById("leftContent");
+    if (y > 0) {
+      if (y > h) {
+        return 0;
+      }
+
+      return (h - y) / h;
+    } else {
+      if (h + y < 0) {
+        return 0;
+      }
+
+      return (h + y) / h;
+    }
+  }, []);
+
+  const handleScroll = React.useCallback(() => {
+    const vh = window.innerHeight;
     const section5 = document.getElementById("section5");
     const section6 = document.getElementById("section6");
     const section7 = document.getElementById("section7");
-    if (leftContent && section5 && section6 && section7) {
-      const scrollPosition = leftContent.scrollTop;
-      const section5Height = section5.offsetHeight;
-      const section6Top = section6.offsetTop - section5.offsetTop;
-      const section7Top = section7.offsetTop - section5.offsetTop;
 
-      if (scrollPosition >= section7Top - section5Height / 2) {
-        setCurrentSection(2);
-      } else if (scrollPosition >= section6Top - section5Height / 2) {
-        setCurrentSection(1);
-      } else {
-        setCurrentSection(0);
-      }
-    }
-  };
+    const section5VP = calculateVisiblePortion(
+      section5?.getBoundingClientRect().y,
+      vh
+    );
+    const section6VP = calculateVisiblePortion(
+      section6?.getBoundingClientRect().y,
+      vh
+    );
+    const section7VP = calculateVisiblePortion(
+      section7?.getBoundingClientRect().y,
+      vh
+    );
+
+    const indexOfLargestValue = [section5VP, section6VP, section7VP].reduce(
+      (maxIndex, currentValue, currentIndex, array) =>
+        currentValue > array[maxIndex] ? currentIndex : maxIndex,
+      0
+    );
+
+    setCurrentSection(indexOfLargestValue);
+  }, [calculateVisiblePortion]);
+
+  React.useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    // unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [handleScroll]);
 
   const handleRightScroll = (event) => {
     const leftContent = document.getElementById("leftContent");
@@ -135,7 +148,6 @@ const CombinedSection = () => {
           height: "100%",
           display: "flex",
           position: "relative",
-          overflow: "hidden",
           margin: 0,
           padding: 0,
         }}
@@ -145,15 +157,9 @@ const CombinedSection = () => {
           id="leftContent"
           sx={{
             width: "50%",
-            overflowY: "scroll",
-            height: "100vh",
-            scrollbarWidth: "none",
-            msOverflowStyle: "none",
-            "&::-webkit-scrollbar": { display: "none" },
             padding: 0,
             margin: 0,
           }}
-          onScroll={handleLeftScroll}
         >
           <Box
             id="section5"
@@ -189,6 +195,10 @@ const CombinedSection = () => {
                 boxShadow: "none",
                 marginBottom: "12px",
                 fontFamily: "Manrope",
+                '&:hover': {
+                  backgroundColor: "#132B24",
+                  boxShadow: "none",
+                }
               }}
             >
               {sections[1].buttonText}
@@ -236,6 +246,10 @@ const CombinedSection = () => {
                 lineHeight: "24px",
                 textDecoration: "none",
                 cursor: "pointer",
+                "&:hover": {
+                  color: "#132B24",
+                  borderBottom: "1px solid #132B24",
+                },
               }}
               onClick={handleClickOpen}
             >
@@ -278,6 +292,10 @@ const CombinedSection = () => {
                 boxShadow: "none",
                 marginBottom: "12px",
                 fontFamily: "Manrope",
+                '&:hover': {
+                  backgroundColor: "#132B24",
+                  boxShadow: "none",
+                }
               }}
             >
               {sections[2].buttonText}
@@ -325,6 +343,10 @@ const CombinedSection = () => {
                 lineHeight: "24px",
                 textDecoration: "none",
                 cursor: "pointer",
+                "&:hover": {
+                  color: "#132B24",
+                  borderBottom: "1px solid #132B24",
+                },
               }}
               onClick={handleClickOpen}
             >
@@ -367,6 +389,10 @@ const CombinedSection = () => {
                 boxShadow: "none",
                 marginBottom: "12px",
                 fontFamily: "Manrope",
+                '&:hover': {
+                  backgroundColor: "#132B24",
+                  boxShadow: "none",
+                }
               }}
             >
               {sections[0].buttonText}
@@ -414,6 +440,10 @@ const CombinedSection = () => {
                 lineHeight: "24px",
                 textDecoration: "none",
                 cursor: "pointer",
+                "&:hover": {
+                  color: "#132B24",
+                  borderBottom: "1px solid #132B24",
+                },
               }}
               onClick={handleClickOpen}
             >
@@ -428,40 +458,74 @@ const CombinedSection = () => {
           id="rightContent"
           sx={{
             width: "50%",
+            height: "100vh",
             position: "sticky",
             top: 0,
             display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
             overflow: "hidden",
             marginTop: "-30px",
           }}
-          onWheel={handleRightScroll}
         >
           <Box
             sx={{
-              transition: "opacity 1s ease-out, transform 1s ease-out",
-              opacity:
-                (currentSection === 0 && inView5) ||
-                (currentSection === 1 && inView6) ||
-                (currentSection === 2 && inView7)
-                  ? 1
-                  : 0,
+              transition:
+                currentSection === 0 &&
+                "opacity 1s ease-out, transform 1s ease-out",
+              opacity: currentSection === 0 ? 1 : 0,
               transform:
-                (currentSection === 0 && inView5) ||
-                (currentSection === 1 && inView6) ||
-                (currentSection === 2 && inView7)
+                inView5 || inView6 || inView7
                   ? "translateY(0)"
                   : "translateY(50px)",
               width: "100%",
-              height: "100%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
+              height: "100vh",
+              position: "absolute",
+              marginTop: "20px",
             }}
           >
             <img
-              src={sections[currentSection].image}
+              src={sections[0].image}
+              alt="Visual Representation"
+              style={{ width: "100%", height: "100%", objectFit: "contain" }}
+            />
+          </Box>
+          <Box
+            sx={{
+              transition:
+                currentSection === 1 &&
+                "opacity 1s ease-out, transform 1s ease-out",
+              opacity: currentSection === 1 ? 1 : 0,
+              transform:
+                inView5 || inView6 || inView7
+                  ? "translateY(0)"
+                  : "translateY(50px)",
+              width: "100%",
+              height: "100vh",
+              position: "absolute",
+            }}
+          >
+            <img
+              src={sections[1].image}
+              alt="Visual Representation"
+              style={{ width: "100%", height: "100%", objectFit: "contain" }}
+            />
+          </Box>
+          <Box
+            sx={{
+              transition:
+                currentSection === 2 &&
+                "opacity 1s ease-out, transform 1s ease-out",
+              opacity: currentSection === 2 ? 1 : 0,
+              transform:
+                inView5 || inView6 || inView7
+                  ? "translateY(0)"
+                  : "translateY(50px)",
+              width: "100%",
+              height: "100vh",
+              position: "absolute",
+            }}
+          >
+            <img
+              src={sections[2].image}
               alt="Visual Representation"
               style={{ width: "100%", height: "100%", objectFit: "contain" }}
             />

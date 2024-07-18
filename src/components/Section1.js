@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, Typography, Button } from "@mui/material";
 import { Lightning } from "phosphor-react";
 import BetaDialog from "./BetaDialog";
-import Image1 from "../assets/section1.svg";
+import Image1 from "../assets/background.svg";
 
 const Section1 = () => {
   const [open, setOpen] = useState(false);

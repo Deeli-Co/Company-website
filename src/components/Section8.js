@@ -76,7 +76,7 @@ const Section8 = () => {
       >
         <Grid
           container
-          spacing={isMobile ? 2 : 12} // Increased spacing for desktop view
+          spacing={isMobile ? 2 : 15 } // Increased spacing for desktop view
           justifyContent="center"
           alignItems="center"
         >
@@ -88,7 +88,7 @@ const Section8 = () => {
                 padding: "10px",
                 borderTop: "1px solid #697077",
                 textAlign: "left",
-                width: "100%",
+                width: isMobile? "100%" : "364px",
                 height: { xs: "350px", sm: "325px" },
                 transition: "opacity 1s ease-out, transform 1s ease-out",
                 opacity: box1Visible ? 1 : 0,
@@ -118,6 +118,8 @@ const Section8 = () => {
               <Typography
                 variant="h5"
                 sx={{
+                  width: isMobile? "100%" : "364px",
+                  fontSize: "24px",
                   fontFamily: "Manrope",
                   fontWeight: 600,
                   marginTop: "10px",
@@ -144,7 +146,7 @@ const Section8 = () => {
                 padding: "10px",
                 borderTop: "1px solid #697077",
                 textAlign: "left",
-                width: "100%",
+                width: isMobile? "100%" : "364px",
                 height: { xs: "360px", sm: "325px" },
                 transition: "opacity 1s ease-out, transform 1s ease-out",
                 opacity: box2Visible ? 1 : 0,
@@ -206,6 +208,7 @@ const Section8 = () => {
                 transition: "opacity 1s ease-out, transform 1s ease-out",
                 opacity: box3Visible ? 1 : 0,
                 transform: box3Visible ? "translateY(0)" : "translateY(50px)",
+                width: isMobile? "100%" : "364px",
               }}
             >
               <Typography
