@@ -42,7 +42,7 @@ const Section8 = () => {
 
   useEffect(() => {
     if (inView1) {
-      setTimeout(() => setBox1Visible(true), 300); // Delay of 0.5 seconds
+      setTimeout(() => setBox1Visible(true), 300); // Delay of 0.3 seconds
     }
   }, [inView1]);
 
@@ -54,7 +54,7 @@ const Section8 = () => {
 
   useEffect(() => {
     if (inView3) {
-      setTimeout(() => setBox3Visible(true), 100); // Delay of 1 second
+      setTimeout(() => setBox3Visible(true), 100); // Delay of 0.1 seconds
     }
   }, [inView3]);
 
@@ -74,7 +74,12 @@ const Section8 = () => {
           boxSizing: "border-box",
         }}
       >
-        <Grid container spacing={2} justifyContent="center" alignItems="center">
+        <Grid
+          container
+          spacing={isMobile ? 2 : 12} // Increased spacing for desktop view
+          justifyContent="center"
+          alignItems="center"
+        >
           {/* First Box */}
           <Grid item xs={12} sm={4}>
             <Box
@@ -97,7 +102,7 @@ const Section8 = () => {
                   fontWeight: 600,
                   fontFamily: "Manrope",
                   lineHeight: "64.8px",
-                  paddingTop: "10px"
+                  paddingTop: "10px",
                 }}
               >
                 {box1Visible && <AnimatedNumber number={20} delay={500} />}X{" "}
@@ -153,7 +158,7 @@ const Section8 = () => {
                   fontWeight: 600,
                   fontFamily: "Manrope",
                   lineHeight: "64.8px",
-                  paddingTop: "10px"
+                  paddingTop: "10px",
                 }}
               >
                 {box2Visible && <AnimatedNumber number={40} delay={0} />}%{" "}
@@ -210,7 +215,7 @@ const Section8 = () => {
                   fontWeight: 600,
                   fontFamily: "Manrope",
                   lineHeight: "64.8px",
-                  paddingTop: "10px"
+                  paddingTop: "10px",
                 }}
               >
                 {box3Visible && <AnimatedNumber number={18} delay={1000} />}{" "}

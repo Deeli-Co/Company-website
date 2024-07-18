@@ -96,10 +96,13 @@ const Footer = () => {
               </Typography>
               <Typography
                 variant="body1"
+                component="a"
+                href="mailto:support@deeli.ai"
                 style={{
                   color: "#FFFFFF",
                   marginBottom: isMobile ? "20px" : "10px",
                   borderBottom: "1px solid #FFFFFF",
+                  textDecoration: "none",
                 }}
               >
                 Contact us
