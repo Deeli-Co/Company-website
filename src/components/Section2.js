@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useMemo, useEffect } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
@@ -14,21 +14,53 @@ function Section2() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isMedium = useMediaQuery(theme.breakpoints.between('sm', 'md'));
-  const isSmallLaptop = useMediaQuery('(min-width: 1280px) and (max-width: 1540px)');
-
-  const [gap, setGap] = useState("450px");
+  const isSmallLaptop = useMediaQuery('(min-width: 1400px) and (max-width: 1540px)');
+  const isTiny = useMediaQuery('(min-width: 580px) and (max-width: 900px)');
+  const isMid = useMediaQuery('(min-width: 1140px) and (max-width: 1280px)');
+  const isSmMid = useMediaQuery('(min-width: 1030px) and (max-width: 1140px)');
+  const isSSMid = useMediaQuery('(min-width: 900px) and (max-width: 1030px)');
+  const isSm = useMediaQuery('(min-width: 1280px) and (max-width: 1400px)');
 
   useEffect(() => {
+    const getCurrentScreenSize = () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      return { width, height };
+    };
+
+    const currentScreenSize = getCurrentScreenSize();
+    console.log("Current screen size:", currentScreenSize);
+    console.log("isMobile:", isMobile);
+    console.log("isMedium:", isMedium);
+    console.log("isSmallLaptop:", isSmallLaptop);
+    console.log("isTiny:", isTiny);
+    console.log("isMid:", isMid);
+    console.log("isSmMid:", isSmMid);
+    console.log("isSm:", isSm);
+    console.log("isSSmd:", isSSMid);
+  }, [isMobile, isMedium, isSmallLaptop, isTiny, isMid, isSm, isSmMid, isSSMid]);
+
+  const gap = useMemo(() => {
     if (isMobile) {
-      setGap("0px");
+      return "0px";
     } else if (isSmallLaptop) {
-      setGap("700px"); // Adjust this value as needed for 14-inch MacBook
+      return "700px"; // Adjust this value as needed for 14-inch MacBook
     } else if (isMedium) {
-      setGap("900px"); // Adjust this value as needed for medium screens
+      return "900px";
+    } else if (isTiny) {
+      return "180px";
+    } else if (isMid) {
+      return "950px";
+    } else if (isSm) {
+      return "800px";
+    } else if (isSmMid) {
+      return "1050px";
+    } else if (isSSMid) {
+      return "1100px";
     } else {
-      setGap("400px");
+      return "400px";
     }
-  }, [isMobile, isMedium, isSmallLaptop]);
+  }, [isMobile, isMedium, isSmallLaptop, isTiny, isMid, isSm, isSmMid, isSSMid]);
 
   const options = useMemo(() => ({
     type: "loop",

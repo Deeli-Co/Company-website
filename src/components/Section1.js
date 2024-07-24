@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography, Button,  useMediaQuery } from "@mui/material";
 import { Lightning } from "phosphor-react";
 import BetaDialog from "./BetaDialog";
-import Image1 from "../assets/background.svg";
+import FullWidthLottie from "./FullWidthLottie"
+import { useTheme } from '@mui/material/styles';
 
 const Section1 = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [open, setOpen] = useState(false);
   const [hover, setHover] = useState(false);
 
@@ -21,9 +24,8 @@ const Section1 = () => {
       <Box
         sx={{
           width: "100%",
-          height: "768px",
+          height: "687px",
           backgroundColor: "#132B24",
-          backgroundImage: `url(${Image1})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           position: "relative",
@@ -40,6 +42,7 @@ const Section1 = () => {
           },
         }}
       >
+        <FullWidthLottie/>
         <Box
           sx={{
             position: "absolute",
@@ -50,15 +53,6 @@ const Section1 = () => {
             zIndex: 1,
           }}
         >
-          {/* <LottieAnimation
-            src="https://lottie.host/68db221a-d566-492f-a599-2a388798c4e2/WzG9x5aAor.json"
-            width="100%"
-            height="100%"
-            background="transparent"
-            speed="1"
-            loop
-            autoplay
-          /> */}
         </Box>
         <Box
           sx={{
@@ -79,6 +73,7 @@ const Section1 = () => {
               color: "white",
               opacity: 1,
               marginBottom: "30px",
+              marginTop: isMobile ? "10px": "100px",
               "@media (max-width: 600px)": {
                 fontSize: "28px",
                 fontWeight: "600",

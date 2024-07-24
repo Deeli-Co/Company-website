@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Dialog, DialogTitle, DialogContent, TextField, IconButton, Button, Box, Typography, Avatar, useMediaQuery } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { CheckCircle, FlashOn } from '@mui/icons-material';
@@ -22,7 +22,17 @@ const BetaDialog = ({ open, handleClose }) => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);  // Loading state
+  const [loading, setLoading] = useState(false);
+  const [validationError, setValidationError] = useState('');
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+
+  const fieldsRef = {
+    firstName: useRef(null),
+    lastName: useRef(null),
+    workEmail: useRef(null),
+    company: useRef(null),
+    jobFunction: useRef(null)
+  };
 
   const handleChange = (e) => {
     setFormData({
@@ -31,9 +41,37 @@ const BetaDialog = ({ open, handleClose }) => {
     });
   };
 
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  };
+
+  const validateForm = () => {
+    return (
+      formData.firstName &&
+      formData.lastName &&
+      formData.workEmail &&
+      formData.company &&
+      formData.jobFunction &&
+      validateEmail(formData.workEmail)
+    );
+  };
+
+  useEffect(() => {
+    setIsButtonDisabled(!validateForm());
+  }, [formData]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);  // Set loading to true when starting the request
+    setValidationError('');
+
+    if (!validateForm()) {
+      setValidationError('Please fill in all required fields correctly.');
+      return;
+    }
+
+    setLoading(true);
+
     try {
       const response = await fetch('https://us-central1-immortal-407108.cloudfunctions.net/dashboard-notion', {
         method: 'POST',
@@ -52,7 +90,7 @@ const BetaDialog = ({ open, handleClose }) => {
 
       if (response.ok) {
         console.log('Success! Record added.');
-        setIsSubmitted(true);  // Show thank you message on success
+        setIsSubmitted(true);
       } else {
         const error = await response.json();
         console.error('Failed to add record:', error);
@@ -60,12 +98,13 @@ const BetaDialog = ({ open, handleClose }) => {
     } catch (error) {
       console.error('Error:', error);
     }
-    setLoading(false);  // Set loading to false after the request is complete
+
+    setLoading(false);
   };
 
   const handleDialogClose = () => {
-    setIsSubmitted(false);  // Reset the isSubmitted state
-    setFormData({          // Reset the formData state
+    setIsSubmitted(false);
+    setFormData({
       firstName: '',
       lastName: '',
       workEmail: '',
@@ -73,7 +112,7 @@ const BetaDialog = ({ open, handleClose }) => {
       jobFunction: '',
       otherInformation: ''
     });
-    handleClose();  // Call the original handleClose function
+    handleClose();
   };
 
   return (
@@ -85,9 +124,9 @@ const BetaDialog = ({ open, handleClose }) => {
       fullScreen={isMobile}
       PaperProps={{ 
         sx: { 
-          height: isMobile ? '100%' : '75%', 
-          width: isMobile ? '100%' : '70%', 
-          top: isMobile ? (isSubmitted ? '20%' : '0') : '-3%', 
+          height: isMobile ? '100%' : '85%', 
+          width: isMobile ? '100%' : '85%', 
+          top: isMobile ? (isSubmitted ? '20%' : '0') : '0%', 
           padding: isMobile ? '0' : '0',
           borderRadius: isMobile ? (isSubmitted ? '1%' : '0')  : '0',
           opacity: isMobile ? '1' : '1',
@@ -136,8 +175,8 @@ const BetaDialog = ({ open, handleClose }) => {
           </Box>
         ) : (
           <>
-            <Box sx={{ width: isMobile ? '100%' : '50%', backgroundColor: '#E8F4F2', padding: isMobile ? 4 : 7, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}>
-              <DialogTitle sx={{ padding: 0, textAlign: 'left' }}>
+            <Box sx={{ width: isMobile ? '100%' : '50%', backgroundColor: '#E8F4F2', padding: isMobile ? 4 : 8, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}>
+              <DialogTitle sx={{ padding: 0, textAlign: 'left', marginBottom: "10px" }}>
                 <Box sx={{ display: 'flex', justifyContent: 'flex-start', mb: 2, mt: 4}}>
                   <Avatar alt="Person 1" src={Image1} sx={{ width: isMobile ? 32 : 56, height: isMobile ? 32 : 56, marginRight: '8px' }} />
                   <Avatar alt="Person 2" src={Image2} sx={{ width: isMobile ? 32 : 56, height: isMobile ? 32 : 56, marginRight: '8px'}} />
@@ -145,7 +184,7 @@ const BetaDialog = ({ open, handleClose }) => {
                 </Box>
               </DialogTitle>
               <Box sx={{ width: '100%', textAlign: 'left' }}>
-                <Typography variant="h4" sx={{ fontFamily: "Manrope", fontSize: isMobile ? '24px' : '40px', fontWeight: 600, lineHeight: isMobile ? '32px' : '38.25px', marginBottom: "20px"}}>
+                <Typography variant="h4" sx={{ fontFamily: "Manrope", fontSize: isMobile ? '24px' : '40px', fontWeight: 600, lineHeight: isMobile ? '32px' : '54.25px', marginBottom: "20px"}}>
                   {isMobile ? (
                     <>
                       Join our Beta Invest in Next-Gen Tech Today
@@ -176,7 +215,7 @@ const BetaDialog = ({ open, handleClose }) => {
                 </Box>
               </Box>
             </Box>
-            <Box sx={{ width: isMobile ? '100%' : '50%', padding: 4, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <Box sx={{ width: isMobile ? '100%' : '50%', padding: 6, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
               <DialogTitle sx={{ padding: 0 }}>
                 <IconButton
                   aria-label="close"
@@ -191,7 +230,7 @@ const BetaDialog = ({ open, handleClose }) => {
                   <CloseIcon />
                 </IconButton>
               </DialogTitle>
-              <DialogContent sx={{ padding: isMobile ? 0 : 4 }}>
+              <DialogContent sx={{ padding: isMobile ? 0 : 6 }}>
                 <Box component="form" sx={{ display: 'flex', flexDirection: 'column', gap: 2 }} onSubmit={handleSubmit}>
                   <Box sx={{ display: 'flex', gap: 1, flexDirection: isMobile ? 'column' : 'row' }}>
                     <Box sx={{ flex: 1 }}>
@@ -202,6 +241,7 @@ const BetaDialog = ({ open, handleClose }) => {
                         name="firstName"
                         value={formData.firstName}
                         onChange={handleChange}
+                        inputRef={fieldsRef.firstName}
                         sx={{
                           '& .MuiOutlinedInput-root': {
                             '&.Mui-focused fieldset': {
@@ -219,6 +259,7 @@ const BetaDialog = ({ open, handleClose }) => {
                         name="lastName"
                         value={formData.lastName}
                         onChange={handleChange}
+                        inputRef={fieldsRef.lastName}
                         sx={{
                           '& .MuiOutlinedInput-root': {
                             '&.Mui-focused fieldset': {
@@ -237,6 +278,7 @@ const BetaDialog = ({ open, handleClose }) => {
                       name="workEmail"
                       value={formData.workEmail}
                       onChange={handleChange}
+                      inputRef={fieldsRef.workEmail}
                       sx={{
                         '& .MuiOutlinedInput-root': {
                           '&.Mui-focused fieldset': {
@@ -253,6 +295,7 @@ const BetaDialog = ({ open, handleClose }) => {
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
+                      inputRef={fieldsRef.company}
                       sx={{
                         '& .MuiOutlinedInput-root': {
                           '&.Mui-focused fieldset': {
@@ -270,6 +313,7 @@ const BetaDialog = ({ open, handleClose }) => {
                       name="jobFunction"
                       value={formData.jobFunction}
                       onChange={handleChange}
+                      inputRef={fieldsRef.jobFunction}
                       sx={{
                         '& .MuiOutlinedInput-root': {
                           '&.Mui-focused fieldset': {
@@ -301,6 +345,7 @@ const BetaDialog = ({ open, handleClose }) => {
                   <Button
                     type="submit"
                     disableRipple
+                    disabled={isButtonDisabled}
                     sx={{
                       mt: 0.5,
                       width: '100%',
@@ -308,15 +353,15 @@ const BetaDialog = ({ open, handleClose }) => {
                       padding: '16px 24px',
                       gap: '8px',
                       borderRadius: '4px',
-                      border: '1px solid #132B24',
-                      backgroundColor: '#0D9786',
+                      border: isButtonDisabled ? 'none': '1px solid #132B24',
+                      backgroundColor: isButtonDisabled ? '#F2F8F7' : '#0D9786',
                       color: 'white',
                       opacity: 1,
                       boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
                       textTransform: 'none',
                       fontSize: "16px",
                       '&:hover': {
-                        backgroundColor: '#096B5F',
+                        backgroundColor: isButtonDisabled ? '#F2F8F7' : '#096B5F',
                         color: 'white',
                         boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)', // Ensuring box shadow also remains the same
                       },
@@ -334,17 +379,19 @@ const BetaDialog = ({ open, handleClose }) => {
                     )}
                   </Button>
                   <style>
-                  {`
+                    {`
                       @keyframes spin {
                         0% { transform: rotate(0deg); }
                         100% { transform: rotate(360deg); }
                       }
-                      @keyframes fadeInUp {
-                        0% { opacity: 0; transform: translateY(20px); }
-                        100% { opacity: 1; transform: translateY(0); }
+                      @keyframes shake {
+                        0%, 100% { transform: translateX(0); }
+                        25% { transform: translateX(-5px); }
+                        50% { transform: translateX(5px); }
+                        75% { transform: translateX(-5px); }
                       }
-                  `}
-                </style>
+                    `}
+                  </style>
                 </Box>
               </DialogContent>
             </Box>

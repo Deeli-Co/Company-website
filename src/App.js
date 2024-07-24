@@ -32,7 +32,7 @@ const App = () => {
   const handleClose = () => {
     setOpen(false);
   };
-
+  // eslint-disable-next-line
   const handleScroll = () => {
     const scrollTop = window.scrollY;
     if (!scrollAdjustedRef.current && scrollTop > lastScrollY) {
@@ -52,7 +52,7 @@ const App = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [lastScrollY]);
+  }, [lastScrollY, handleScroll]);
 
   return (
     <React.Fragment>
