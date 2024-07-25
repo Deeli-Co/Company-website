@@ -13,6 +13,7 @@ import Image1 from "../assets/section3_1.svg";
 import Image2 from "../assets/section3_2.svg";
 import Image3 from "../assets/section3_3.svg";
 import StarIcon from "../assets/star.svg";
+import useSectionTracker from "./hooks/useSectionTracker";
 
 const cardsData = [
   {
@@ -40,7 +41,7 @@ const Section3 = () => {
   const [ref1, inView1] = useInView({ triggerOnce: true, threshold: 0.15 });
   const [ref2, inView2] = useInView({ triggerOnce: true, threshold: 0.15 });
   const [ref3, inView3] = useInView({ triggerOnce: true, threshold: 0.15 });
-
+  useSectionTracker('section3');
   useEffect(() => {
     if (inView1 || inView2 || inView3) {
       setStartAnimation(true);

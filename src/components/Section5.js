@@ -5,6 +5,8 @@ import Image1 from "../assets/section7_1.svg";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import BetaDialog from "./BetaDialog";
+import ReactGA from "react-ga4";
+import useSectionTracker from "./hooks/useSectionTracker";
 
 const Section5 = (props) => {
   const theme = useTheme();
@@ -14,8 +16,14 @@ const Section5 = (props) => {
     setOpen(false);
   };
   const handleClickOpen = () => {
+    ReactGA.event({
+      category: "Button",
+      action: "Click",
+      label: "Join Beta Now - Section 5"
+    });
     setOpen(true);
   };
+  useSectionTracker('section5');
   return (
     <>
       <Box

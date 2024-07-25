@@ -9,6 +9,8 @@ import Image3 from "../assets/section10_3.svg";
 import Image4 from "../assets/section10_4.svg";
 import Image5 from "../assets/section10_5.svg";
 import BetaDialog from "./BetaDialog";
+import useSectionTracker from "./hooks/useSectionTracker";
+import ReactGA from "react-ga4";
 
 const Section10 = () => {
   const theme = useTheme();
@@ -32,12 +34,18 @@ const Section10 = () => {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
+    ReactGA.event({
+      category: "Button",
+      action: "Click",
+      label: "Join Beta Now - Section 10"
+    });
     setOpen(true);
   };
 
   const handleClose = () => {
     setOpen(false);
   };
+  useSectionTracker('section10');
 
   return (
     <>

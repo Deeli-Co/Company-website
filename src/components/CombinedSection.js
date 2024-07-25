@@ -6,6 +6,8 @@ import section5Image from "../assets/section5_1.svg";
 import section6Image from "../assets/section6_1.svg";
 import section7Image from "../assets/section7_1.svg";
 import BetaDialog from "./BetaDialog";
+import useSectionTracker from "./hooks/useSectionTracker";
+import ReactGA from "react-ga4";
 
 const sections = [
   {
@@ -38,6 +40,11 @@ const CombinedSection = () => {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
+    ReactGA.event({
+      category: "Button",
+      action: "Click",
+      label: "Join Beta Now - Combined Section"
+    });
     setOpen(true);
   };
 
@@ -136,6 +143,7 @@ const CombinedSection = () => {
       };
     }
   }, []);
+  useSectionTracker('CombinedSection');
 
   return (
     <>

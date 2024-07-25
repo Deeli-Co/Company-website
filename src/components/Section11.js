@@ -2,11 +2,12 @@ import React from 'react';
 import { Box, Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { ShieldCheck } from 'phosphor-react';
+import useSectionTracker from "./hooks/useSectionTracker";
 
 const Section11 = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
+  useSectionTracker('section11');
   return (
     <Box
       sx={{

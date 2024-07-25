@@ -3,11 +3,12 @@ import { Box, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import Image1 from "../assets/section9_1.svg";
 import Image2 from "../assets/section9_2.svg";
+import useSectionTracker from "./hooks/useSectionTracker";
 
 const Section9 = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
+  useSectionTracker('section9');
   return (
     <Box
       style={{

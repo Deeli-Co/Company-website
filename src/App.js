@@ -16,6 +16,7 @@ import Section11 from "./components/Section11";
 import Footer from "./components/Footer";
 import CombinedSection from './components/CombinedSection';
 import BetaDialog from './components/BetaDialog';
+import ReactGA from "react-ga4";
 
 const App = () => {
   const [open, setOpen] = useState(false);
@@ -25,6 +26,11 @@ const App = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
+  useEffect(() => {
+    ReactGA.initialize("G-1YCT5RF94M");
+    ReactGA.send("pageview");
+  }, []);
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -32,7 +38,7 @@ const App = () => {
   const handleClose = () => {
     setOpen(false);
   };
-  // eslint-disable-next-line
+
   const handleScroll = () => {
     const scrollTop = window.scrollY;
     if (!scrollAdjustedRef.current && scrollTop > lastScrollY) {

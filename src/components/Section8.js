@@ -5,6 +5,7 @@ import { useInView } from "react-intersection-observer";
 import { useSpring, animated } from "react-spring";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
+import useSectionTracker from "./hooks/useSectionTracker";
 
 const AnimatedNumber = ({ number, delay }) => {
   const { number: animatedNumber } = useSpring({
@@ -39,7 +40,7 @@ const Section8 = () => {
   const [box1Visible, setBox1Visible] = useState(false);
   const [box2Visible, setBox2Visible] = useState(false);
   const [box3Visible, setBox3Visible] = useState(false);
-
+  useSectionTracker('section8');
   useEffect(() => {
     if (inView1) {
       setTimeout(() => setBox1Visible(true), 300); // Delay of 0.3 seconds
@@ -203,7 +204,6 @@ const Section8 = () => {
                 padding: "10px",
                 borderTop: "1px solid #697077",
                 textAlign: "left",
-                width: "100%",
                 height: { xs: "325px", sm: "325px" },
                 transition: "opacity 1s ease-out, transform 1s ease-out",
                 opacity: box3Visible ? 1 : 0,

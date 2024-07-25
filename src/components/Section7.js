@@ -5,19 +5,26 @@ import Image1 from "../assets/section6_1.svg";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import BetaDialog from "./BetaDialog";
+import useSectionTracker from "./hooks/useSectionTracker";
+import ReactGA from "react-ga4";
 
 const Section7 = (props) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
+    ReactGA.event({
+      category: "Button",
+      action: "Click",
+      label: "Join Beta Now - Section 7"
+    });
     setOpen(true);
   };
 
   const handleClose = () => {
     setOpen(false);
   };
-
+  useSectionTracker('section7');
   return (
     <>
       <Box

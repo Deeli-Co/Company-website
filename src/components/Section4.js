@@ -10,6 +10,7 @@ import "@splidejs/splide/dist/css/splide.min.css";
 import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+import useSectionTracker from "./hooks/useSectionTracker";
 
 const Section4 = () => {
   const [ref1, inView1] = useInView({ triggerOnce: true, threshold: 0.15 });
@@ -20,7 +21,7 @@ const Section4 = () => {
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
+  useSectionTracker('section4');
   return (
     <Box
       sx={{

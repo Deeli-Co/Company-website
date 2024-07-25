@@ -7,6 +7,7 @@ import Image2 from "../assets/section2_2.svg";
 import Image3 from "../assets/section2_3.svg";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+import useSectionTracker from "./hooks/useSectionTracker";
 
 const images = [Image1, Image2, Image3];
 
@@ -20,7 +21,7 @@ function Section2() {
   const isSmMid = useMediaQuery('(min-width: 1030px) and (max-width: 1140px)');
   const isSSMid = useMediaQuery('(min-width: 900px) and (max-width: 1030px)');
   const isSm = useMediaQuery('(min-width: 1280px) and (max-width: 1400px)');
-
+  useSectionTracker('section2');
   useEffect(() => {
     const getCurrentScreenSize = () => {
       const width = window.innerWidth;

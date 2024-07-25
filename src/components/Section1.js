@@ -4,14 +4,21 @@ import { Lightning } from "phosphor-react";
 import BetaDialog from "./BetaDialog";
 import FullWidthLottie from "./FullWidthLottie"
 import { useTheme } from '@mui/material/styles';
+import ReactGA from "react-ga4";
+import useSectionTracker from "./hooks/useSectionTracker";
 
 const Section1 = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [open, setOpen] = useState(false);
   const [hover, setHover] = useState(false);
-
+  useSectionTracker('section1');
   const handleClickOpen = () => {
+    ReactGA.event({
+      category: "Button",
+      action: "Click",
+      label: "Join Beta Now - Section 1"
+    });
     setOpen(true);
   };
 
