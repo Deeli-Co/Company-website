@@ -23,11 +23,12 @@ const Section6 = (props) => {
     });
     setOpen(true);
   };
-  useSectionTracker('section6');
+  const sectionRef = useSectionTracker("section6");
   return (
     <>
       <Box
         id="section5"
+        ref={sectionRef}
         sx={{
           width: "100%",
           height: isMobile ? "auto" : "813px",

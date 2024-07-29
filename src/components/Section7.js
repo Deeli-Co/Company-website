@@ -24,11 +24,12 @@ const Section7 = (props) => {
   const handleClose = () => {
     setOpen(false);
   };
-  useSectionTracker('section7');
+  const sectionRef = useSectionTracker("section7");
   return (
     <>
       <Box
-        id="section5"
+        id="section7"
+        ref={sectionRef}
         sx={{
           width: "100%",
           minHeight: isMobile ? "auto" : "813px",

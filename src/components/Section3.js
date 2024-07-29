@@ -41,7 +41,7 @@ const Section3 = () => {
   const [ref1, inView1] = useInView({ triggerOnce: true, threshold: 0.15 });
   const [ref2, inView2] = useInView({ triggerOnce: true, threshold: 0.15 });
   const [ref3, inView3] = useInView({ triggerOnce: true, threshold: 0.15 });
-  useSectionTracker('section3');
+  const sectionRef = useSectionTracker("section3");
   useEffect(() => {
     if (inView1 || inView2 || inView3) {
       setStartAnimation(true);
@@ -50,6 +50,7 @@ const Section3 = () => {
 
   return (
     <Box
+      ref={sectionRef}
       sx={{
         width: "100%",
         height: "884px",

@@ -1,23 +1,23 @@
 import React, { useState } from "react";
-import { Box, Typography, Button,  useMediaQuery } from "@mui/material";
+import { Box, Typography, Button, useMediaQuery } from "@mui/material";
 import { Lightning } from "phosphor-react";
 import BetaDialog from "./BetaDialog";
-import FullWidthLottie from "./FullWidthLottie"
-import { useTheme } from '@mui/material/styles';
+import FullWidthLottie from "./FullWidthLottie";
+import { useTheme } from "@mui/material/styles";
 import ReactGA from "react-ga4";
 import useSectionTracker from "./hooks/useSectionTracker";
 
 const Section1 = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [open, setOpen] = useState(false);
   const [hover, setHover] = useState(false);
-  useSectionTracker('section1');
+  const sectionRef = useSectionTracker("section1");
   const handleClickOpen = () => {
     ReactGA.event({
       category: "Button",
       action: "Click",
-      label: "Join Beta Now - Section 1"
+      label: "Join Beta Now - Section 1",
     });
     setOpen(true);
   };
@@ -29,6 +29,8 @@ const Section1 = () => {
   return (
     <>
       <Box
+        id="section1"
+        ref={sectionRef}
         sx={{
           width: "100%",
           height: "687px",
@@ -49,7 +51,7 @@ const Section1 = () => {
           },
         }}
       >
-        <FullWidthLottie/>
+        <FullWidthLottie />
         <Box
           sx={{
             position: "absolute",
@@ -59,8 +61,7 @@ const Section1 = () => {
             height: "100%",
             zIndex: 1,
           }}
-        >
-        </Box>
+        ></Box>
         <Box
           sx={{
             position: "relative",
@@ -80,7 +81,7 @@ const Section1 = () => {
               color: "white",
               opacity: 1,
               marginBottom: "30px",
-              marginTop: isMobile ? "10px": "100px",
+              marginTop: isMobile ? "10px" : "100px",
               "@media (max-width: 600px)": {
                 fontSize: "28px",
                 fontWeight: "600",
@@ -141,10 +142,7 @@ const Section1 = () => {
               },
             }}
             startIcon={
-              <Lightning
-                color={hover ? "white" : "#132B24"}
-                weight="fill"
-              />
+              <Lightning color={hover ? "white" : "#132B24"} weight="fill" />
             }
             onClick={handleClickOpen}
             onMouseEnter={() => setHover(true)}

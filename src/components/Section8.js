@@ -40,7 +40,7 @@ const Section8 = () => {
   const [box1Visible, setBox1Visible] = useState(false);
   const [box2Visible, setBox2Visible] = useState(false);
   const [box3Visible, setBox3Visible] = useState(false);
-  useSectionTracker('section8');
+  const sectionRef = useSectionTracker("section8");
   useEffect(() => {
     if (inView1) {
       setTimeout(() => setBox1Visible(true), 300); // Delay of 0.3 seconds
@@ -64,6 +64,7 @@ const Section8 = () => {
       style={{
         marginTop: isMobile ? "430px" : "100px",
       }}
+      ref={sectionRef}
     >
       <Box
         style={{

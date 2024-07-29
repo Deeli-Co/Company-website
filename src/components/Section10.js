@@ -45,7 +45,7 @@ const Section10 = () => {
   const handleClose = () => {
     setOpen(false);
   };
-  useSectionTracker('section10');
+  const sectionRef = useSectionTracker("section10");
 
   return (
     <>
@@ -67,6 +67,7 @@ const Section10 = () => {
         }}
       >
         <Box
+          ref={sectionRef}
           style={{
             width: "1357px",
             height: "657px",

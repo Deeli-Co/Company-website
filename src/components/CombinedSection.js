@@ -38,7 +38,7 @@ const sections = [
 
 const CombinedSection = () => {
   const [open, setOpen] = useState(false);
-
+  const sectionRef = useSectionTracker("CombinedSection");
   const handleClickOpen = () => {
     ReactGA.event({
       category: "Button",
@@ -143,12 +143,12 @@ const CombinedSection = () => {
       };
     }
   }, []);
-  useSectionTracker('CombinedSection');
 
   return (
     <>
       <Box
         id="combinedSection"
+        ref={sectionRef}
         sx={{
           width: "100%",
           height: "100%",

@@ -18,12 +18,12 @@ const Section4 = () => {
   const [ref3, inView3] = useInView({ triggerOnce: true, threshold: 0.15 });
   const [ref4, inView4] = useInView({ triggerOnce: true, threshold: 0.15 });
   const [refText, inViewText] = useInView({ triggerOnce: true, threshold: 0.15 });
-
+  const sectionRef = useSectionTracker("section3");
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  useSectionTracker('section4');
   return (
     <Box
+      ref={sectionRef}
       sx={{
         width: "100%",
         backgroundColor: "#132B24",

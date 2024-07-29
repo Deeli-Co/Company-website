@@ -146,7 +146,7 @@ const BetaDialog = ({ open, handleClose }) => {
           opacity: isMobile ? "1" : "1",
           margin: isMobile ? '"0 auto"' : "initial",
           backgroundColor: isMobile ? "#F2F8F7" : "#FFFFFF",
-          overflow: isMobile? "none" : "hidden",
+          overflow: isMobile ? "none" : "hidden",
         },
       }}
     >
@@ -343,7 +343,7 @@ const BetaDialog = ({ open, handleClose }) => {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
-                overflow: isMobile? "none" : "hidden",
+                overflow: isMobile ? "none" : "hidden",
               }}
             >
               <DialogTitle sx={{ padding: 0 }}>
@@ -361,7 +361,7 @@ const BetaDialog = ({ open, handleClose }) => {
                 </IconButton>
               </DialogTitle>
               <DialogContent
-                sx={{ padding: isMobile ? 0 : 5, overflow: "hidden" }}
+                sx={{ padding: isMobile ? 0 : 5, overflow: "hidden"}}
               >
                 <Box
                   component="form"
@@ -506,31 +506,43 @@ const BetaDialog = ({ open, handleClose }) => {
                       borderRadius: "4px",
                       border: isButtonDisabled ? "none" : "1px solid #132B24",
                       backgroundColor: isButtonDisabled ? "#F2F8F7" : "#0D9786",
-                      color: "white",
+                      color: isButtonDisabled ? "#73BDB0" : "white",
                       opacity: 1,
-                      // boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
                       textTransform: "none",
                       fontSize: "16px",
                       "&:hover": {
                         backgroundColor: isButtonDisabled
                           ? "#F2F8F7"
                           : "#096B5F",
-                        color: "white",
-                        boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)", // Ensuring box shadow also remains the same
+                        color: isButtonDisabled ? "#73BDB0" : "white",
+                        boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
                       },
                     }}
-                    startIcon={loading ? null : <FlashOn />}
+                    startIcon={
+                      loading ? null : (
+                        <FlashOn
+                          sx={{ color: isButtonDisabled ? "#73BDB0" : "white" }}
+                        />
+                      )
+                    }
                   >
                     {loading ? (
                       <SpinnerGap
                         size={24}
-                        color="#FFFFFF"
+                        color={isButtonDisabled ? "#73BDB0" : "white"}
                         style={{ animation: "spin 1s linear infinite" }}
                       />
                     ) : (
-                      "Join Beta Now"
+                      <span
+                        style={{
+                          color: isButtonDisabled ? "#73BDB0" : "white",
+                        }}
+                      >
+                        Join Beta Now
+                      </span>
                     )}
                   </Button>
+
                   <style>
                     {`
                       @keyframes spin {

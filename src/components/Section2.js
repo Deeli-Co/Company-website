@@ -21,25 +21,25 @@ function Section2() {
   const isSmMid = useMediaQuery('(min-width: 1030px) and (max-width: 1140px)');
   const isSSMid = useMediaQuery('(min-width: 900px) and (max-width: 1030px)');
   const isSm = useMediaQuery('(min-width: 1280px) and (max-width: 1400px)');
-  useSectionTracker('section2');
-  useEffect(() => {
-    const getCurrentScreenSize = () => {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-      return { width, height };
-    };
+  const sectionRef = useSectionTracker("section2");
+  // useEffect(() => {
+  //   const getCurrentScreenSize = () => {
+  //     const width = window.innerWidth;
+  //     const height = window.innerHeight;
+  //     return { width, height };
+  //   };
 
-    const currentScreenSize = getCurrentScreenSize();
-    console.log("Current screen size:", currentScreenSize);
-    console.log("isMobile:", isMobile);
-    console.log("isMedium:", isMedium);
-    console.log("isSmallLaptop:", isSmallLaptop);
-    console.log("isTiny:", isTiny);
-    console.log("isMid:", isMid);
-    console.log("isSmMid:", isSmMid);
-    console.log("isSm:", isSm);
-    console.log("isSSmd:", isSSMid);
-  }, [isMobile, isMedium, isSmallLaptop, isTiny, isMid, isSm, isSmMid, isSSMid]);
+  //   const currentScreenSize = getCurrentScreenSize();
+  //   console.log("Current screen size:", currentScreenSize);
+  //   console.log("isMobile:", isMobile);
+  //   console.log("isMedium:", isMedium);
+  //   console.log("isSmallLaptop:", isSmallLaptop);
+  //   console.log("isTiny:", isTiny);
+  //   console.log("isMid:", isMid);
+  //   console.log("isSmMid:", isSmMid);
+  //   console.log("isSm:", isSm);
+  //   console.log("isSSmd:", isSSMid);
+  // }, [isMobile, isMedium, isSmallLaptop, isTiny, isMid, isSm, isSmMid, isSSMid]);
 
   const gap = useMemo(() => {
     if (isMobile) {
@@ -79,13 +79,15 @@ function Section2() {
   }), [gap, isMobile]);
 
   return (
-    <Splide options={options} extensions={{ AutoScroll }}>
-      {Array.from({ length: 12 }).map((_, index) => (
-        <SplideSlide key={index} style={isMobile ? { width: "100%" } : {}}>
-          <img src={images[index % images.length]} alt={`Slide ${index + 1}`} style={isMobile ? { width: "100%" } : {}} />
-        </SplideSlide>
-      ))}
-    </Splide>
+    <div id="section2" ref={sectionRef}>
+      <Splide options={options} extensions={{ AutoScroll }}>
+        {Array.from({ length: 12 }).map((_, index) => (
+          <SplideSlide key={index} style={isMobile ? { width: "100%" } : {}}>
+            <img src={images[index % images.length]} alt={`Slide ${index + 1}`} style={isMobile ? { width: "100%" } : {}} />
+          </SplideSlide>
+        ))}
+      </Splide>
+    </div>
   );
 }
 

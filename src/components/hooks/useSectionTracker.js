@@ -1,9 +1,15 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import ReactGA from 'react-ga4';
 
 const useSectionTracker = (sectionId) => {
+  const sectionRef = useRef(null);
+
   useEffect(() => {
-    const section = document.getElementById(sectionId);
+    const section = sectionRef.current;
+
+    if (!section) {
+      return;
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -20,16 +26,14 @@ const useSectionTracker = (sectionId) => {
       { threshold: 0.5 }
     );
 
-    if (section) {
-      observer.observe(section);
-    }
+    observer.observe(section);
 
     return () => {
-      if (section) {
-        observer.unobserve(section);
-      }
+      observer.unobserve(section);
     };
   }, [sectionId]);
+
+  return sectionRef;
 };
 
 export default useSectionTracker;
