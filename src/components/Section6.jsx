@@ -119,8 +119,7 @@ const Section6 = (props) => {
                 precise, comprehensive tech predictions.
               </Typography>
               <Box
-                component="a"
-                href="#"
+                component="div"
                 sx={{
                   width: "fit-content",
                   height: "43px",

@@ -119,8 +119,7 @@ const Section5 = (props) => {
                 game-changing innovations before they hit mainstream radar.
               </Typography>
               <Box
-                component="a"
-                href="#"
+                component="div"
                 sx={{
                   width: "fit-content",
                   height: "43px",

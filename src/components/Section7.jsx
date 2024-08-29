@@ -112,8 +112,7 @@ const Section7 = (props) => {
                 Immortal connects investors with emerging tech Innovators, accelerating investment research with exclusive data. Our database uncovers the human experts behind hidden tech innovations, bridging the gap in investment information.
               </Typography>
               <Box
-                component="a"
-                href="#"
+                component="div"
                 sx={{
                   width: "fit-content",
                   height: "43px",
