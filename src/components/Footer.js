@@ -5,7 +5,6 @@ import { useTheme } from '@mui/material/styles';
 import Image1 from "../assets/footer.svg";
 import Logo from "../assets/footer_logo.svg";
 import BetaDialog from "./BetaDialog";
-import useSectionTracker from "./hooks/useSectionTracker";
 
 const Footer = () => {
   const [open, setOpen] = useState(false);

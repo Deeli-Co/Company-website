@@ -39,26 +39,26 @@ const App = () => {
     setOpen(false);
   };
 
-  const handleScroll = () => {
-    const scrollTop = window.scrollY;
-    if (!scrollAdjustedRef.current && scrollTop > lastScrollY) {
-      const newScrollTop = scrollTop + (scrollTop * 0.15);
-      window.scrollTo({
-        top: newScrollTop,
-        behavior: 'smooth'
-      });
-      scrollAdjustedRef.current = true;
-    }
-    setLastScrollY(scrollTop);
-  };
-
   useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      if (!scrollAdjustedRef.current && scrollTop > lastScrollY) {
+        const newScrollTop = scrollTop + (scrollTop * 0.15);
+        window.scrollTo({
+          top: newScrollTop,
+          behavior: 'smooth'
+        });
+        scrollAdjustedRef.current = true;
+      }
+      setLastScrollY(scrollTop);
+    };
+
     window.addEventListener('scroll', handleScroll);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [lastScrollY, handleScroll]);
+  }, [lastScrollY]);
 
   return (
     <React.Fragment>

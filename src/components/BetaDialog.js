@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import {
   Dialog,
   DialogTitle,
@@ -57,7 +57,7 @@ const BetaDialog = ({ open, handleClose }) => {
     return re.test(email);
   };
 
-  const validateForm = () => {
+  const validateForm = useCallback(() => {
     return (
       formData.firstName &&
       formData.lastName &&
@@ -66,11 +66,11 @@ const BetaDialog = ({ open, handleClose }) => {
       formData.jobFunction &&
       validateEmail(formData.workEmail)
     );
-  };
+  }, [formData]);
 
   useEffect(() => {
     setIsButtonDisabled(!validateForm());
-  }, [formData]);
+  }, [formData, validateForm]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

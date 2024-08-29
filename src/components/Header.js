@@ -10,7 +10,6 @@ const Header = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [open, setOpen] = useState(false);
-  const [hover, setHover] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -22,25 +21,26 @@ const Header = () => {
     setOpen(false);
   };
 
-  const handleScroll = () => {
-    if (window.scrollY < lastScrollY) {
-      setShowHeader(true);
-    } else {
-      setShowHeader(false);
-    }
-    setLastScrollY(window.scrollY);
+  const handleLinkClick = () => {
+    window.location.href = 'https://www.linkedin.com/company/deeliai';
   };
 
   useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY < lastScrollY) {
+        setShowHeader(true);
+      } else {
+        setShowHeader(false);
+      }
+      setLastScrollY(window.scrollY);
+    };
+
     window.addEventListener('scroll', handleScroll);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [lastScrollY]);
-  const handleLink= () => {
-    window.location.href = 'https://www.linkedin.com/company/deeliai';
-  };
 
   return (
     <>
@@ -106,6 +106,7 @@ const Header = () => {
                   },
                 }}
                 disableRipple
+                onClick={handleLinkClick}
               >
                 Follow on LinkedIn
               </Button>
@@ -140,8 +141,6 @@ const Header = () => {
                 }}
                 startIcon={<Lightning weight="fill" />}
                 onClick={handleClickOpen}
-                onMouseEnter={() => setHover(true)}
-                onMouseLeave={() => setHover(false)}
                 disableRipple
               >
                 Join Beta Now
