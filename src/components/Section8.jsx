@@ -41,6 +41,7 @@ const Section8 = () => {
   const [box2Visible, setBox2Visible] = useState(false);
   const [box3Visible, setBox3Visible] = useState(false);
   const sectionRef = useSectionTracker("section8");
+  
   useEffect(() => {
     if (inView1) {
       setTimeout(() => setBox1Visible(true), 300); // Delay of 0.3 seconds

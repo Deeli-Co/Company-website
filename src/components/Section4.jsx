@@ -93,7 +93,6 @@ const Section4 = () => {
             fontWeight: "400",
             borderRadius: "1000px",
             transition: "opacity 1s ease-out, transform 1s ease-out",
-            // opacity: inView1 ? 1 : 0,
             transform: inView1 ? "translateY(0)" : "translateY(50px)",
             "@media (max-width: 600px)": {
               width: "180px",
@@ -115,7 +114,6 @@ const Section4 = () => {
             fontWeight: "400",
             borderRadius: "1000px",
             transition: "opacity 1s ease-out, transform 1s ease-out",
-            // opacity: inView2 ? 1 : 0,
             transform: inView2 ? "translateY(0)" : "translateY(50px)",
             "@media (max-width: 600px)": {
               width: "130px",
@@ -137,7 +135,6 @@ const Section4 = () => {
             fontWeight: "400",
             borderRadius: "1000px",
             transition: "opacity 1s ease-out, transform 1s ease-out",
-            // opacity: inView3 ? 1 : 0,
             transform: inView3 ? "translateY(0)" : "translateY(50px)",
             "@media (max-width: 600px)": {
               width: "150px",
@@ -159,7 +156,6 @@ const Section4 = () => {
             fontWeight: "400",
             borderRadius: "1000px",
             transition: "opacity 1s ease-out, transform 1s ease-out",
-            // opacity: inView4 ? 1 : 0,
             transform: inView4 ? "translateY(0)" : "translateY(50px)",
             "@media (max-width: 600px)": {
               width: "140px",
@@ -181,7 +177,6 @@ const Section4 = () => {
             fontWeight: "400",
             borderRadius: "1000px",
             transition: "opacity 1s ease-out, transform 1s ease-out",
-            // opacity: inView4 ? 1 : 0,
             transform: inView4 ? "translateY(0)" : "translateY(50px)",
             "@media (max-width: 600px)": {
               width: "150px",

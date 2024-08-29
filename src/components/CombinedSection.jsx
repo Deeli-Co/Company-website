@@ -39,19 +39,6 @@ const sections = [
 const CombinedSection = () => {
   const [open, setOpen] = useState(false);
   const sectionRef = useSectionTracker("CombinedSection");
-  const handleClickOpen = () => {
-    ReactGA.event({
-      category: "Button",
-      action: "Click",
-      label: "Join Beta Now - Combined Section"
-    });
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   const [currentSection, setCurrentSection] = useState(0);
   const { ref: ref5, inView: inView5 } = useInView({
     threshold: 0.2,
@@ -64,6 +51,19 @@ const CombinedSection = () => {
   const { ref: ref7, inView: inView7 } = useInView({
     threshold: 0.2,
   });
+
+  const handleClickOpen = () => {
+    ReactGA.event({
+      category: "Button",
+      action: "Click",
+      label: "Join Beta Now - Combined Section"
+    });
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const calculateVisiblePortion = useCallback((y, h) => {
     if (y !== 0 && !y) {
@@ -84,6 +84,19 @@ const CombinedSection = () => {
       return (h + y) / h;
     }
   }, []);
+
+  const handleRightScroll = (event) => {
+    const leftContent = document.getElementById("leftContent");
+    if (leftContent) {
+      const maxScrollTop = leftContent.scrollHeight - leftContent.clientHeight;
+      const newScrollTop = leftContent.scrollTop + event.deltaY;
+
+      if (newScrollTop >= 0 && newScrollTop <= maxScrollTop) {
+        leftContent.scrollTop = newScrollTop;
+        event.preventDefault();
+      }
+    }
+  };
 
   const handleScroll = useCallback(() => {
     const vh = window.innerHeight;
@@ -120,19 +133,6 @@ const CombinedSection = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [handleScroll]);
-
-  const handleRightScroll = (event) => {
-    const leftContent = document.getElementById("leftContent");
-    if (leftContent) {
-      const maxScrollTop = leftContent.scrollHeight - leftContent.clientHeight;
-      const newScrollTop = leftContent.scrollTop + event.deltaY;
-
-      if (newScrollTop >= 0 && newScrollTop <= maxScrollTop) {
-        leftContent.scrollTop = newScrollTop;
-        event.preventDefault();
-      }
-    }
-  };
 
   useEffect(() => {
     const rightContent = document.getElementById("rightContent");
@@ -231,8 +231,7 @@ const CombinedSection = () => {
               {sections[0].description}
             </Typography>
             <Box
-              component="a"
-              href="#"
+              component="div"
               sx={{
                 width: "fit-content",
                 height: "33px",
@@ -328,8 +327,7 @@ const CombinedSection = () => {
               {sections[1].description}
             </Typography>
             <Box
-              component="a"
-              href="#"
+              component="div"
               sx={{
                 width: "fit-content",
                 height: "33px",
@@ -425,8 +423,7 @@ const CombinedSection = () => {
               {sections[2].description}
             </Typography>
             <Box
-              component="a"
-              href="#"
+              component="div"
               sx={{
                 width: "fit-content",
                 height: "33px",

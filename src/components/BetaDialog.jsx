@@ -22,7 +22,12 @@ import { SpinnerGap } from "phosphor-react";
 const BetaDialog = ({ open, handleClose }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const avatarDimension = isMobile ? 32 : 56;
 
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [validationError, setValidationError] = useState("");
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -31,11 +36,6 @@ const BetaDialog = ({ open, handleClose }) => {
     jobFunction: "",
     otherInformation: "",
   });
-
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [validationError, setValidationError] = useState("");
-  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
   const fieldsRef = {
     firstName: useRef(null),
@@ -143,7 +143,7 @@ const BetaDialog = ({ open, handleClose }) => {
           top: isMobile ? (isSubmitted ? "20%" : "0") : "0%",
           padding: isMobile ? "0" : "0",
           borderRadius: isMobile ? (isSubmitted ? "1%" : "0") : "0",
-          opacity: isMobile ? "1" : "1",
+          opacity: 1,
           margin: isMobile ? '"0 auto"' : "initial",
           backgroundColor: isMobile ? "#F2F8F7" : "#FFFFFF",
           overflow: isMobile ? "none" : "hidden",
@@ -160,7 +160,7 @@ const BetaDialog = ({ open, handleClose }) => {
         {isSubmitted ? (
           <Box
             sx={{
-              width: isMobile ? "100%" : "100%",
+              width: "100%",
               height: isMobile ? "100%" : "auto",
               padding: isMobile ? "24px 20px" : "4",
               gap: isMobile ? "16px" : "0",
@@ -246,8 +246,8 @@ const BetaDialog = ({ open, handleClose }) => {
                     alt="Person 1"
                     src={Image1}
                     sx={{
-                      width: isMobile ? 32 : 56,
-                      height: isMobile ? 32 : 56,
+                      width: avatarDimension,
+                      height: avatarDimension,
                       marginRight: "8px",
                     }}
                   />
@@ -255,8 +255,8 @@ const BetaDialog = ({ open, handleClose }) => {
                     alt="Person 2"
                     src={Image2}
                     sx={{
-                      width: isMobile ? 32 : 56,
-                      height: isMobile ? 32 : 56,
+                      width: avatarDimension,
+                      height: avatarDimension,
                       marginRight: "8px",
                     }}
                   />
@@ -264,8 +264,8 @@ const BetaDialog = ({ open, handleClose }) => {
                     alt="Person 2"
                     src={Image3}
                     sx={{
-                      width: isMobile ? 32 : 56,
-                      height: isMobile ? 32 : 56,
+                      width: avatarDimension,
+                      height: avatarDimension,
                     }}
                   />
                 </Box>

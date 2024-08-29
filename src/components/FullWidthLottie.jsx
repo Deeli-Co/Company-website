@@ -3,15 +3,16 @@ import Lottie from 'react-lottie-player';
 import animationData from '../assets/background.json'; // Update this path to your actual Lottie JSON file
 
 const FullWidthLottie = () => {
+  const extraWidth = 280;
   const [dimensions, setDimensions] = useState({
-    width: window.innerWidth+280,
+    width: window.innerWidth+extraWidth,
     height: window.innerHeight,
   });
 
   useEffect(() => {
     const handleResize = () => {
       setDimensions({
-        width: window.innerWidth+280,
+        width: window.innerWidth+extraWidth,
         height: window.innerHeight+1000,
       });
     };
