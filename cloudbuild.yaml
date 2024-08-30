@@ -17,7 +17,7 @@ steps:
       - 'url-maps'
       - 'invalidate-cdn-cache'
       - 'deeli-landing-page'
-      - '--path="/index.html"'
+      - '--path=/index.html'
     id: "Clean CDN and LB cache"
 
 timeout: 300s
