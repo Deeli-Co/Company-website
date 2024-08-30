@@ -8,9 +8,9 @@ import { JOIN_BETA_TEXT, DEELI_LINKEDIN_URL } from "../constants";
 import BetaDialog from "./BetaDialog";
 
 const Footer = () => {
-  const [open, setOpen] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -113,16 +113,6 @@ const Footer = () => {
               >
                 Contact us
               </Typography>
-              {/* <Typography
-                variant="body1"
-                style={{
-                  color: "#FFFFFF",
-                  marginBottom: "10px",
-                  borderBottom: "1px solid #FFFFFF",
-                }}
-              >
-                Privacy policy
-              </Typography> */}
             </Box>
             <Box style={{ paddingRight: isMobile ? "0" : "22.5%", paddingTop: isMobile ? "20px" : "3%" }}>
               <Button

@@ -1,0 +1,14 @@
+steps:
+  - name: "gcr.io/cloud-builders/npm"
+    args: ["run", "build"]
+    id: "Build static files"
+
+  - name: "gcr.io/cloud-builders/gsutil"
+    args: ["-m", "rsync", "-r", "./build", "gs://deeli-landing-page"]
+    id: "Copy static files to GCS"
+
+  - name: "gcr.io/cloud-builders/gcloud"
+    args: ['compute', 'url-maps', 'invalidate-cdn-cache', 'deeli-landing-page', , '--path="/*index.html"']
+    id: "Clean cache in CDN and LB"
+
+timeout: 300s
