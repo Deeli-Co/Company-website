@@ -19,5 +19,3 @@ steps:
       - 'deeli-landing-page'
       - '--path=/index.html'
     id: "Clean CDN and LB cache"
-
-timeout: 300s
