@@ -7,6 +7,7 @@ import { useTheme } from '@mui/material/styles';
 import BetaDialog from "./BetaDialog";
 import useSectionTracker from "./hooks/useSectionTracker";
 import ReactGA from "react-ga4";
+import { JOIN_BETA_TEXT } from "../constants";
 
 const Section7 = (props) => {
   const theme = useTheme();
@@ -16,7 +17,7 @@ const Section7 = (props) => {
     ReactGA.event({
       category: "Button",
       action: "Click",
-      label: "Join Beta Now - Section 7"
+      label: `${JOIN_BETA_TEXT} - Section 7`
     });
     setOpen(true);
   };
@@ -136,7 +137,7 @@ const Section7 = (props) => {
                 onClick={handleClickOpen}
               >
                 <Lightning size={24} weight="fill" sx={{ marginRight: "4px" }} />
-                Join Beta Now
+                {JOIN_BETA_TEXT}
               </Box>
             </Box>
           </Grid>

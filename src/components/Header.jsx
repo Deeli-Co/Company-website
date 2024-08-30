@@ -5,6 +5,7 @@ import Logo from '../assets/logo.svg';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import BetaDialog from './BetaDialog';
+import { JOIN_BETA_TEXT, DEELI_LINKEDIN_URL } from "../constants";
 
 const Header = () => {
   const theme = useTheme();
@@ -22,7 +23,7 @@ const Header = () => {
   };
 
   const handleLinkClick = () => {
-    window.location.href = 'https://www.linkedin.com/company/deeliai';
+    window.location.href = DEELI_LINKEDIN_URL;
   };
 
   useEffect(() => {
@@ -143,7 +144,7 @@ const Header = () => {
                 onClick={handleClickOpen}
                 disableRipple
               >
-                Join Beta Now
+                {JOIN_BETA_TEXT}
               </Button>
             </Box>
           )}
@@ -176,12 +177,11 @@ const Header = () => {
               onClick={handleClickOpen}
               disableRipple
             >
-              Join Beta Now
+              {JOIN_BETA_TEXT}
             </Button>
           )}
         </Toolbar>
       </AppBar>
-
       <BetaDialog open={open} handleClose={handleClose} />
     </>
   );

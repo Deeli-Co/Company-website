@@ -17,6 +17,7 @@ import { useTheme } from "@mui/material/styles";
 import Image1 from "../assets/section10_2.svg";
 import Image2 from "../assets/section10_4.svg";
 import Image3 from "../assets/section10_3.svg";
+import { JOIN_BETA_TEXT } from "../constants";
 import { SpinnerGap } from "phosphor-react";
 
 const BetaDialog = ({ open, handleClose }) => {
@@ -538,7 +539,7 @@ const BetaDialog = ({ open, handleClose }) => {
                           color: isButtonDisabled ? "#73BDB0" : "white",
                         }}
                       >
-                        Join Beta Now
+                        {JOIN_BETA_TEXT}
                       </span>
                     )}
                   </Button>

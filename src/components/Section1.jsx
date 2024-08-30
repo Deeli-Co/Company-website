@@ -6,6 +6,7 @@ import FullWidthLottie from "./FullWidthLottie";
 import { useTheme } from "@mui/material/styles";
 import ReactGA from "react-ga4";
 import useSectionTracker from "./hooks/useSectionTracker";
+import { JOIN_BETA_TEXT } from "../constants";
 
 const Section1 = () => {
   const theme = useTheme();
@@ -17,7 +18,7 @@ const Section1 = () => {
     ReactGA.event({
       category: "Button",
       action: "Click",
-      label: "Join Beta Now - Section 1",
+      label: `${JOIN_BETA_TEXT} - Section 1`,
     });
     setOpen(true);
   };
@@ -149,7 +150,7 @@ const Section1 = () => {
             onMouseLeave={() => setHover(false)}
             disableRipple
           >
-            Join Beta Now
+            {JOIN_BETA_TEXT}
           </Button>
         </Box>
       </Box>

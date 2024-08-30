@@ -4,6 +4,7 @@ import { Lightning } from "phosphor-react";
 import { useTheme } from '@mui/material/styles';
 import Image1 from "../assets/footer.svg";
 import Logo from "../assets/footer_logo.svg";
+import { JOIN_BETA_TEXT, DEELI_LINKEDIN_URL } from "../constants";
 import BetaDialog from "./BetaDialog";
 
 const Footer = () => {
@@ -19,7 +20,7 @@ const Footer = () => {
     setOpen(false);
   };
   const handleLink= () => {
-    window.location.href = 'https://www.linkedin.com/company/deeliai';
+    window.location.href = DEELI_LINKEDIN_URL;
   };
 
   return (
@@ -152,7 +153,7 @@ const Footer = () => {
                 onClick={handleClickOpen}
                 disableRipple
               >
-                Join Beta Now
+                {JOIN_BETA_TEXT}
               </Button>
             </Box>
           </Grid>

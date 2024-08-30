@@ -8,6 +8,7 @@ import section7Image from "../assets/section7_1.svg";
 import BetaDialog from "./BetaDialog";
 import useSectionTracker from "./hooks/useSectionTracker";
 import ReactGA from "react-ga4";
+import { JOIN_BETA_TEXT } from "../constants";
 
 const sections = [
   {
@@ -56,7 +57,7 @@ const CombinedSection = () => {
     ReactGA.event({
       category: "Button",
       action: "Click",
-      label: "Join Beta Now - Combined Section"
+      label: `${JOIN_BETA_TEXT} - Combined Section`
     });
     setOpen(true);
   };
@@ -258,7 +259,7 @@ const CombinedSection = () => {
               onClick={handleClickOpen}
             >
               <Lightning size={24} weight="fill" sx={{ marginRight: "4px" }} />
-              Join Beta Now
+              {JOIN_BETA_TEXT}
             </Box>
           </Box>
           <Box
@@ -354,7 +355,7 @@ const CombinedSection = () => {
               onClick={handleClickOpen}
             >
               <Lightning size={24} weight="fill" sx={{ marginRight: "4px" }} />
-              Join Beta Now
+              {JOIN_BETA_TEXT}
             </Box>
           </Box>
           <Box
@@ -450,7 +451,7 @@ const CombinedSection = () => {
               onClick={handleClickOpen}
             >
               <Lightning size={24} weight="fill" sx={{ marginRight: "4px" }} />
-              Join Beta Now
+              {JOIN_BETA_TEXT}
             </Box>
           </Box>
         </Box>
