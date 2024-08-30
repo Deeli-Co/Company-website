@@ -11,13 +11,13 @@ steps:
     args: ["-m", "rsync", "-r", "./build", "gs://deeli-landing-page-test"]
     id: "Copy static files to GCS"
 
-  - name: "gcr.io/cloud-builders/gcloud"
-    args:
-      - 'compute'
-      - 'url-maps'
-      - 'invalidate-cdn-cache'
-      - 'deeli-landing-page'
-      - '--path="/*index.html"'
-    id: "Clean cache in CDN and LB"
+  # - name: "gcr.io/cloud-builders/gcloud"
+  #   args:
+  #     - 'compute'
+  #     - 'url-maps'
+  #     - 'invalidate-cdn-cache'
+  #     - 'deeli-landing-page'
+  #     - '--path="/*index.html"'
+  #   id: "Clean cache in CDN and LB"
 
 timeout: 300s
