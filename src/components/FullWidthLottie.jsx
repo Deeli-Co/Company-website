@@ -5,18 +5,17 @@ import animationData from '../assets/background.json'; // Update this path to yo
 const FullWidthLottie = () => {
   const extraWidth = 280;
   const [dimensions, setDimensions] = useState({
-    width: window.innerWidth+extraWidth,
+    width: window.innerWidth + extraWidth,
     height: window.innerHeight,
   });
 
   useEffect(() => {
     const handleResize = () => {
       setDimensions({
-        width: window.innerWidth+extraWidth,
-        height: window.innerHeight+1000,
+        width: window.innerWidth + extraWidth,
+        height: window.innerHeight + 1000,
       });
     };
-
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);

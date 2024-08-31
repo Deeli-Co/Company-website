@@ -20,6 +20,7 @@
     "axios": "^1.7.5",
     "gsap": "^3.12.5",
     "lodash": "^4.17.21",
+    "lodash.throttle": "^4.1.1",
     "lottie-react": "^2.4.0",
     "lottie-web": "^5.12.2",
     "phosphor-react": "^1.4.1",

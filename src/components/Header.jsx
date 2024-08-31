@@ -58,6 +58,7 @@ const Header = () => {
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <img
+              loading="lazy"
               src={Logo}
               alt="Logo"
               style={{

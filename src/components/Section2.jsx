@@ -67,7 +67,7 @@ function Section2() {
       <Splide options={options} extensions={{ AutoScroll }}>
         {Array.from({ length: 12 }).map((_, index) => (
           <SplideSlide key={index} style={slideStyle}>
-            <img src={images[index % images.length]} alt={`Slide ${index + 1}`} style={slideStyle} />
+            <img fetchpriority="high" src={images[index % images.length]} alt={`Slide ${index + 1}`} style={slideStyle} />
           </SplideSlide>
         ))}
       </Splide>

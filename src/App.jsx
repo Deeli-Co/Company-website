@@ -39,6 +39,27 @@ function App() {
 		setOpen(false);
 	};
 
+	const handleScroll = () => {
+		const scrollTop = window.scrollY;
+		if (!scrollAdjustedRef.current && scrollTop > lastScrollY) {
+		  const newScrollTop = scrollTop + (scrollTop * 0.15);
+		  window.scrollTo({
+			top: newScrollTop,
+			behavior: 'smooth'
+		  });
+		  scrollAdjustedRef.current = true;
+		}
+		setLastScrollY(scrollTop);
+	};
+	
+	useEffect(() => {
+		window.addEventListener('scroll', handleScroll);
+	
+		return () => {
+		  window.removeEventListener('scroll', handleScroll);
+		};
+	}, [lastScrollY, handleScroll]);
+
 	return (
 		<React.Fragment>
 			<CssBaseline />

@@ -77,7 +77,7 @@ const Section3 = () => {
             },
           }}
         >
-          <img src={StarIcon} alt="Star" style={{ marginBottom: "10px" }} />
+          <img loading="lazy" src={StarIcon} alt="Star" style={{ marginBottom: "10px" }} />
           <Typography
             sx={{
               fontFamily: "Manrope",

@@ -316,8 +316,8 @@ const BetaDialog = ({ open, handleClose }) => {
                       textAlign: "left",
                     }}
                   >
-                    <strong style={{ color: "#096B5F" }}>40%</strong> higher
-                    chance to meet innovators with hidden innovations
+                    <strong style={{ color: "#096B5F" }}>40%</strong> More 
+                    Likely to Discover Hidden Technologies
                   </Typography>
                 </Box>
                 <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
@@ -331,8 +331,8 @@ const BetaDialog = ({ open, handleClose }) => {
                       textAlign: "left",
                     }}
                   >
-                    <strong style={{ color: "#096B5F" }}>18 Mon</strong> Tech
-                    Network Growth Fuels Investment Potential
+                    <strong style={{ color: "#096B5F" }}>18 Months</strong> Lead 
+                    in Forecasting Technological Developments
                   </Typography>
                 </Box>
               </Box>

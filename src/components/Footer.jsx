@@ -38,7 +38,7 @@ const Footer = () => {
       >
         <Grid container spacing={2} style={{ marginBottom: "20px", paddingTop: isMobile ? "25px" : "0px"}}>
           <Grid item xs={12} style={{ display: "flex", alignItems: "center" }}>
-            <img src={Logo} alt="Logo" style={{ maxWidth: "100%" }} />
+            <img loading="lazy" src={Logo} alt="Logo" style={{ maxWidth: "100%" }} />
           </Grid>
         </Grid>
         <Grid container spacing={2} style={{ flex: 1, marginBottom: isMobile ? "20px" : "40px" }}>
