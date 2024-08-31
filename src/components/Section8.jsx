@@ -232,7 +232,7 @@ const Section8 = () => {
                     lineHeight: "38px",
                   }}
                 >
-                  Months
+                  Month
                 </span>
               </Typography>
               <Typography

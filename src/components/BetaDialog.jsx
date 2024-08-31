@@ -331,7 +331,7 @@ const BetaDialog = ({ open, handleClose }) => {
                       textAlign: "left",
                     }}
                   >
-                    <strong style={{ color: "#096B5F" }}>18 Months</strong> Lead 
+                    <strong style={{ color: "#096B5F" }}>18 Month</strong> Lead 
                     in Forecasting Technological Developments
                   </Typography>
                 </Box>
