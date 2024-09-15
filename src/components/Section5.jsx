@@ -5,10 +5,11 @@ import Image1 from "../assets/section7_1.svg";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import BetaDialog from "./BetaDialog";
-import useSectionTracker from "./hooks/useSectionTracker";
 import ReactGA from "react-ga4";
+import useSectionTracker from "./hooks/useSectionTracker";
+import { JOIN_BETA_TEXT } from "../constants";
 
-const Section6 = (props) => {
+const Section5 = (props) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [open, setOpen] = useState(false);
@@ -19,11 +20,11 @@ const Section6 = (props) => {
     ReactGA.event({
       category: "Button",
       action: "Click",
-      label: "Join Beta Now - Section 6"
+      label: `${JOIN_BETA_TEXT} - Section 5`
     });
     setOpen(true);
   };
-  const sectionRef = useSectionTracker("section6");
+  const sectionRef = useSectionTracker("section5");
   return (
     <>
       <Box
@@ -91,7 +92,7 @@ const Section6 = (props) => {
                   padding: "8px, 12px, 8px, 12px",
                 }}
               >
-                Cut Through Fragmented Searches
+                Unlock Visionary Foresight
               </Button>
               <Typography
                 variant="h3"
@@ -103,7 +104,7 @@ const Section6 = (props) => {
                   marginBottom: "5px",
                 }}
               >
-                Unifying fragmented data in one click
+                Never miss another breakthrough innovation
               </Typography>
               <Typography
                 // variant="body1"
@@ -114,13 +115,12 @@ const Section6 = (props) => {
                   lineHeight: "32px",
                 }}
               >
-                Cut through fragmentation with Immortal's unified AI vision. Our
-                advanced algorithms seamlessly integrate all data streams into
-                precise, comprehensive tech predictions.
+                Immortal's AI system leaves no stone unturned. Our models
+                automatically synthesize data from every source to pinpoint
+                game-changing innovations before they hit mainstream radar.
               </Typography>
               <Box
-                component="a"
-                href="#"
+                component="div"
                 sx={{
                   width: "fit-content",
                   height: "43px",
@@ -148,7 +148,7 @@ const Section6 = (props) => {
                   weight="fill"
                   sx={{ marginRight: "5px" }}
                 />
-                Join Beta Now
+                {JOIN_BETA_TEXT}
               </Box>
             </Box>
           </Grid>
@@ -182,4 +182,4 @@ const Section6 = (props) => {
   );
 };
 
-export default Section6;
+export default Section5;

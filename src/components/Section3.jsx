@@ -42,6 +42,7 @@ const Section3 = () => {
   const [ref2, inView2] = useInView({ triggerOnce: true, threshold: 0.15 });
   const [ref3, inView3] = useInView({ triggerOnce: true, threshold: 0.15 });
   const sectionRef = useSectionTracker("section3");
+  
   useEffect(() => {
     if (inView1 || inView2 || inView3) {
       setStartAnimation(true);
@@ -76,7 +77,7 @@ const Section3 = () => {
             },
           }}
         >
-          <img src={StarIcon} alt="Star" style={{ marginBottom: "10px" }} />
+          <img loading="lazy" src={StarIcon} alt="Star" style={{ marginBottom: "10px" }} />
           <Typography
             sx={{
               fontFamily: "Manrope",

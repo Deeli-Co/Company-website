@@ -18,6 +18,34 @@ const Section4 = () => {
   const [ref3, inView3] = useInView({ triggerOnce: true, threshold: 0.15 });
   const [ref4, inView4] = useInView({ triggerOnce: true, threshold: 0.15 });
   const [refText, inViewText] = useInView({ triggerOnce: true, threshold: 0.15 });
+
+  const sliderData = [
+    {
+      ref: ref1,
+      inView: inView2,
+      image: Image2,
+      alt: "IT & Software",
+    },
+    { 
+      ref: ref2,
+      inView: inView1,
+      image: Image1,
+      alt: "Life Science",
+    },
+    {
+      ref: ref3,
+      inView: inView3,
+      image: Image3,
+      alt: "Robotics",
+    },
+    {
+      ref: ref4,
+      inView: inView4,
+      image: Image4,
+      alt: "Automotive",
+    }
+  ]
+
   const sectionRef = useSectionTracker("section3");
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -93,7 +121,6 @@ const Section4 = () => {
             fontWeight: "400",
             borderRadius: "1000px",
             transition: "opacity 1s ease-out, transform 1s ease-out",
-            // opacity: inView1 ? 1 : 0,
             transform: inView1 ? "translateY(0)" : "translateY(50px)",
             "@media (max-width: 600px)": {
               width: "180px",
@@ -115,7 +142,6 @@ const Section4 = () => {
             fontWeight: "400",
             borderRadius: "1000px",
             transition: "opacity 1s ease-out, transform 1s ease-out",
-            // opacity: inView2 ? 1 : 0,
             transform: inView2 ? "translateY(0)" : "translateY(50px)",
             "@media (max-width: 600px)": {
               width: "130px",
@@ -137,7 +163,6 @@ const Section4 = () => {
             fontWeight: "400",
             borderRadius: "1000px",
             transition: "opacity 1s ease-out, transform 1s ease-out",
-            // opacity: inView3 ? 1 : 0,
             transform: inView3 ? "translateY(0)" : "translateY(50px)",
             "@media (max-width: 600px)": {
               width: "150px",
@@ -159,7 +184,6 @@ const Section4 = () => {
             fontWeight: "400",
             borderRadius: "1000px",
             transition: "opacity 1s ease-out, transform 1s ease-out",
-            // opacity: inView4 ? 1 : 0,
             transform: inView4 ? "translateY(0)" : "translateY(50px)",
             "@media (max-width: 600px)": {
               width: "140px",
@@ -181,7 +205,6 @@ const Section4 = () => {
             fontWeight: "400",
             borderRadius: "1000px",
             transition: "opacity 1s ease-out, transform 1s ease-out",
-            // opacity: inView4 ? 1 : 0,
             transform: inView4 ? "translateY(0)" : "translateY(50px)",
             "@media (max-width: 600px)": {
               width: "150px",
@@ -229,81 +252,35 @@ const Section4 = () => {
           }}
           extensions={{ AutoScroll }}
         >
-          <SplideSlide>
-            <img
-              src={Image2}
-              alt="IT & Software"
-              style={{ width: "90%" }}
-            />
-          </SplideSlide>
-          <SplideSlide>
-            <img
-              src={Image1}
-              alt="Life Science"
-              style={{ width: "90%" }}
-            />
-          </SplideSlide>
-          <SplideSlide>
-            <img
-              src={Image3}
-              alt="Robotics"
-              style={{ width: "90%" }}
-            />
-          </SplideSlide>
-          <SplideSlide>
-            <img
-              src={Image4}
-              alt="Automotive"
-              style={{ width: "90%" }}
-            />
-          </SplideSlide>
+          {
+            sliderData.map((data, index) => (
+              <SplideSlide key={index}>
+                <img 
+                  src={data.image}
+                  alt={data.alt}
+                  style={{ width: "90%" }}
+                />
+              </SplideSlide>
+            ))
+          }
         </Splide>
       ) : (
         <Box display="flex" justifyContent="center" gap="20px">
-          <Box textAlign="center" ref={ref1}>
-            <img
-              src={Image2}
-              alt="IT & Software"
-              style={{
-                transition: "opacity 1s ease-out, transform 1s ease-out",
-                opacity: inView2 ? 1 : 0,
-                transform: inView2 ? "translateY(0)" : "translateY(50px)",
-              }}
-            />
-          </Box>
-          <Box textAlign="center" ref={ref2}>
-            <img
-              src={Image1}
-              alt="Life Science"
-              style={{
-                transition: "opacity 1s ease-out, transform 1s ease-out",
-                opacity: inView1 ? 1 : 0,
-                transform: inView1 ? "translateY(0)" : "translateY(50px)",
-              }}
-            />
-          </Box>
-          <Box textAlign="center" ref={ref3}>
-            <img
-              src={Image3}
-              alt="Robotics"
-              style={{
-                transition: "opacity 1s ease-out, transform 1s ease-out",
-                opacity: inView3 ? 1 : 0,
-                transform: inView3 ? "translateY(0)" : "translateY(50px)",
-              }}
-            />
-          </Box>
-          <Box textAlign="center" ref={ref4}>
-            <img
-              src={Image4}
-              alt="Automotive"
-              style={{
-                transition: "opacity 1s ease-out, transform 1s ease-out",
-                opacity: inView4 ? 1 : 0,
-                transform: inView4 ? "translateY(0)" : "translateY(50px)",
-              }}
-            />
-          </Box>
+          {
+            sliderData.map((data, index) => (
+              <Box textAlign="center" ref={data.ref} key={index}>
+                <img 
+                  src={data.image}
+                  alt={data.alt}
+                  style={{
+                    transition: "opacity 1s ease-out, transform 1s ease-out",
+                    opacity: data.inView ? 1 : 0,
+                    transform: data.inView ? "translateY(0)" : "translateY(50px)",
+                  }}
+                />
+              </Box>
+            ))
+          }
         </Box>
       )}
     </Box>

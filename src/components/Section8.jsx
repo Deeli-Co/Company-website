@@ -24,15 +24,15 @@ const Section8 = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const { ref: ref1, inView: inView1 } = useInView({
+  const [ref1, inView1] = useInView({
     triggerOnce: true,
     threshold: 0.15,
   });
-  const { ref: ref2, inView: inView2 } = useInView({
+  const [ref2, inView2] = useInView({
     triggerOnce: true,
     threshold: 0.15,
   });
-  const { ref: ref3, inView: inView3 } = useInView({
+  const [ref3, inView3] = useInView({
     triggerOnce: true,
     threshold: 0.15,
   });
@@ -40,7 +40,9 @@ const Section8 = () => {
   const [box1Visible, setBox1Visible] = useState(false);
   const [box2Visible, setBox2Visible] = useState(false);
   const [box3Visible, setBox3Visible] = useState(false);
+
   const sectionRef = useSectionTracker("section8");
+  
   useEffect(() => {
     if (inView1) {
       setTimeout(() => setBox1Visible(true), 300); // Delay of 0.3 seconds
@@ -230,7 +232,7 @@ const Section8 = () => {
                     lineHeight: "38px",
                   }}
                 >
-                  Months Ahead
+                  Month
                 </span>
               </Typography>
               <Typography

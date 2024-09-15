@@ -11,6 +11,7 @@ import Image5 from "../assets/section10_5.svg";
 import BetaDialog from "./BetaDialog";
 import useSectionTracker from "./hooks/useSectionTracker";
 import ReactGA from "react-ga4";
+import { JOIN_BETA_TEXT } from "../constants";
 
 const Section10 = () => {
   const theme = useTheme();
@@ -37,7 +38,7 @@ const Section10 = () => {
     ReactGA.event({
       category: "Button",
       action: "Click",
-      label: "Join Beta Now - Section 10"
+      label: `${JOIN_BETA_TEXT} - Section 10`
     });
     setOpen(true);
   };
@@ -199,7 +200,7 @@ const Section10 = () => {
                 weight="fill"
                 style={{ marginRight: "8px" }}
               />
-              Join Beta Now
+              {JOIN_BETA_TEXT}
             </Button>
           </Box>
         </Box>

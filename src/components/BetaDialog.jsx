@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import {
   Dialog,
   DialogTitle,
@@ -17,12 +17,18 @@ import { useTheme } from "@mui/material/styles";
 import Image1 from "../assets/section10_2.svg";
 import Image2 from "../assets/section10_4.svg";
 import Image3 from "../assets/section10_3.svg";
+import { JOIN_BETA_TEXT } from "../constants";
 import { SpinnerGap } from "phosphor-react";
 
 const BetaDialog = ({ open, handleClose }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const avatarDimension = isMobile ? 32 : 56;
 
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [validationError, setValidationError] = useState("");
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -31,11 +37,6 @@ const BetaDialog = ({ open, handleClose }) => {
     jobFunction: "",
     otherInformation: "",
   });
-
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [validationError, setValidationError] = useState("");
-  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
   const fieldsRef = {
     firstName: useRef(null),
@@ -57,7 +58,7 @@ const BetaDialog = ({ open, handleClose }) => {
     return re.test(email);
   };
 
-  const validateForm = () => {
+  const validateForm = useCallback(() => {
     return (
       formData.firstName &&
       formData.lastName &&
@@ -66,11 +67,11 @@ const BetaDialog = ({ open, handleClose }) => {
       formData.jobFunction &&
       validateEmail(formData.workEmail)
     );
-  };
+  }, [formData]);
 
   useEffect(() => {
     setIsButtonDisabled(!validateForm());
-  }, [formData]);
+  }, [formData, validateForm]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -143,7 +144,7 @@ const BetaDialog = ({ open, handleClose }) => {
           top: isMobile ? (isSubmitted ? "20%" : "0") : "0%",
           padding: isMobile ? "0" : "0",
           borderRadius: isMobile ? (isSubmitted ? "1%" : "0") : "0",
-          opacity: isMobile ? "1" : "1",
+          opacity: 1,
           margin: isMobile ? '"0 auto"' : "initial",
           backgroundColor: isMobile ? "#F2F8F7" : "#FFFFFF",
           overflow: isMobile ? "none" : "hidden",
@@ -160,7 +161,7 @@ const BetaDialog = ({ open, handleClose }) => {
         {isSubmitted ? (
           <Box
             sx={{
-              width: isMobile ? "100%" : "100%",
+              width: "100%",
               height: isMobile ? "100%" : "auto",
               padding: isMobile ? "24px 20px" : "4",
               gap: isMobile ? "16px" : "0",
@@ -246,8 +247,8 @@ const BetaDialog = ({ open, handleClose }) => {
                     alt="Person 1"
                     src={Image1}
                     sx={{
-                      width: isMobile ? 32 : 56,
-                      height: isMobile ? 32 : 56,
+                      width: avatarDimension,
+                      height: avatarDimension,
                       marginRight: "8px",
                     }}
                   />
@@ -255,8 +256,8 @@ const BetaDialog = ({ open, handleClose }) => {
                     alt="Person 2"
                     src={Image2}
                     sx={{
-                      width: isMobile ? 32 : 56,
-                      height: isMobile ? 32 : 56,
+                      width: avatarDimension,
+                      height: avatarDimension,
                       marginRight: "8px",
                     }}
                   />
@@ -264,8 +265,8 @@ const BetaDialog = ({ open, handleClose }) => {
                     alt="Person 2"
                     src={Image3}
                     sx={{
-                      width: isMobile ? 32 : 56,
-                      height: isMobile ? 32 : 56,
+                      width: avatarDimension,
+                      height: avatarDimension,
                     }}
                   />
                 </Box>
@@ -315,8 +316,8 @@ const BetaDialog = ({ open, handleClose }) => {
                       textAlign: "left",
                     }}
                   >
-                    <strong style={{ color: "#096B5F" }}>40%</strong> higher
-                    chance to meet innovators with hidden innovations
+                    <strong style={{ color: "#096B5F" }}>40%</strong> More 
+                    Likely to Discover Hidden Technologies
                   </Typography>
                 </Box>
                 <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
@@ -330,8 +331,8 @@ const BetaDialog = ({ open, handleClose }) => {
                       textAlign: "left",
                     }}
                   >
-                    <strong style={{ color: "#096B5F" }}>18 Mon</strong> Tech
-                    Network Growth Fuels Investment Potential
+                    <strong style={{ color: "#096B5F" }}>18 Month</strong> Lead 
+                    in Forecasting Technological Developments
                   </Typography>
                 </Box>
               </Box>
@@ -538,7 +539,7 @@ const BetaDialog = ({ open, handleClose }) => {
                           color: isButtonDisabled ? "#73BDB0" : "white",
                         }}
                       >
-                        Join Beta Now
+                        {JOIN_BETA_TEXT}
                       </span>
                     )}
                   </Button>

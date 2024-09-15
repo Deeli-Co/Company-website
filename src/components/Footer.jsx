@@ -4,13 +4,13 @@ import { Lightning } from "phosphor-react";
 import { useTheme } from '@mui/material/styles';
 import Image1 from "../assets/footer.svg";
 import Logo from "../assets/footer_logo.svg";
+import { JOIN_BETA_TEXT, DEELI_LINKEDIN_URL } from "../constants";
 import BetaDialog from "./BetaDialog";
-import useSectionTracker from "./hooks/useSectionTracker";
 
 const Footer = () => {
-  const [open, setOpen] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -20,7 +20,7 @@ const Footer = () => {
     setOpen(false);
   };
   const handleLink= () => {
-    window.location.href = 'https://www.linkedin.com/company/deeliai';
+    window.location.href = DEELI_LINKEDIN_URL;
   };
 
   return (
@@ -38,7 +38,7 @@ const Footer = () => {
       >
         <Grid container spacing={2} style={{ marginBottom: "20px", paddingTop: isMobile ? "25px" : "0px"}}>
           <Grid item xs={12} style={{ display: "flex", alignItems: "center" }}>
-            <img src={Logo} alt="Logo" style={{ maxWidth: "100%" }} />
+            <img loading="lazy" src={Logo} alt="Logo" style={{ maxWidth: "100%" }} />
           </Grid>
         </Grid>
         <Grid container spacing={2} style={{ flex: 1, marginBottom: isMobile ? "20px" : "40px" }}>
@@ -113,16 +113,6 @@ const Footer = () => {
               >
                 Contact us
               </Typography>
-              {/* <Typography
-                variant="body1"
-                style={{
-                  color: "#FFFFFF",
-                  marginBottom: "10px",
-                  borderBottom: "1px solid #FFFFFF",
-                }}
-              >
-                Privacy policy
-              </Typography> */}
             </Box>
             <Box style={{ paddingRight: isMobile ? "0" : "22.5%", paddingTop: isMobile ? "20px" : "3%" }}>
               <Button
@@ -153,7 +143,7 @@ const Footer = () => {
                 onClick={handleClickOpen}
                 disableRipple
               >
-                Join Beta Now
+                {JOIN_BETA_TEXT}
               </Button>
             </Box>
           </Grid>
