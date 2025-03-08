@@ -132,7 +132,7 @@ const Section1 = () => {
               alignItems: "center",
               justifyContent: "center",
               "&:hover": {
-                backgroundColor: "#0D9786",
+                backgroundColor: "#096B5F",
                 color: "white",
                 border: "1px solid #132B24",
               },

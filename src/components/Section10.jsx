@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Box, Typography, Button, useMediaQuery } from "@mui/material";
 import { Lightning } from "phosphor-react";
 import { useInView } from "react-intersection-observer";
-import { useTheme } from '@mui/material/styles';
+import { useTheme } from "@mui/material/styles";
 import Image1 from "../assets/section10_1.svg";
 import Image2 from "../assets/section10_2.svg";
 import Image3 from "../assets/section10_3.svg";
@@ -15,7 +15,7 @@ import { JOIN_BETA_TEXT } from "../constants";
 
 const Section10 = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const { ref: refBox, inView: inViewBox } = useInView({
     triggerOnce: true,
     threshold: 0.15,
@@ -38,7 +38,7 @@ const Section10 = () => {
     ReactGA.event({
       category: "Button",
       action: "Click",
-      label: `${JOIN_BETA_TEXT} - Section 10`
+      label: `${JOIN_BETA_TEXT} - Section 10`,
     });
     setOpen(true);
   };
@@ -54,7 +54,7 @@ const Section10 = () => {
         ref={refBox}
         style={{
           width: "100%",
-          height: isMobile? "657px" : "742px",
+          height: isMobile ? "657px" : "742px",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -77,7 +77,7 @@ const Section10 = () => {
             justifyContent: "center",
             alignItems: "center",
             backgroundImage: `url(${isMobile ? Image5 : Image1})`,
-            borderRadius: isMobile? "0px": "10px",
+            borderRadius: isMobile ? "0px" : "10px",
             color: "#fff",
             padding: isMobile ? "20px" : "0", // Add padding for mobile view
           }}
@@ -153,7 +153,8 @@ const Section10 = () => {
           >
             {isMobile ? (
               <>
-                Never waste another resource <br /> chasing the wrong technologies or <br /> opportunities.
+                Never waste another resource <br /> chasing the wrong
+                technologies or <br /> opportunities.
               </>
             ) : (
               "Never waste another resource chasing the wrong technologies or opportunities."
@@ -177,7 +178,7 @@ const Section10 = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                width: isMobile? "325px":"fit-content",
+                width: isMobile ? "325px" : "fit-content",
                 height: "56px",
                 gap: "8px",
                 fontSize: "20px",
@@ -188,7 +189,7 @@ const Section10 = () => {
                 borderBottom: "1px solid #132B24",
                 boxShadow: "none",
                 "&:hover": {
-                  backgroundColor: "#0D9786",
+                  backgroundColor: "#096B5F",
                   color: "white",
                   // border: "1px solid #132B24",
                 },
