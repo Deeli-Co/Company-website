@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { AppBar, Toolbar, Button, Box } from "@mui/material";
-import { Lightning } from "phosphor-react";
+import { AppBar, Toolbar, Button, Box, ButtonBase, Typography } from "@mui/material";
+import { Lightning, ArrowUpRight } from "phosphor-react";
 import Logo from "../assets/logo.svg";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
@@ -55,7 +55,7 @@ const Header = () => {
           top: showHeader ? 0 : "-80px",
         }}
       >
-        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <img
               loading="lazy"
@@ -75,6 +75,35 @@ const Header = () => {
                 }),
               }}
             />
+            {/* Switch to Innovator Button */}
+            <ButtonBase
+              disableRipple
+              href="https://innovators.deeli.ai"
+              sx={{
+                mt: "10px",
+                ml: 2,
+                borderRadius: "4px",
+                color: "#0D9786",
+                bgcolor: "#F2F8F7",
+                border: "1px solid #0D9786",
+                padding: "4px 8px",
+                '&:hover': {
+                  boxShadow: "none",
+                  filter: "brightness(0.9)",
+                },
+              }}
+            >
+              <Typography
+                fontFamily="Public Sans"
+                component="span"
+                fontWeight="600"
+                fontSize="18px"
+                lineHeight="28px"
+              >
+                Switch to Deeli Innovator
+              </Typography>
+              <ArrowUpRight size="20px" />
+            </ButtonBase>
           </Box>
           {!isMobile && (
             <Box
