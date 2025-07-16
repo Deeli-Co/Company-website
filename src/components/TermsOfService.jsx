@@ -14,22 +14,7 @@ import { ArrowLeft } from "phosphor-react";
 import ReactMarkdown from "react-markdown";
 import Logo from "../assets/logo.svg";
 
-const TermsOfService = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const [termsContent, setTermsContent] = useState("");
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Load the terms of service markdown file
-    const loadTerms = async () => {
-      try {
-        const response = await fetch("/terms-of-service.md");
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const content = await response.text();
-        setTermsContent(`**Deeli AI, Inc. Terms of Service**
+const TERMS_CONTENT = `**Deeli AI, Inc. Terms of Service**
 
 **Last Updated: June 15, 2025**
 
@@ -160,7 +145,24 @@ These Terms shall be governed by the laws of California without giving effect to
     8. Contact Us.  Please contact us at <support@deeli.ai> with any inquires regarding these Terms. 
 
                         © Deeli AI, Inc. 2025 – All Rights Reserved
-`);
+`;
+
+const TermsOfService = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const [termsContent, setTermsContent] = useState("");
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Load the terms of service markdown file
+    const loadTerms = async () => {
+      try {
+        const response = await fetch("/terms-of-service.md");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const content = await response.text();
+        setTermsContent(content);
       } catch (error) {
         console.error("Error loading terms of service:", error);
         // Fallback content if markdown file is not found
@@ -387,7 +389,7 @@ If you have any questions about these Terms, please contact us at support@deeli.
             }}
           >
             <ReactMarkdown components={markdownComponents}>
-              {termsContent}
+              {TERMS_CONTENT}
             </ReactMarkdown>
           </Box>
         )}
