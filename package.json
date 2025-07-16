@@ -18,6 +18,8 @@
     "react-ga4": "^2.1.0",
     "react-intersection-observer": "^9.10.3",
     "react-lottie-player": "^2.0.0",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.6.3",
     "react-spring": "^9.7.3",
     "web-vitals": "^2.1.4"
   },

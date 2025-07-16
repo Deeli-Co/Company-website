@@ -19,8 +19,17 @@ const Footer = () => {
   const handleClose = () => {
     setOpen(false);
   };
+  
   const handleLink = () => {
     window.location.href = DEELI_LINKEDIN_URL;
+  };
+
+  const handleTermsOfService = () => {
+    window.location.href = "/terms-of-service";
+  };
+
+  const handlePrivacyPolicy = () => {
+    window.location.href = "/privacy-policy";
   };
 
   return (
@@ -66,7 +75,7 @@ const Footer = () => {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
-              alignItems: isMobile ? "flex-start" : "flex-start", // Align items to flex-start on mobile
+              alignItems: isMobile ? "flex-start" : "flex-start",
               textAlign: isMobile ? "left" : "left",
             }}
           >
@@ -99,7 +108,7 @@ const Footer = () => {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: isMobile ? "flex-start" : "flex-start", // Align items to flex-start on mobile
+                alignItems: isMobile ? "flex-start" : "flex-start",
                 paddingRight: isMobile ? "0" : "30%",
                 gap: "10px",
               }}
@@ -129,6 +138,30 @@ const Footer = () => {
               >
                 Contact us
               </Typography>
+              <Typography
+                variant="body1"
+                style={{
+                  color: "#FFFFFF",
+                  marginBottom: isMobile ? "20px" : "10px",
+                  borderBottom: "1px solid #FFFFFF",
+                  cursor: "pointer",
+                }}
+                onClick={handleTermsOfService}
+              >
+                Terms of Service
+              </Typography>
+                          <Typography
+                variant="body1"
+                style={{
+                  color: "#FFFFFF",
+                  marginBottom: isMobile ? "20px" : "10px",
+                  borderBottom: "1px solid #FFFFFF",
+                  cursor: "pointer",
+                }}
+                onClick={handlePrivacyPolicy}
+              >
+                Privacy Policy
+              </Typography>
             </Box>
             <Box
               style={{
@@ -154,7 +187,6 @@ const Footer = () => {
                   letterSpacing: "0.01em",
                   textAlign: "left",
                   "&:hover": {
-                    // width: '191px',
                     backgroundColor: "#F2F8F7",
                     color: "#132B24",
                     border: "0",
