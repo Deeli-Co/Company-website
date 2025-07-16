@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { CssBaseline, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Section1 from "./components/Section1";
 import Section2 from "./components/Section2";
@@ -18,7 +18,6 @@ import Footer from "./components/Footer";
 import CombinedSection from "./components/CombinedSection";
 import BetaDialog from "./components/BetaDialog";
 import TermsOfService from "./components/TermsOfService";
-import PrivacyPolicy from "./components/PrivacyPolicy";
 import ReactGA from "react-ga4";
 
 // Main home page component
@@ -105,10 +104,6 @@ function App() {
           <Route 
             path="/terms-of-service" 
             element={<TermsOfService />} 
-          />
-			<Route 
-            path="/privacy-policy" 
-            element={<PrivacyPolicy />} 
           />
         </Routes>
         <BetaDialog open={open} handleClose={handleClose} />
