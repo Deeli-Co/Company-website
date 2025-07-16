@@ -150,7 +150,7 @@ const Footer = () => {
               >
                 Terms of Service
               </Typography>
-                          <Typography
+              <Typography
                 variant="body1"
                 style={{
                   color: "#FFFFFF",
