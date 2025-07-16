@@ -19,17 +19,17 @@ const Footer = () => {
   const handleClose = () => {
     setOpen(false);
   };
-  
+
   const handleLink = () => {
     window.location.href = DEELI_LINKEDIN_URL;
   };
 
   const handleTermsOfService = () => {
-    window.location.href = "/terms-of-service";
+    window.location.href = "#/terms-of-service";
   };
 
   const handlePrivacyPolicy = () => {
-    window.location.href = "/privacy-policy";
+    window.location.href = "#/privacy-policy";
   };
 
   return (
