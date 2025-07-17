@@ -18,6 +18,7 @@ import Footer from "./components/Footer";
 import CombinedSection from "./components/CombinedSection";
 import BetaDialog from "./components/BetaDialog";
 import TermsOfService from "./components/TermsOfService";
+import PrivacyPolicy from "./components/PrivacyPolicy";
 import ReactGA from "react-ga4";
 
 // Main home page component
@@ -104,6 +105,10 @@ function App() {
           <Route 
             path="/terms-of-service" 
             element={<TermsOfService />} 
+          />
+          <Route 
+            path="/privacy-policy" 
+            element={<PrivacyPolicy/>} 
           />
         </Routes>
         <BetaDialog open={open} handleClose={handleClose} />
